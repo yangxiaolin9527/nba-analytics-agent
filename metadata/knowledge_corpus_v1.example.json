@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "source_root": "../data/raw/knowledge",
+  "sources": [
+    {
+      "id": "nba-rulebook",
+      "path": "rulebook/nba-official-rules.pdf",
+      "source_url": "https://official.nba.com/rulebook/",
+      "version": "REPLACE_WITH_EDITION",
+      "retrieved_at": "REPLACE_WITH_DATE",
+      "license": "NBA official publication; verify reuse terms before redistribution",
+      "sha256": "REPLACE_WITH_SHA256",
+      "format": "pdf"
+    },
+    {
+      "id": "nba-stats-glossary",
+      "path": "glossary/nba-stats-glossary.html",
+      "source_url": "https://www.nba.com/stats/help/glossary",
+      "version": "REPLACE_WITH_CAPTURE_DATE",
+      "retrieved_at": "REPLACE_WITH_DATE",
+      "license": "NBA official webpage; verify reuse terms before redistribution",
+      "sha256": "REPLACE_WITH_SHA256",
+      "format": "html"
+    }
+  ]
+}

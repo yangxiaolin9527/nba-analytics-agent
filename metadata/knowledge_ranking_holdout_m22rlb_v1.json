@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "split": "m22rlb_ranking_holdout",
+  "label_policy": "Frozen before M2.2-RL-B ranking ablation. The holdout is disjoint from M21D supporting citations; each case has one manually verified gold citation and a fixed corpus intent.",
+  "cases": [
+    {"id":"M22RLB-R01","language":"zh","intent":"rules","question":"NBA 规则如何定义一次投篮出手？","expected_outcome":"answer","supporting_citation_ids":["nba-rulebook-2025-26:3c2238f1fb1b0032"]},
+    {"id":"M22RLB-R02","language":"en","intent":"rules","question":"When does a throw-in begin and end?","expected_outcome":"answer","supporting_citation_ids":["nba-rulebook-2025-26:55fde5aea8eb0dc9"]},
+    {"id":"M22RLB-R03","language":"zh","intent":"rules","question":"球队何时被视为控制球？","expected_outcome":"answer","supporting_citation_ids":["nba-rulebook-2025-26:1e60771f77605efa"]},
+    {"id":"M22RLB-R04","language":"en","intent":"rules","question":"How are games and overtime periods started?","expected_outcome":"answer","supporting_citation_ids":["nba-rulebook-2025-26:f5fecf137dff4df7"]},
+    {"id":"M22RLB-R05","language":"zh","intent":"rules","question":"投篮时钟在获得新球权后何时开始？","expected_outcome":"answer","supporting_citation_ids":["nba-rulebook-2025-26:634d5a8c972f233d"]},
+    {"id":"M22RLB-R06","language":"en","intent":"rules","question":"When is the shot clock reset to 24 seconds?","expected_outcome":"answer","supporting_citation_ids":["nba-rulebook-2025-26:04dd4e6cb4734f93"]},
+    {"id":"M22RLB-R07","language":"zh","intent":"rules","question":"在后场活球暂停后，比赛通常从哪里恢复？","expected_outcome":"answer","supporting_citation_ids":["nba-rulebook-2025-26:5b74ec364a833f47"]},
+    {"id":"M22RLB-R08","language":"en","intent":"rules","question":"When does a tied game resume in overtime?","expected_outcome":"answer","supporting_citation_ids":["nba-rulebook-2025-26:021c3fd1fbf16594"]},
+    {"id":"M22RLB-R09","language":"zh","intent":"rules","question":"最后两分钟内替补何时可以获得合理的换人时间？","expected_outcome":"answer","supporting_citation_ids":["nba-rulebook-2025-26:2ec775e00a0de2fd"]},
+    {"id":"M22RLB-R10","language":"en","intent":"rules","question":"What happens if the ball is kicked during a throw-in?","expected_outcome":"answer","supporting_citation_ids":["nba-rulebook-2025-26:fcade597d8df3bda"]},
+    {"id":"M22RLB-G01","language":"zh","intent":"glossary","question":"NBA 术语表如何定义 Field Goal Percentage？","expected_outcome":"answer","supporting_citation_ids":["nba-stats-glossary:17ec00242834939e"]},
+    {"id":"M22RLB-G02","language":"en","intent":"glossary","question":"What does Free Throw Percentage mean?","expected_outcome":"answer","supporting_citation_ids":["nba-stats-glossary:ce7650ffaf8c9b2f"]},
+    {"id":"M22RLB-G03","language":"zh","intent":"glossary","question":"2P% 在 NBA 术语表中是什么意思？","expected_outcome":"answer","supporting_citation_ids":["nba-stats-glossary:d9e1712a755eafa1"]},
+    {"id":"M22RLB-G04","language":"en","intent":"glossary","question":"What is 3 Point Field Goal Percentage?","expected_outcome":"answer","supporting_citation_ids":["nba-stats-glossary:c30d508ac353cb03"]},
+    {"id":"M22RLB-G05","language":"zh","intent":"glossary","question":"有效命中率 eFG% 如何定义？","expected_outcome":"answer","supporting_citation_ids":["nba-stats-glossary:13f6625e16c548ac"]},
+    {"id":"M22RLB-G06","language":"en","intent":"glossary","question":"What does Net Rating measure?","expected_outcome":"answer","supporting_citation_ids":["nba-stats-glossary:b335ddd99027ce61"]},
+    {"id":"M22RLB-G07","language":"zh","intent":"glossary","question":"防守效率（Defensive Rating）表示什么？","expected_outcome":"answer","supporting_citation_ids":["nba-stats-glossary:d786ffcc818e51ff"]},
+    {"id":"M22RLB-G08","language":"en","intent":"glossary","question":"How is Offensive Rating defined?","expected_outcome":"answer","supporting_citation_ids":["nba-stats-glossary:3ae07c95c17a4e56"]},
+    {"id":"M22RLB-G09","language":"zh","intent":"glossary","question":"PACE 衡量什么？","expected_outcome":"answer","supporting_citation_ids":["nba-stats-glossary:8bfc7a6194b9bf14"]},
+    {"id":"M22RLB-G10","language":"en","intent":"glossary","question":"What is Rebounding Percentage?","expected_outcome":"answer","supporting_citation_ids":["nba-stats-glossary:1e3537050b8a7d18"]}
+  ]
+}

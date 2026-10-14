@@ -1,0 +1,27 @@
+# Explicit opt-in. See docs/deployment/docker.md for resource preparation.
+services:
+  nba-agent:
+    volumes:
+      - type: bind
+        source: ./.env.container.local
+        target: /app/.env.local
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./runtime-data/nba.sqlite
+        target: /runtime/nba.sqlite
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./runtime-data/profile
+        target: /app/data/profile
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./runtime-data/knowledge
+        target: /runtime/knowledge
+        bind:
+          create_host_path: false

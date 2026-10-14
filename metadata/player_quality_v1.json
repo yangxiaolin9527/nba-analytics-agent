@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "absence_prefixes": ["DNP", "DND", "NWT", "DNT", "DID NOT DRESS", "DID NOT TRAVEL", "NOT WITH TEAM", "DN MAKE TRIP"],
+  "metric_columns": {
+    "points": "points",
+    "assists": "assists",
+    "rebounds_total": "reboundsTotal",
+    "field_goals_made": "fieldGoalsMade",
+    "three_pointers_made": "threePointersMade",
+    "field_goals_attempted": "fieldGoalsAttempted"
+  },
+  "additional_activity_columns": [
+    "blocks", "steals", "threePointersAttempted", "freeThrowsAttempted",
+    "freeThrowsMade", "reboundsDefensive", "reboundsOffensive", "foulsPersonal", "turnovers"
+  ]
+}

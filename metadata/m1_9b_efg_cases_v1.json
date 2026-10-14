@@ -1,0 +1,42 @@
+{
+  "case_set_version": "1.0.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "cases": [
+    {
+      "case_id": "M19B-001",
+      "entity_id": "201939",
+      "season_id": "2023-24",
+      "competition_phase": "regular_season",
+      "expected": {
+        "status": "complete",
+        "field_goals_made": 650,
+        "three_pointers_made": 357,
+        "field_goals_attempted": 1445,
+        "sample_count": 74,
+        "efg_percentage": 57.3356401384083,
+        "quality_status": "conditional",
+        "limitations": ["historical_shooting_unverified", "capability_evidence_conditional"]
+      }
+    },
+    {
+      "case_id": "M19B-002",
+      "entity_id": "201939",
+      "season_id": "2022-23",
+      "competition_phase": "playoffs",
+      "expected": {
+        "status": "complete",
+        "field_goals_made": 145,
+        "three_pointers_made": 57,
+        "field_goals_attempted": 311,
+        "sample_count": 13,
+        "efg_percentage": 55.78778135048231,
+        "quality_status": "conditional",
+        "limitations": [
+          "season_completeness_not_checked",
+          "historical_shooting_unverified",
+          "capability_evidence_conditional"
+        ]
+      }
+    }
+  ]
+}

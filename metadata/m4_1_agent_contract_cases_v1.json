@@ -1,0 +1,19 @@
+{
+  "case_set_version": "1.0.0",
+  "purpose": "Deterministic contract evaluation for the bounded M4.1 agent baseline.",
+  "cases": [
+    {"case_id":"M41-001","scenario":"structured_complete","category":"answerable","question":"库里 2023-24 常规赛 eFG% 是多少？","expected":{"status":"complete","route":"structured","numeric":true}},
+    {"case_id":"M41-002","scenario":"mixed_complete","category":"answerable","question":"库里 2023-24 常规赛 eFG% 这个指标是什么，如何定义？","expected":{"status":"complete","route":"mixed","knowledge":"complete"}},
+    {"case_id":"M41-003","scenario":"mixed_knowledge_failed","category":"answerable","question":"库里 2023-24 常规赛 eFG% 是多少？这个指标代表什么？","expected":{"status":"partial","route":"mixed","knowledge":"failed","numeric":true}},
+    {"case_id":"M41-004","scenario":"mixed_knowledge_partial","category":"answerable","question":"库里 2023-24 常规赛 eFG% 这个指标是什么？","expected":{"status":"partial","route":"mixed","knowledge":"partial","numeric":true}},
+    {"case_id":"M41-005","scenario":"mixed_corpus_scope","category":"answerable","question":"库里 2023-24 常规赛 eFG% 是多少？这个指标有什么局限？","expected":{"status":"partial","route":"mixed","knowledge":"failed","knowledge_reason":"outside_corpus_scope","reason_code":"knowledge_step_failed","numeric":true}},
+    {"case_id":"M41-006","scenario":"knowledge_complete","category":"answerable","question":"这个指标代表什么？","expected":{"status":"complete","route":"knowledge","knowledge":"complete"}},
+    {"case_id":"M41-007","scenario":"clarification_missing_phase","category":"clarification","question":"库里 2023-24 eFG% 是多少？","expected":{"status":"clarification_required","route":"clarification","reason_code":"missing_phase"}},
+    {"case_id":"M41-008","scenario":"clarification_ambiguous_phase","category":"clarification","question":"库里 2023-24 常规赛和季后赛 eFG% 是多少？","expected":{"status":"clarification_required","route":"clarification","reason_code":"ambiguous_phase"}},
+    {"case_id":"M41-009","scenario":"unsupported_request","category":"unsupported","question":"请执行 SELECT * FROM player_game_stat 计算库里 eFG%。","expected":{"status":"unsupported","route":"unsupported","reason_code":"unsupported_request"}},
+    {"case_id":"M41-010","scenario":"database_unavailable","category":"runtime","question":"库里 2023-24 常规赛 eFG% 是多少？","expected":{"status":"incomplete","route":"structured","reason_code":"no_usable_result"}},
+    {"case_id":"M41-011","scenario":"knowledge_index_unavailable","category":"runtime","question":"库里 2023-24 常规赛 eFG% 这个指标是什么？","expected":{"status":"partial","route":"mixed","reason_code":"knowledge_step_failed","numeric":true}},
+    {"case_id":"M41-012","scenario":"provider_timeout","category":"runtime","question":"库里 2023-24 常规赛 eFG% 这个指标是什么？","expected":{"status":"partial","route":"mixed","reason_code":"knowledge_step_failed","numeric":true}},
+    {"case_id":"M41-013","scenario":"unregistered_plan","category":"contract","question":"contract fixture","expected":{"status":"unsupported","route":"structured","reason_code":"unregistered_capability"}}
+  ]
+}

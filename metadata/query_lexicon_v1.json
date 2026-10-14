@@ -1,0 +1,51 @@
+{
+  "version": "1.0.1",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "supported_phases": ["regular_season", "playoffs"],
+  "value_domains": {
+    "competition_phase": {
+      "regular_season": ["常规赛", "Regular Season"],
+      "playoffs": ["季后赛", "Playoffs"],
+      "play_in": ["附加赛", "Play-in Tournament"],
+      "preseason": ["季前赛", "Preseason"],
+      "all_star": ["全明星", "All-Star Game"],
+      "cup_championship": ["杯赛决赛", "NBA Cup Final"]
+    },
+    "appearance_status": {
+      "played": [],
+      "played_inferred": [],
+      "not_played": [],
+      "unknown": [],
+      "conflict": []
+    },
+    "home_away": {
+      "home": ["主场"],
+      "away": ["客场"]
+    }
+  },
+  "entity_aliases": {
+    "player": {
+      "库里": "201939",
+      "Curry": "201939",
+      "Stephen Curry": "201939",
+      "詹姆斯": "2544",
+      "勒布朗·詹姆斯": "2544",
+      "约基奇": "203999",
+      "塔图姆": "1628369",
+      "利拉德": "203081",
+      "伦纳德": "202695",
+      "科怀·伦纳德": "202695",
+      "莱昂纳德": "202695",
+      "卡瓦伊·莱昂纳德": "202695"
+    },
+    "team": {
+      "凯尔特人": "1610612738",
+      "掘金": "1610612743",
+      "湖人": "1610612747",
+      "热火": "1610612748",
+      "勇士": "1610612744",
+      "快船": "1610612746",
+      "尼克斯": "1610612752"
+    }
+  }
+}

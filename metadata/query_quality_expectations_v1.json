@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "expectations": {
+    "AG-001": {"status": "validated", "limitations": []},
+    "AG-002": {"status": "validated", "limitations": []},
+    "AG-004": {"status": "validated", "limitations": []},
+    "AG-009": {"status": "conditional", "limitations": ["capability_evidence_conditional"]},
+    "PLAN-DEV-001": {"status": "validated", "limitations": []},
+    "PLAN-DEV-002": {"status": "validated", "limitations": []},
+    "PLAN-DEV-003": {"status": "validated", "limitations": []},
+    "PLAN-DEV-004": {"status": "validated", "limitations": []},
+    "PLAN-HOLDOUT-001": {"status": "conditional", "limitations": ["season_completeness_not_checked", "capability_evidence_conditional"]},
+    "PLAN-HOLDOUT-002": {"status": "conditional", "limitations": ["capability_evidence_conditional"]}
+  }
+}

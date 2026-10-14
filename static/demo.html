@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f9fb">
+  <!-- served-base -->
+  <title>NBA Analytics Agent · 分析工作台</title>
+  <link rel="stylesheet" href="./demo.css?v=20261006-execution-tree">
+  <script src="./lucide.min.js" defer></script>
+  <script src="./demo-data.js" defer></script>
+  <script src="./demo-state.js?v=20261006-execution-tree" defer></script>
+  <script src="./demo.js?v=20261006-execution-tree" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">跳至工作区</a>
+  <aside class="sidebar" aria-label="主导航">
+    <a class="brand" href="#" aria-label="NBA Analytics 首页"><span class="brand-mark"><i data-lucide="chart-no-axes-combined"></i></span><span>NBA Analytics<small>数据分析工作台</small></span></a>
+    <button class="new-session" id="new-session"><i data-lucide="square-pen"></i>新建分析<i class="shortcut-icon" data-lucide="plus"></i></button>
+    <p class="nav-label">工作空间</p>
+    <nav class="tabs" aria-label="能力选择" role="tablist">
+      <button id="tab-agent" class="tab active" data-tab="agent" role="tab" aria-selected="true" aria-controls="agent-panel"><i data-lucide="messages-square"></i>统一 Agent<i class="nav-chevron" data-lucide="chevron-right"></i></button>
+      <button id="tab-stats" class="tab" data-tab="stats" role="tab" aria-selected="false" aria-controls="stats-panel"><i data-lucide="chart-column-increasing"></i>结构化统计</button>
+      <button id="tab-knowledge" class="tab" data-tab="knowledge" role="tab" aria-selected="false" aria-controls="knowledge-panel"><i data-lucide="book-open"></i>知识问答</button>
+    </nav>
+    <div class="history-head"><p class="nav-label">最近分析</p><div class="history-actions"><span id="history-count">0</span><button class="icon-button" id="clear-history" title="清空历史" aria-label="清空历史"><i data-lucide="trash-2"></i></button></div></div>
+    <div id="history-list" class="history-list"><p class="quiet-empty">暂无分析记录</p></div>
+    <div class="sidebar-bottom">
+      <div class="source-identity"><i data-lucide="database"></i><div>NBA 历史数据<small>Eoin v515 · 固定快照</small></div><span class="tiny-dot"></span></div>
+      <div class="profile"><span class="profile-avatar"><i data-lucide="user-round"></i></span><div>本地工作空间<small id="sidebar-connection">连接中</small></div><button class="icon-button" id="refresh-connection" title="检查服务状态" aria-label="检查服务状态"><i data-lucide="refresh-cw"></i></button></div>
+    </div>
+  </aside>
+  <div class="app-content">
+    <header class="topbar"><div class="breadcrumbs"><i data-lucide="panels-top-left"></i><span>工作台</span><i data-lucide="chevron-right"></i><span id="current-view">统一 Agent</span></div><div class="connection-pill" id="connection-status" role="status"><span class="tiny-dot"></span><span>连接中</span></div></header>
+    <main id="workspace" class="workspace">
+      <div class="page-heading"><div><p class="eyebrow">BASKETBALL INTELLIGENCE</p><h1>NBA Analytics Agent</h1><p class="page-caption" id="page-caption">球员、球队与赛场数据</p></div><div class="page-tag"><i data-lucide="activity"></i>分析工作台</div></div>
+      <div class="work-layout">
+        <div class="analysis-column">
+          <div class="routing-control"><label for="routing-mode">规划方式</label><select id="routing-mode"><option value="model">模型</option><option value="rules">规则</option></select></div>
+          <section id="agent-panel" class="panel" role="tabpanel" aria-labelledby="tab-agent">
+            <div class="section-head"><div><span class="section-number">01</span><h2>问答分析</h2></div><div class="mode-control"><select id="agent-mode" class="sr-only" tabindex="-1" aria-label="Agent 运行模式"><option value="replay">回放</option><option value="live">实时</option></select><div class="mode-segment" role="group" aria-label="Agent 运行模式"><button data-control="agent-mode" data-mode="replay" aria-pressed="true">回放</button><button data-control="agent-mode" data-mode="live" aria-pressed="false">实时</button></div></div></div>
+            <div class="composer"><label class="sr-only" for="agent-question">分析问题</label><textarea id="agent-question" rows="3" placeholder="查询球员数据，或继续上一轮分析…"></textarea><div class="composer-footer"><span class="composer-context"><i data-lucide="sparkles"></i><span id="agent-hint">已归档回放</span></span><button id="agent-submit" class="primary"><span>开始分析</span><i data-lucide="arrow-up-right"></i></button></div></div>
+            <div class="example-picker"><label for="agent-case-select"><i data-lucide="bookmark"></i>分析示例</label><select id="agent-case-select"></select></div>
+            <div id="agent-session-hint" class="session-hint" hidden></div>
+            <div id="agent-transcript" class="transcript" aria-live="polite" hidden></div>
+            <div id="agent-result" class="result" aria-live="polite" hidden></div>
+          </section>
+          <section id="stats-panel" class="panel" role="tabpanel" aria-labelledby="tab-stats" hidden>
+            <div class="section-head"><div><span class="section-number">01</span><h2>统计查询</h2></div><div class="mode-control"><select id="stats-mode" class="sr-only" tabindex="-1" aria-label="统计运行模式"><option value="fixture">回放</option><option value="live">实时</option></select><div class="mode-segment" role="group" aria-label="统计运行模式"><button data-control="stats-mode" data-mode="fixture" aria-pressed="true">回放</button><button data-control="stats-mode" data-mode="live" aria-pressed="false">实时</button></div></div></div>
+            <div class="composer"><label class="sr-only" for="stats-question">统计问题</label><textarea id="stats-question" rows="3" placeholder="输入球员、赛季、赛事阶段和指标…"></textarea><div class="composer-footer"><span class="composer-context"><i data-lucide="database"></i><span id="stats-hint">已归档回放</span></span><button id="stats-submit" class="primary"><span>查询数据</span><i data-lucide="arrow-up-right"></i></button></div></div>
+            <div class="example-picker"><label for="case-select"><i data-lucide="bookmark"></i>统计示例</label><select id="case-select"></select></div>
+            <div id="stats-result" class="result" aria-live="polite" hidden></div>
+          </section>
+          <section id="knowledge-panel" class="panel" role="tabpanel" aria-labelledby="tab-knowledge" hidden>
+            <div class="section-head"><div><span class="section-number">01</span><h2>规则与术语</h2></div><span class="subtle-badge">实时</span></div>
+            <div class="composer"><label class="sr-only" for="knowledge-question">知识问题</label><textarea id="knowledge-question" rows="3" placeholder="询问 NBA 规则或统计指标的定义…">什么是有效命中率 eFG%？</textarea><div class="composer-footer"><span class="composer-context"><i data-lucide="book-open"></i>NBA 规则书与统计术语</span><button id="knowledge-submit" class="primary"><span>检索知识</span><i data-lucide="arrow-up-right"></i></button></div></div>
+            <div id="knowledge-result" class="result" aria-live="polite" hidden></div>
+          </section>
+          <section class="suggestions" id="suggestions" aria-label="热门分析"><div class="section-head"><div><span class="section-number">02</span><h2>从一个问题开始</h2></div><i data-lucide="corner-down-left"></i></div><div id="suggestion-list" class="suggestion-list"></div></section>
+        </div>
+        <aside class="context-column">
+          <section class="context-section"><div class="aside-heading"><i data-lucide="scan-line"></i><h2>分析概况</h2></div><dl class="scope-list"><div><dt>分析来源</dt><dd id="scope-source">已归档回放</dd></div><div><dt>赛事范围</dt><dd id="scope-season">待分析</dd></div><div><dt>实体</dt><dd id="scope-entity">待分析</dd></div><div><dt>执行步骤</dt><dd id="scope-steps">—</dd></div></dl></section>
+          <section class="context-section"><div class="aside-heading"><i data-lucide="shield-check"></i><h2>证据与来源</h2><span class="counter" id="evidence-count">0</span></div><div id="evidence-preview" class="evidence-preview"><div class="empty-evidence"><i data-lucide="files"></i><p>暂无证据</p></div></div></section>
+          <section class="context-section"><div class="aside-heading"><i data-lucide="plug-zap"></i><h2>资源状态</h2></div><ul id="resource-status" class="resource-list"><li><span>演示回放</span><span class="resource-label good">可用</span></li><li><span>数据与知识服务</span><span class="resource-label">检查中</span></li></ul></section>
+          <div class="context-footnote"><i data-lucide="clock-3"></i><span>历史快照 · 非实时赛况</span></div>
+        </aside>
+      </div>
+      <footer class="workspace-footer"><span>NBA Analytics</span><span>数据有出处，分析有依据。</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

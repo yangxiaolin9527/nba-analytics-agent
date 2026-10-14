@@ -1,0 +1,15 @@
+{
+  "case_set_version": "1.0.0",
+  "purpose": "Fixture contract for bounded loop conversation context.",
+  "source_snapshot": "fixture:eoin-v515-shape-v1",
+  "cases": [
+    {"case_id":"C001","split":"development","turns":["库里 2023-24 常规赛总得分？","那他的 eFG% 呢？"],"expected":{"statuses":["complete","complete"],"inherit_player":"201939","metric":"efg_percentage"}},
+    {"case_id":"C002","split":"development","turns":["库里 2023-24 常规赛总得分？","库里 2023-24 常规赛 eFG% 是多少？"],"expected":{"statuses":["complete","complete"],"metric":"efg_percentage"}},
+    {"case_id":"C003","split":"development","turns":["库里 2023-24 常规赛总得分？","那和詹姆斯比呢？"],"expected":{"statuses":["complete","clarification_required"],"reason_code":"comparison_metric_required"}},
+    {"case_id":"C004","split":"development","turns":["库里 2023-24 常规赛 eFG% 是多少并解释含义？"],"scenario":"knowledge_unavailable","expected":{"statuses":["partial"],"saved_metric":"efg_percentage"}},
+    {"case_id":"C005","split":"development","turns":["库里 2023-24 常规赛 eFG% 是多少？","这个指标怎么理解？"],"expected":{"statuses":["complete","complete"]}},
+    {"case_id":"C006","split":"holdout","turns":["库里 2023-24 常规赛总得分？","同一赛季改查 2022-23 常规赛总得分？"],"expected":{"statuses":["complete","clarification_required"],"reason_code":"conversation_scope_conflict"}},
+    {"case_id":"C007","split":"holdout","turns":["库里 2023-24 常规赛总得分？"],"expected":{"statuses":["complete"],"turn_index":1}},
+    {"case_id":"C008","split":"holdout","turns":["库里 2023-24 常规赛总得分？","那他的 eFG% 呢？"],"expected":{"statuses":["complete","complete"],"turn_index":2}}
+  ]
+}

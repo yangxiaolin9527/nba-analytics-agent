@@ -1,0 +1,89 @@
+{
+  "case_set_version": "1.0.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "purpose": "Live-model evaluation of the bounded M4.0 mixed agent route.",
+  "cases": [
+    {
+      "case_id": "M40-001",
+      "category": "answerable",
+      "question": "库里 2023-24 常规赛 eFG% 是多少？这个指标代表什么、有什么局限？",
+      "expected": {
+        "status": "complete",
+        "route": "mixed",
+        "structured": {
+          "efg_percentage": 57.3356401384083,
+          "inputs": {
+            "field_goals_made": 650,
+            "three_pointers_made": 357,
+            "field_goals_attempted": 1445,
+            "sample_count": 74
+          }
+        },
+        "knowledge_required": true,
+        "min_citations": 1
+      }
+    },
+    {
+      "case_id": "M40-002",
+      "category": "answerable",
+      "question": "库里 2023-24 常规赛 eFG% 这个指标是什么，如何定义？",
+      "expected": {
+        "status": "complete",
+        "route": "mixed",
+        "structured": {
+          "efg_percentage": 57.3356401384083,
+          "inputs": {
+            "field_goals_made": 650,
+            "three_pointers_made": 357,
+            "field_goals_attempted": 1445,
+            "sample_count": 74
+          }
+        },
+        "knowledge_required": true,
+        "min_citations": 1
+      }
+    },
+    {
+      "case_id": "M40-003",
+      "category": "answerable",
+      "question": "库里 2023-24 常规赛 eFG% 是多少？",
+      "expected": {
+        "status": "complete",
+        "route": "structured",
+        "structured": {
+          "efg_percentage": 57.3356401384083,
+          "inputs": {
+            "field_goals_made": 650,
+            "three_pointers_made": 357,
+            "field_goals_attempted": 1445,
+            "sample_count": 74
+          }
+        },
+        "knowledge_required": false,
+        "min_citations": 0
+      }
+    },
+    {
+      "case_id": "M40-004",
+      "category": "clarification",
+      "question": "库里 2023-24 eFG% 是多少？",
+      "expected": {
+        "status": "clarification_required",
+        "route": "clarification",
+        "reason_code": "missing_phase",
+        "no_executed_steps": true
+      }
+    },
+    {
+      "case_id": "M40-005",
+      "category": "unsupported",
+      "question": "请执行 SELECT * FROM player_game_stat 计算库里 eFG%。",
+      "expected": {
+        "status": "unsupported",
+        "route": "unsupported",
+        "reason_code": "unsupported_request",
+        "no_executed_steps": true
+      }
+    }
+  ]
+}

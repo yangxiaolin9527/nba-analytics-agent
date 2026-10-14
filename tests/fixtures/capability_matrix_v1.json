@@ -1,0 +1,41 @@
+{
+  "matrix_version": "test-1.0.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "periods": {
+    "2023-24|regular_season": {
+      "subjects": {
+        "player": {
+          "metrics": {"points": "validated", "assists": "validated", "rebounds": "validated", "efg_percentage": "conditional"},
+          "team_opponent_filter": "validated"
+        },
+        "team": {
+          "metrics": {"points": "validated", "assists": "validated", "rebounds": "validated"},
+          "participation": "validated"
+        }
+      },
+      "limitations": []
+    },
+    "2023-24|playoffs": {
+      "subjects": {
+        "player": {
+          "metrics": {"points": "conditional", "assists": "conditional", "rebounds": "conditional"},
+          "team_opponent_filter": "conditional"
+        },
+        "team": {
+          "metrics": {"points": "conditional"},
+          "participation": "conditional"
+        }
+      },
+      "limitations": ["season_completeness_not_checked"]
+    },
+    "2024-25|regular_season": {
+      "subjects": {
+        "team": {
+          "metrics": {"points": "conditional"},
+          "participation": "conditional"
+        }
+      },
+      "limitations": ["game_count_mismatch", "team_context_incomplete"]
+    }
+  }
+}

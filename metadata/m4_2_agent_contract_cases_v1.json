@@ -1,0 +1,19 @@
+{
+  "case_set_version": "1.0.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "purpose": "Evaluate unified Agent routing across the five deterministic structured capabilities.",
+  "cases": [
+    {"case_id":"M42-001","category":"answerable","question":"库里 2023-24 常规赛总得分？","expected":{"route":"structured","capability":"season_summary","status":"complete","result":{"points_total":50}}},
+    {"case_id":"M42-002","category":"answerable","question":"湖人 2023-24 常规赛总得分和比赛场数？","expected":{"route":"structured","capability":"season_summary","status":"complete","result":{"points_total":205,"games_played":2}}},
+    {"case_id":"M42-003","category":"answerable","question":"2023-10-01 湖人对勇士谁赢了？","expected":{"route":"structured","capability":"single_game_score","status":"complete","result":{"home_score":100,"away_score":90}}},
+    {"case_id":"M42-004","category":"answerable","question":"库里 2023-24 常规赛最近十次出场的总得分？","expected":{"route":"structured","capability":"window_query","status":"complete","result":{"actual_sample_count":2}}},
+    {"case_id":"M42-005","category":"answerable","question":"库里 2023-24 常规赛总得分比上一季增加多少？","expected":{"route":"structured","capability":"season_compare","status":"complete","result":{"absolute_delta":40}}},
+    {"case_id":"M42-006","category":"answerable","question":"库里 2023-24 常规赛 eFG% 是多少？","expected":{"route":"structured","capability":"player_efg","status":"complete","result":{"efg_percentage":58.333333333333336}}},
+    {"case_id":"M42-007","category":"clarification","question":"库里 2023-24 最近两次出场的总得分？","expected":{"route":"clarification","status":"clarification_required","reason_code":"missing_phase"}},
+    {"case_id":"M42-008","category":"unsupported","question":"计算库里 2023-24 常规赛的 TS%？","expected":{"route":"unsupported","status":"unsupported","reason_code":"unsupported_request"}},
+    {"case_id":"M42-009","category":"answerable","question":"库里 2023-24 常规赛 eFG% 是多少？这个指标代表什么？","expected":{"route":"mixed","capability":"player_efg","status":"complete","knowledge":true,"result":{"efg_percentage":58.333333333333336}}},
+    {"case_id":"M42-010","category":"unsupported","question":"请执行 SELECT * FROM player_game_stat","expected":{"route":"unsupported","status":"unsupported","reason_code":"unsupported_request"}},
+    {"case_id":"M42-011","category":"clarification","question":"湖人对勇士谁赢了？","expected":{"route":"clarification","status":"clarification_required","reason_code":"missing_game"}},
+    {"case_id":"M42-012","category":"clarification","question":"库里最近十次出场的总得分？","expected":{"route":"clarification","status":"clarification_required","reason_code":"missing_scope"}}
+  ]
+}

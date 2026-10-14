@@ -1,0 +1,13 @@
+{
+  "promote_bge": false,
+  "failed_conditions": [
+    "numeric_quality_labels",
+    "endpoint_p50",
+    "timeout_rate",
+    "readiness"
+  ],
+  "decision": "retain_historical_default",
+  "owner_review_confirmed": true,
+  "experiment_frozen": true,
+  "known_runtime_failure_rate_difference": 0.06666666666666667
+}

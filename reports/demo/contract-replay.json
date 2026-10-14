@@ -1,0 +1,4321 @@
+{
+  "case_set_version": "1.0.0",
+  "mode": "archived_replay",
+  "source_report": "reports/m4/agent-m43-contract-v2-corrected.json",
+  "cases": [
+    {
+      "case_id": "M43-001",
+      "question": "库里 2023-24 常规赛总得分？",
+      "status": "complete",
+      "route": "structured",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "bdcd286db77f4a25af50c11fb1fd88d1",
+        "trace_id": "7bd852d098156abfd47060e8ac792e48",
+        "route": "structured",
+        "answer": "Stephen Curry在 2023-24 常规赛的总得分为 50。实际样本数为 2。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "season_summary",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "points_total": 50,
+              "sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+              "source_table": "player_season_stat",
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "source_table": "player_season_stat",
+                "source_sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                "source_parameters": [],
+                "quality_status": "validated",
+                "limitations": [],
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {},
+                "sample_count": 2
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "season_summary",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [],
+              "structured": {
+                "source_sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                "source_parameters": [],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {},
+                "sample_count": 2,
+                "formula": null,
+                "units": {},
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "source_table": "player_season_stat"
+              },
+              "knowledge": null
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "season_summary",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [],
+            "structured": {
+              "source_sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+              "source_parameters": [],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": "201939",
+                "subject": "player",
+                "name": "Stephen Curry"
+              },
+              "filters": {},
+              "sample_count": 2,
+              "formula": null,
+              "units": {},
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "source_table": "player_season_stat"
+            },
+            "knowledge": null
+          }
+        ],
+        "warnings": [],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 10.735,
+          "total_ms": 10.872
+        },
+        "task_state": {
+          "question": "库里 2023-24 常规赛总得分？",
+          "route": {
+            "route": "structured",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "season_summary",
+                "arguments": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metrics": [
+                    "points_total"
+                  ]
+                }
+              }
+            ],
+            "reason": "deterministic season summary",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "season_summary",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "points_total": 50,
+                "sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                "source_table": "player_season_stat",
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "source_table": "player_season_stat",
+                  "source_sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                  "source_parameters": [],
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {},
+                  "sample_count": 2
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "season_summary",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [],
+                "structured": {
+                  "source_sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                  "source_parameters": [],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {},
+                  "sample_count": 2,
+                  "formula": null,
+                  "units": {},
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "source_table": "player_season_stat"
+                },
+                "knowledge": null
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-002",
+      "question": "湖人 2023-24 常规赛总得分和比赛场数？",
+      "status": "complete",
+      "route": "structured",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "d2233360e3074010adb9afdefe33cac8",
+        "trace_id": "5d87b1f22682b77976308c88f50d6724",
+        "route": "structured",
+        "answer": "Los Angeles Lakers在 2023-24 常规赛的总得分为 205，比赛场数为 2。实际样本数为 2。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "season_summary",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "points_total": 205,
+              "games_played": 2,
+              "sql": "SELECT points_total, games_played FROM team_season_stat WHERE team_id = '1610612747' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+              "source_table": "team_season_stat",
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "source_table": "team_season_stat",
+                "source_sql": "SELECT points_total, games_played FROM team_season_stat WHERE team_id = '1610612747' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                "source_parameters": [],
+                "quality_status": "validated",
+                "limitations": [],
+                "entity": {
+                  "id": "1610612747",
+                  "subject": "team",
+                  "name": "Los Angeles Lakers"
+                },
+                "filters": {},
+                "sample_count": 2
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "season_summary",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [],
+              "structured": {
+                "source_sql": "SELECT points_total, games_played FROM team_season_stat WHERE team_id = '1610612747' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                "source_parameters": [],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": "1610612747",
+                  "subject": "team",
+                  "name": "Los Angeles Lakers"
+                },
+                "filters": {},
+                "sample_count": 2,
+                "formula": null,
+                "units": {},
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "source_table": "team_season_stat"
+              },
+              "knowledge": null
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "season_summary",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [],
+            "structured": {
+              "source_sql": "SELECT points_total, games_played FROM team_season_stat WHERE team_id = '1610612747' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+              "source_parameters": [],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": "1610612747",
+                "subject": "team",
+                "name": "Los Angeles Lakers"
+              },
+              "filters": {},
+              "sample_count": 2,
+              "formula": null,
+              "units": {},
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "source_table": "team_season_stat"
+            },
+            "knowledge": null
+          }
+        ],
+        "warnings": [],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 10.57,
+          "total_ms": 10.652
+        },
+        "task_state": {
+          "question": "湖人 2023-24 常规赛总得分和比赛场数？",
+          "route": {
+            "route": "structured",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "season_summary",
+                "arguments": {
+                  "subject": "team",
+                  "entity_id": "1610612747",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metrics": [
+                    "points_total",
+                    "games_played"
+                  ]
+                }
+              }
+            ],
+            "reason": "deterministic season summary",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "season_summary",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "points_total": 205,
+                "games_played": 2,
+                "sql": "SELECT points_total, games_played FROM team_season_stat WHERE team_id = '1610612747' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                "source_table": "team_season_stat",
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "source_table": "team_season_stat",
+                  "source_sql": "SELECT points_total, games_played FROM team_season_stat WHERE team_id = '1610612747' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                  "source_parameters": [],
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "entity": {
+                    "id": "1610612747",
+                    "subject": "team",
+                    "name": "Los Angeles Lakers"
+                  },
+                  "filters": {},
+                  "sample_count": 2
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "season_summary",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [],
+                "structured": {
+                  "source_sql": "SELECT points_total, games_played FROM team_season_stat WHERE team_id = '1610612747' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                  "source_parameters": [],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": "1610612747",
+                    "subject": "team",
+                    "name": "Los Angeles Lakers"
+                  },
+                  "filters": {},
+                  "sample_count": 2,
+                  "formula": null,
+                  "units": {},
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "source_table": "team_season_stat"
+                },
+                "knowledge": null
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-003",
+      "question": "2023-10-01 湖人对勇士谁赢了？",
+      "status": "complete",
+      "route": "structured",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "c43a8af691bc41a5a12f4500d2f4207f",
+        "trace_id": "97a1f4423c01f286b7297458734e14b0",
+        "route": "structured",
+        "answer": "2023-10-01 比赛 22300001：主队 Los Angeles Lakers 得分为 100，客队 Golden State Warriors 得分为 90；胜者为 Los Angeles Lakers。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "single_game_score",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "home_score": 100,
+              "away_score": 90,
+              "winner_team_id": "1610612747",
+              "sql": "SELECT home_score, away_score FROM game WHERE game_id = '22300001'",
+              "source_table": "game",
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "source_table": "game",
+                "source_sql": "SELECT home_score, away_score FROM game WHERE game_id = '22300001'",
+                "source_parameters": [],
+                "quality_status": "validated",
+                "limitations": [],
+                "game_date": "2023-10-01",
+                "home_team": {
+                  "id": "1610612747",
+                  "name": "Los Angeles Lakers"
+                },
+                "away_team": {
+                  "id": "1610612744",
+                  "name": "Golden State Warriors"
+                },
+                "sample_count": 1
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "single_game_score",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [],
+              "structured": {
+                "source_sql": "SELECT home_score, away_score FROM game WHERE game_id = '22300001'",
+                "source_parameters": [],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": null,
+                  "subject": "player"
+                },
+                "filters": {
+                  "game_id": "22300001"
+                },
+                "sample_count": 1,
+                "formula": null,
+                "units": {},
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "source_table": "game",
+                "game_date": "2023-10-01",
+                "home_team": {
+                  "id": "1610612747",
+                  "name": "Los Angeles Lakers"
+                },
+                "away_team": {
+                  "id": "1610612744",
+                  "name": "Golden State Warriors"
+                }
+              },
+              "knowledge": null
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "single_game_score",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [],
+            "structured": {
+              "source_sql": "SELECT home_score, away_score FROM game WHERE game_id = '22300001'",
+              "source_parameters": [],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": null,
+                "subject": "player"
+              },
+              "filters": {
+                "game_id": "22300001"
+              },
+              "sample_count": 1,
+              "formula": null,
+              "units": {},
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "source_table": "game",
+              "game_date": "2023-10-01",
+              "home_team": {
+                "id": "1610612747",
+                "name": "Los Angeles Lakers"
+              },
+              "away_team": {
+                "id": "1610612744",
+                "name": "Golden State Warriors"
+              }
+            },
+            "knowledge": null
+          }
+        ],
+        "warnings": [],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 10.518,
+          "total_ms": 10.608
+        },
+        "task_state": {
+          "question": "2023-10-01 湖人对勇士谁赢了？",
+          "route": {
+            "route": "structured",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "single_game_score",
+                "arguments": {
+                  "game_id": "22300001"
+                }
+              }
+            ],
+            "reason": "deterministic game score",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "single_game_score",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "home_score": 100,
+                "away_score": 90,
+                "winner_team_id": "1610612747",
+                "sql": "SELECT home_score, away_score FROM game WHERE game_id = '22300001'",
+                "source_table": "game",
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "source_table": "game",
+                  "source_sql": "SELECT home_score, away_score FROM game WHERE game_id = '22300001'",
+                  "source_parameters": [],
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "game_date": "2023-10-01",
+                  "home_team": {
+                    "id": "1610612747",
+                    "name": "Los Angeles Lakers"
+                  },
+                  "away_team": {
+                    "id": "1610612744",
+                    "name": "Golden State Warriors"
+                  },
+                  "sample_count": 1
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "single_game_score",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [],
+                "structured": {
+                  "source_sql": "SELECT home_score, away_score FROM game WHERE game_id = '22300001'",
+                  "source_parameters": [],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": null,
+                    "subject": "player"
+                  },
+                  "filters": {
+                    "game_id": "22300001"
+                  },
+                  "sample_count": 1,
+                  "formula": null,
+                  "units": {},
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "source_table": "game",
+                  "game_date": "2023-10-01",
+                  "home_team": {
+                    "id": "1610612747",
+                    "name": "Los Angeles Lakers"
+                  },
+                  "away_team": {
+                    "id": "1610612744",
+                    "name": "Golden State Warriors"
+                  }
+                },
+                "knowledge": null
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-004",
+      "question": "库里 2023-24 常规赛最近两次出场的场均得分？",
+      "status": "complete",
+      "route": "structured",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "a76eb43929e745a28725885bd84d3757",
+        "trace_id": "18e8183d205feac97b8ff6463db51c1d",
+        "route": "structured",
+        "answer": "Stephen Curry在 2023-24 常规赛，请求最近 2 次出场，实际样本数为 2，场均得分为 25。实际日期范围为 2023-10-01 至 2023-10-03。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "window_query",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "reason": null,
+              "reason_code": null,
+              "values": {
+                "points_per_appearance": 25.0
+              },
+              "actual_sample_count": 2,
+              "available_sample_count": 2,
+              "selected_game_ids": [
+                "22300001",
+                "22300002"
+              ],
+              "actual_date_from": "2023-10-01",
+              "actual_date_to": "2023-10-03",
+              "source_table": "player_game_stat",
+              "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+              "source_parameters": [
+                "201939",
+                "2023-24",
+                "regular_season"
+              ],
+              "quality_status": "validated",
+              "limitations": [],
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "subject": "player",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "requested_scope": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metrics": [
+                    "points_per_appearance"
+                  ],
+                  "last_n": 2
+                },
+                "selection_rule": "filter_then_date_game_order_then_last_n",
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [
+                  "201939",
+                  "2023-24",
+                  "regular_season"
+                ],
+                "quality_status": "validated",
+                "limitations": [],
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {
+                  "last_n": 2
+                },
+                "sample_count": 2
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "window_query",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [],
+              "structured": {
+                "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [
+                  "201939",
+                  "2023-24",
+                  "regular_season"
+                ],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {
+                  "last_n": 2
+                },
+                "sample_count": 2,
+                "formula": null,
+                "units": {},
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "subject": "player",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "requested_scope": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metrics": [
+                    "points_per_appearance"
+                  ],
+                  "last_n": 2
+                },
+                "selection_rule": "filter_then_date_game_order_then_last_n",
+                "source_table": "player_game_stat"
+              },
+              "knowledge": null
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "window_query",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [],
+            "structured": {
+              "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+              "source_parameters": [
+                "201939",
+                "2023-24",
+                "regular_season"
+              ],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": "201939",
+                "subject": "player",
+                "name": "Stephen Curry"
+              },
+              "filters": {
+                "last_n": 2
+              },
+              "sample_count": 2,
+              "formula": null,
+              "units": {},
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "subject": "player",
+              "entity_id": "201939",
+              "season_id": "2023-24",
+              "competition_phase": "regular_season",
+              "requested_scope": {
+                "subject": "player",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "metrics": [
+                  "points_per_appearance"
+                ],
+                "last_n": 2
+              },
+              "selection_rule": "filter_then_date_game_order_then_last_n",
+              "source_table": "player_game_stat"
+            },
+            "knowledge": null
+          }
+        ],
+        "warnings": [],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 10.534,
+          "total_ms": 10.649
+        },
+        "task_state": {
+          "question": "库里 2023-24 常规赛最近两次出场的场均得分？",
+          "route": {
+            "route": "structured",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "window_query",
+                "arguments": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metrics": [
+                    "points_per_appearance"
+                  ],
+                  "last_n": 2
+                }
+              }
+            ],
+            "reason": "deterministic window query",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "window_query",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "reason": null,
+                "reason_code": null,
+                "values": {
+                  "points_per_appearance": 25.0
+                },
+                "actual_sample_count": 2,
+                "available_sample_count": 2,
+                "selected_game_ids": [
+                  "22300001",
+                  "22300002"
+                ],
+                "actual_date_from": "2023-10-01",
+                "actual_date_to": "2023-10-03",
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [
+                  "201939",
+                  "2023-24",
+                  "regular_season"
+                ],
+                "quality_status": "validated",
+                "limitations": [],
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "requested_scope": {
+                    "subject": "player",
+                    "entity_id": "201939",
+                    "season_id": "2023-24",
+                    "competition_phase": "regular_season",
+                    "metrics": [
+                      "points_per_appearance"
+                    ],
+                    "last_n": 2
+                  },
+                  "selection_rule": "filter_then_date_game_order_then_last_n",
+                  "source_table": "player_game_stat",
+                  "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [
+                    "201939",
+                    "2023-24",
+                    "regular_season"
+                  ],
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {
+                    "last_n": 2
+                  },
+                  "sample_count": 2
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "window_query",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [],
+                "structured": {
+                  "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [
+                    "201939",
+                    "2023-24",
+                    "regular_season"
+                  ],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {
+                    "last_n": 2
+                  },
+                  "sample_count": 2,
+                  "formula": null,
+                  "units": {},
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "requested_scope": {
+                    "subject": "player",
+                    "entity_id": "201939",
+                    "season_id": "2023-24",
+                    "competition_phase": "regular_season",
+                    "metrics": [
+                      "points_per_appearance"
+                    ],
+                    "last_n": 2
+                  },
+                  "selection_rule": "filter_then_date_game_order_then_last_n",
+                  "source_table": "player_game_stat"
+                },
+                "knowledge": null
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-005",
+      "question": "库里 2023-24 常规赛最近两次出场对湖人的总得分？",
+      "status": "complete",
+      "route": "structured",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "5ddb62e855fc43e1b919b2d1cff486de",
+        "trace_id": "583f8da8a9656a64cc3d5c95d7d7dcf9",
+        "route": "structured",
+        "answer": "Stephen Curry在 2023-24 常规赛，对手为 Los Angeles Lakers，请求最近 2 次出场，实际样本数为 2，总得分为 50。实际日期范围为 2023-10-01 至 2023-10-03。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "window_query",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "reason": null,
+              "reason_code": null,
+              "values": {
+                "points_total": 50
+              },
+              "actual_sample_count": 2,
+              "available_sample_count": 2,
+              "selected_game_ids": [
+                "22300001",
+                "22300002"
+              ],
+              "actual_date_from": "2023-10-01",
+              "actual_date_to": "2023-10-03",
+              "source_table": "player_game_stat",
+              "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND p.opponent_team_id = ? ORDER BY g.game_date ASC, p.game_id ASC",
+              "source_parameters": [
+                "201939",
+                "2023-24",
+                "regular_season",
+                "1610612747"
+              ],
+              "quality_status": "validated",
+              "limitations": [],
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "subject": "player",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "requested_scope": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metrics": [
+                    "points_total"
+                  ],
+                  "opponent_team_id": "1610612747",
+                  "last_n": 2
+                },
+                "selection_rule": "filter_then_date_game_order_then_last_n",
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND p.opponent_team_id = ? ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [
+                  "201939",
+                  "2023-24",
+                  "regular_season",
+                  "1610612747"
+                ],
+                "quality_status": "validated",
+                "limitations": [],
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {
+                  "opponent_team_id": "1610612747",
+                  "last_n": 2
+                },
+                "opponent": {
+                  "id": "1610612747",
+                  "name": "Los Angeles Lakers"
+                },
+                "sample_count": 2
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "window_query",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [],
+              "structured": {
+                "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND p.opponent_team_id = ? ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [
+                  "201939",
+                  "2023-24",
+                  "regular_season",
+                  "1610612747"
+                ],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {
+                  "opponent_team_id": "1610612747",
+                  "last_n": 2
+                },
+                "sample_count": 2,
+                "formula": null,
+                "units": {},
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "subject": "player",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "requested_scope": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metrics": [
+                    "points_total"
+                  ],
+                  "opponent_team_id": "1610612747",
+                  "last_n": 2
+                },
+                "selection_rule": "filter_then_date_game_order_then_last_n",
+                "source_table": "player_game_stat",
+                "opponent": {
+                  "id": "1610612747",
+                  "name": "Los Angeles Lakers"
+                }
+              },
+              "knowledge": null
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "window_query",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [],
+            "structured": {
+              "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND p.opponent_team_id = ? ORDER BY g.game_date ASC, p.game_id ASC",
+              "source_parameters": [
+                "201939",
+                "2023-24",
+                "regular_season",
+                "1610612747"
+              ],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": "201939",
+                "subject": "player",
+                "name": "Stephen Curry"
+              },
+              "filters": {
+                "opponent_team_id": "1610612747",
+                "last_n": 2
+              },
+              "sample_count": 2,
+              "formula": null,
+              "units": {},
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "subject": "player",
+              "entity_id": "201939",
+              "season_id": "2023-24",
+              "competition_phase": "regular_season",
+              "requested_scope": {
+                "subject": "player",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "metrics": [
+                  "points_total"
+                ],
+                "opponent_team_id": "1610612747",
+                "last_n": 2
+              },
+              "selection_rule": "filter_then_date_game_order_then_last_n",
+              "source_table": "player_game_stat",
+              "opponent": {
+                "id": "1610612747",
+                "name": "Los Angeles Lakers"
+              }
+            },
+            "knowledge": null
+          }
+        ],
+        "warnings": [],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 10.521,
+          "total_ms": 10.596
+        },
+        "task_state": {
+          "question": "库里 2023-24 常规赛最近两次出场对湖人的总得分？",
+          "route": {
+            "route": "structured",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "window_query",
+                "arguments": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metrics": [
+                    "points_total"
+                  ],
+                  "opponent_team_id": "1610612747",
+                  "last_n": 2
+                }
+              }
+            ],
+            "reason": "deterministic window query",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "window_query",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "reason": null,
+                "reason_code": null,
+                "values": {
+                  "points_total": 50
+                },
+                "actual_sample_count": 2,
+                "available_sample_count": 2,
+                "selected_game_ids": [
+                  "22300001",
+                  "22300002"
+                ],
+                "actual_date_from": "2023-10-01",
+                "actual_date_to": "2023-10-03",
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND p.opponent_team_id = ? ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [
+                  "201939",
+                  "2023-24",
+                  "regular_season",
+                  "1610612747"
+                ],
+                "quality_status": "validated",
+                "limitations": [],
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "requested_scope": {
+                    "subject": "player",
+                    "entity_id": "201939",
+                    "season_id": "2023-24",
+                    "competition_phase": "regular_season",
+                    "metrics": [
+                      "points_total"
+                    ],
+                    "opponent_team_id": "1610612747",
+                    "last_n": 2
+                  },
+                  "selection_rule": "filter_then_date_game_order_then_last_n",
+                  "source_table": "player_game_stat",
+                  "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND p.opponent_team_id = ? ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [
+                    "201939",
+                    "2023-24",
+                    "regular_season",
+                    "1610612747"
+                  ],
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {
+                    "opponent_team_id": "1610612747",
+                    "last_n": 2
+                  },
+                  "opponent": {
+                    "id": "1610612747",
+                    "name": "Los Angeles Lakers"
+                  },
+                  "sample_count": 2
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "window_query",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [],
+                "structured": {
+                  "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND p.opponent_team_id = ? ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [
+                    "201939",
+                    "2023-24",
+                    "regular_season",
+                    "1610612747"
+                  ],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {
+                    "opponent_team_id": "1610612747",
+                    "last_n": 2
+                  },
+                  "sample_count": 2,
+                  "formula": null,
+                  "units": {},
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "requested_scope": {
+                    "subject": "player",
+                    "entity_id": "201939",
+                    "season_id": "2023-24",
+                    "competition_phase": "regular_season",
+                    "metrics": [
+                      "points_total"
+                    ],
+                    "opponent_team_id": "1610612747",
+                    "last_n": 2
+                  },
+                  "selection_rule": "filter_then_date_game_order_then_last_n",
+                  "source_table": "player_game_stat",
+                  "opponent": {
+                    "id": "1610612747",
+                    "name": "Los Angeles Lakers"
+                  }
+                },
+                "knowledge": null
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-006",
+      "question": "库里 2023-24 常规赛 2023-10-01 至 2023-10-03 的总得分？",
+      "status": "complete",
+      "route": "structured",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "0b910164ee964d3eb65cbe7f681239a3",
+        "trace_id": "67e58c5a65f76b6167e172723794b568",
+        "route": "structured",
+        "answer": "Stephen Curry在 2023-24 常规赛，查询起始日期为 2023-10-01，查询截止日期为 2023-10-03，实际样本数为 2，总得分为 50。实际日期范围为 2023-10-01 至 2023-10-03。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "window_query",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "reason": null,
+              "reason_code": null,
+              "values": {
+                "points_total": 50
+              },
+              "actual_sample_count": 2,
+              "available_sample_count": 2,
+              "selected_game_ids": [
+                "22300001",
+                "22300002"
+              ],
+              "actual_date_from": "2023-10-01",
+              "actual_date_to": "2023-10-03",
+              "source_table": "player_game_stat",
+              "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND g.game_date >= ? AND g.game_date <= ? ORDER BY g.game_date ASC, p.game_id ASC",
+              "source_parameters": [
+                "201939",
+                "2023-24",
+                "regular_season",
+                "2023-10-01",
+                "2023-10-03"
+              ],
+              "quality_status": "validated",
+              "limitations": [],
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "subject": "player",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "requested_scope": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metrics": [
+                    "points_total"
+                  ],
+                  "date_from": "2023-10-01",
+                  "date_to": "2023-10-03"
+                },
+                "selection_rule": "filter_then_date_game_order_then_last_n",
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND g.game_date >= ? AND g.game_date <= ? ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [
+                  "201939",
+                  "2023-24",
+                  "regular_season",
+                  "2023-10-01",
+                  "2023-10-03"
+                ],
+                "quality_status": "validated",
+                "limitations": [],
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {
+                  "date_from": "2023-10-01",
+                  "date_to": "2023-10-03"
+                },
+                "sample_count": 2
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "window_query",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [],
+              "structured": {
+                "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND g.game_date >= ? AND g.game_date <= ? ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [
+                  "201939",
+                  "2023-24",
+                  "regular_season",
+                  "2023-10-01",
+                  "2023-10-03"
+                ],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {
+                  "date_from": "2023-10-01",
+                  "date_to": "2023-10-03"
+                },
+                "sample_count": 2,
+                "formula": null,
+                "units": {},
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "subject": "player",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "requested_scope": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metrics": [
+                    "points_total"
+                  ],
+                  "date_from": "2023-10-01",
+                  "date_to": "2023-10-03"
+                },
+                "selection_rule": "filter_then_date_game_order_then_last_n",
+                "source_table": "player_game_stat"
+              },
+              "knowledge": null
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "window_query",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [],
+            "structured": {
+              "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND g.game_date >= ? AND g.game_date <= ? ORDER BY g.game_date ASC, p.game_id ASC",
+              "source_parameters": [
+                "201939",
+                "2023-24",
+                "regular_season",
+                "2023-10-01",
+                "2023-10-03"
+              ],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": "201939",
+                "subject": "player",
+                "name": "Stephen Curry"
+              },
+              "filters": {
+                "date_from": "2023-10-01",
+                "date_to": "2023-10-03"
+              },
+              "sample_count": 2,
+              "formula": null,
+              "units": {},
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "subject": "player",
+              "entity_id": "201939",
+              "season_id": "2023-24",
+              "competition_phase": "regular_season",
+              "requested_scope": {
+                "subject": "player",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "metrics": [
+                  "points_total"
+                ],
+                "date_from": "2023-10-01",
+                "date_to": "2023-10-03"
+              },
+              "selection_rule": "filter_then_date_game_order_then_last_n",
+              "source_table": "player_game_stat"
+            },
+            "knowledge": null
+          }
+        ],
+        "warnings": [],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 10.629,
+          "total_ms": 10.736
+        },
+        "task_state": {
+          "question": "库里 2023-24 常规赛 2023-10-01 至 2023-10-03 的总得分？",
+          "route": {
+            "route": "structured",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "window_query",
+                "arguments": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metrics": [
+                    "points_total"
+                  ],
+                  "date_from": "2023-10-01",
+                  "date_to": "2023-10-03"
+                }
+              }
+            ],
+            "reason": "deterministic window query",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "window_query",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "reason": null,
+                "reason_code": null,
+                "values": {
+                  "points_total": 50
+                },
+                "actual_sample_count": 2,
+                "available_sample_count": 2,
+                "selected_game_ids": [
+                  "22300001",
+                  "22300002"
+                ],
+                "actual_date_from": "2023-10-01",
+                "actual_date_to": "2023-10-03",
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND g.game_date >= ? AND g.game_date <= ? ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [
+                  "201939",
+                  "2023-24",
+                  "regular_season",
+                  "2023-10-01",
+                  "2023-10-03"
+                ],
+                "quality_status": "validated",
+                "limitations": [],
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "requested_scope": {
+                    "subject": "player",
+                    "entity_id": "201939",
+                    "season_id": "2023-24",
+                    "competition_phase": "regular_season",
+                    "metrics": [
+                      "points_total"
+                    ],
+                    "date_from": "2023-10-01",
+                    "date_to": "2023-10-03"
+                  },
+                  "selection_rule": "filter_then_date_game_order_then_last_n",
+                  "source_table": "player_game_stat",
+                  "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND g.game_date >= ? AND g.game_date <= ? ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [
+                    "201939",
+                    "2023-24",
+                    "regular_season",
+                    "2023-10-01",
+                    "2023-10-03"
+                  ],
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {
+                    "date_from": "2023-10-01",
+                    "date_to": "2023-10-03"
+                  },
+                  "sample_count": 2
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "window_query",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [],
+                "structured": {
+                  "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') AND g.game_date >= ? AND g.game_date <= ? ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [
+                    "201939",
+                    "2023-24",
+                    "regular_season",
+                    "2023-10-01",
+                    "2023-10-03"
+                  ],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {
+                    "date_from": "2023-10-01",
+                    "date_to": "2023-10-03"
+                  },
+                  "sample_count": 2,
+                  "formula": null,
+                  "units": {},
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "requested_scope": {
+                    "subject": "player",
+                    "entity_id": "201939",
+                    "season_id": "2023-24",
+                    "competition_phase": "regular_season",
+                    "metrics": [
+                      "points_total"
+                    ],
+                    "date_from": "2023-10-01",
+                    "date_to": "2023-10-03"
+                  },
+                  "selection_rule": "filter_then_date_game_order_then_last_n",
+                  "source_table": "player_game_stat"
+                },
+                "knowledge": null
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-007",
+      "question": "库里 2023-24 常规赛总得分比上一季增加多少？",
+      "status": "complete",
+      "route": "structured",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "24084e675a754297b321532bd7df8eb6",
+        "trace_id": "a2f78c4e86e22f7f696c116e8ca01326",
+        "route": "structured",
+        "answer": "Stephen Curry在常规赛的总得分：基线赛季 2022-23 为 10，比较赛季 2023-24 为 50，绝对变化为 40，相对变化为 400%。基线样本数为 1，比较样本数为 2。公式：comparison_value - baseline_value；(comparison_value - baseline_value) / baseline_value * 100。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "season_compare",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "reason": null,
+              "reason_code": null,
+              "baseline": {
+                "season_id": "2022-23",
+                "competition_phase": "regular_season",
+                "value": 10,
+                "sample_count": 1,
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT s.game_id, s.points, g.game_date, g.season_status, g.phase_status FROM player_game_stat s JOIN game g ON g.game_id = s.game_id WHERE s.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND s.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, s.game_id ASC"
+              },
+              "comparison": {
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "value": 50,
+                "sample_count": 2,
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT s.game_id, s.points, g.game_date, g.season_status, g.phase_status FROM player_game_stat s JOIN game g ON g.game_id = s.game_id WHERE s.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND s.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, s.game_id ASC"
+              },
+              "absolute_delta": 40,
+              "relative_change_pct": 400.0,
+              "relative_change_status": "computable",
+              "calculation_limitation": null,
+              "quality_status": "validated",
+              "limitations": [],
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity_id": "201939",
+                "subject": "player",
+                "metric": "points_total",
+                "unit": "points",
+                "absolute_delta_formula": "comparison_value - baseline_value",
+                "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100",
+                "source_table": null,
+                "source_sql": null,
+                "source_parameters": [],
+                "quality_status": "validated",
+                "limitations": [],
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {}
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "season_compare",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [],
+              "structured": {
+                "source_sql": "SELECT s.game_id, s.points, g.game_date, g.season_status, g.phase_status FROM player_game_stat s JOIN game g ON g.game_id = s.game_id WHERE s.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND s.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, s.game_id ASC",
+                "source_parameters": [],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {},
+                "sample_count": 1,
+                "formula": "comparison_value - baseline_value",
+                "units": {
+                  "points_total": "points"
+                },
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "entity_id": "201939",
+                "subject": "player",
+                "metric": "points_total",
+                "unit": "points",
+                "absolute_delta_formula": "comparison_value - baseline_value",
+                "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100",
+                "source_table": null
+              },
+              "knowledge": null
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "season_compare",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [],
+            "structured": {
+              "source_sql": "SELECT s.game_id, s.points, g.game_date, g.season_status, g.phase_status FROM player_game_stat s JOIN game g ON g.game_id = s.game_id WHERE s.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND s.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, s.game_id ASC",
+              "source_parameters": [],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": "201939",
+                "subject": "player",
+                "name": "Stephen Curry"
+              },
+              "filters": {},
+              "sample_count": 1,
+              "formula": "comparison_value - baseline_value",
+              "units": {
+                "points_total": "points"
+              },
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "entity_id": "201939",
+              "subject": "player",
+              "metric": "points_total",
+              "unit": "points",
+              "absolute_delta_formula": "comparison_value - baseline_value",
+              "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100",
+              "source_table": null
+            },
+            "knowledge": null
+          }
+        ],
+        "warnings": [],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 10.571,
+          "total_ms": 10.674
+        },
+        "task_state": {
+          "question": "库里 2023-24 常规赛总得分比上一季增加多少？",
+          "route": {
+            "route": "structured",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "season_compare",
+                "arguments": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "metric": "points_total",
+                  "baseline_season": "2022-23",
+                  "comparison_season": "2023-24",
+                  "competition_phase": "regular_season"
+                }
+              }
+            ],
+            "reason": "deterministic season comparison",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "season_compare",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "reason": null,
+                "reason_code": null,
+                "baseline": {
+                  "season_id": "2022-23",
+                  "competition_phase": "regular_season",
+                  "value": 10,
+                  "sample_count": 1,
+                  "source_table": "player_game_stat",
+                  "source_sql": "SELECT s.game_id, s.points, g.game_date, g.season_status, g.phase_status FROM player_game_stat s JOIN game g ON g.game_id = s.game_id WHERE s.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND s.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, s.game_id ASC"
+                },
+                "comparison": {
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "value": 50,
+                  "sample_count": 2,
+                  "source_table": "player_game_stat",
+                  "source_sql": "SELECT s.game_id, s.points, g.game_date, g.season_status, g.phase_status FROM player_game_stat s JOIN game g ON g.game_id = s.game_id WHERE s.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND s.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, s.game_id ASC"
+                },
+                "absolute_delta": 40,
+                "relative_change_pct": 400.0,
+                "relative_change_status": "computable",
+                "calculation_limitation": null,
+                "quality_status": "validated",
+                "limitations": [],
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity_id": "201939",
+                  "subject": "player",
+                  "metric": "points_total",
+                  "unit": "points",
+                  "absolute_delta_formula": "comparison_value - baseline_value",
+                  "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100",
+                  "source_table": null,
+                  "source_sql": null,
+                  "source_parameters": [],
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {}
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "season_compare",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [],
+                "structured": {
+                  "source_sql": "SELECT s.game_id, s.points, g.game_date, g.season_status, g.phase_status FROM player_game_stat s JOIN game g ON g.game_id = s.game_id WHERE s.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND s.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, s.game_id ASC",
+                  "source_parameters": [],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {},
+                  "sample_count": 1,
+                  "formula": "comparison_value - baseline_value",
+                  "units": {
+                    "points_total": "points"
+                  },
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "entity_id": "201939",
+                  "subject": "player",
+                  "metric": "points_total",
+                  "unit": "points",
+                  "absolute_delta_formula": "comparison_value - baseline_value",
+                  "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100",
+                  "source_table": null
+                },
+                "knowledge": null
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-008",
+      "question": "湖人 2023-24 常规赛总得分比上一季增加多少？",
+      "status": "complete",
+      "route": "structured",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "5968bcbba02a4e27badcbbb65801f211",
+        "trace_id": "b5ea46bac244136bf9755626581bbbed",
+        "route": "structured",
+        "answer": "Los Angeles Lakers在常规赛的总得分：基线赛季 2022-23 为 99，比较赛季 2023-24 为 205，绝对变化为 106，相对变化为 107.0707%。基线样本数为 1，比较样本数为 2。公式：comparison_value - baseline_value；(comparison_value - baseline_value) / baseline_value * 100。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "season_compare",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "reason": null,
+              "reason_code": null,
+              "baseline": {
+                "season_id": "2022-23",
+                "competition_phase": "regular_season",
+                "value": 99,
+                "sample_count": 1,
+                "source_table": "team_game_stat",
+                "source_sql": "SELECT s.game_id, s.team_score, g.game_date, g.season_status, g.phase_status FROM team_game_stat s JOIN game g ON g.game_id = s.game_id JOIN game_team_participation p ON p.game_id = s.game_id AND p.team_id = s.team_id WHERE s.team_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.participation_quality = 'valid' AND s.team_id <> '' ORDER BY g.game_date ASC, s.game_id ASC"
+              },
+              "comparison": {
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "value": 205,
+                "sample_count": 2,
+                "source_table": "team_game_stat",
+                "source_sql": "SELECT s.game_id, s.team_score, g.game_date, g.season_status, g.phase_status FROM team_game_stat s JOIN game g ON g.game_id = s.game_id JOIN game_team_participation p ON p.game_id = s.game_id AND p.team_id = s.team_id WHERE s.team_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.participation_quality = 'valid' AND s.team_id <> '' ORDER BY g.game_date ASC, s.game_id ASC"
+              },
+              "absolute_delta": 106,
+              "relative_change_pct": 107.07070707070707,
+              "relative_change_status": "computable",
+              "calculation_limitation": null,
+              "quality_status": "validated",
+              "limitations": [],
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity_id": "1610612747",
+                "subject": "team",
+                "metric": "points_total",
+                "unit": "points",
+                "absolute_delta_formula": "comparison_value - baseline_value",
+                "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100",
+                "source_table": null,
+                "source_sql": null,
+                "source_parameters": [],
+                "quality_status": "validated",
+                "limitations": [],
+                "entity": {
+                  "id": "1610612747",
+                  "subject": "team",
+                  "name": "Los Angeles Lakers"
+                },
+                "filters": {}
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "season_compare",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [],
+              "structured": {
+                "source_sql": "SELECT s.game_id, s.team_score, g.game_date, g.season_status, g.phase_status FROM team_game_stat s JOIN game g ON g.game_id = s.game_id JOIN game_team_participation p ON p.game_id = s.game_id AND p.team_id = s.team_id WHERE s.team_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.participation_quality = 'valid' AND s.team_id <> '' ORDER BY g.game_date ASC, s.game_id ASC",
+                "source_parameters": [],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": "1610612747",
+                  "subject": "team",
+                  "name": "Los Angeles Lakers"
+                },
+                "filters": {},
+                "sample_count": 1,
+                "formula": "comparison_value - baseline_value",
+                "units": {
+                  "points_total": "points"
+                },
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "entity_id": "1610612747",
+                "subject": "team",
+                "metric": "points_total",
+                "unit": "points",
+                "absolute_delta_formula": "comparison_value - baseline_value",
+                "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100",
+                "source_table": null
+              },
+              "knowledge": null
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "season_compare",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [],
+            "structured": {
+              "source_sql": "SELECT s.game_id, s.team_score, g.game_date, g.season_status, g.phase_status FROM team_game_stat s JOIN game g ON g.game_id = s.game_id JOIN game_team_participation p ON p.game_id = s.game_id AND p.team_id = s.team_id WHERE s.team_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.participation_quality = 'valid' AND s.team_id <> '' ORDER BY g.game_date ASC, s.game_id ASC",
+              "source_parameters": [],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": "1610612747",
+                "subject": "team",
+                "name": "Los Angeles Lakers"
+              },
+              "filters": {},
+              "sample_count": 1,
+              "formula": "comparison_value - baseline_value",
+              "units": {
+                "points_total": "points"
+              },
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "entity_id": "1610612747",
+              "subject": "team",
+              "metric": "points_total",
+              "unit": "points",
+              "absolute_delta_formula": "comparison_value - baseline_value",
+              "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100",
+              "source_table": null
+            },
+            "knowledge": null
+          }
+        ],
+        "warnings": [],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 10.5,
+          "total_ms": 10.578
+        },
+        "task_state": {
+          "question": "湖人 2023-24 常规赛总得分比上一季增加多少？",
+          "route": {
+            "route": "structured",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "season_compare",
+                "arguments": {
+                  "subject": "team",
+                  "entity_id": "1610612747",
+                  "metric": "points_total",
+                  "baseline_season": "2022-23",
+                  "comparison_season": "2023-24",
+                  "competition_phase": "regular_season"
+                }
+              }
+            ],
+            "reason": "deterministic season comparison",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "season_compare",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "reason": null,
+                "reason_code": null,
+                "baseline": {
+                  "season_id": "2022-23",
+                  "competition_phase": "regular_season",
+                  "value": 99,
+                  "sample_count": 1,
+                  "source_table": "team_game_stat",
+                  "source_sql": "SELECT s.game_id, s.team_score, g.game_date, g.season_status, g.phase_status FROM team_game_stat s JOIN game g ON g.game_id = s.game_id JOIN game_team_participation p ON p.game_id = s.game_id AND p.team_id = s.team_id WHERE s.team_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.participation_quality = 'valid' AND s.team_id <> '' ORDER BY g.game_date ASC, s.game_id ASC"
+                },
+                "comparison": {
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "value": 205,
+                  "sample_count": 2,
+                  "source_table": "team_game_stat",
+                  "source_sql": "SELECT s.game_id, s.team_score, g.game_date, g.season_status, g.phase_status FROM team_game_stat s JOIN game g ON g.game_id = s.game_id JOIN game_team_participation p ON p.game_id = s.game_id AND p.team_id = s.team_id WHERE s.team_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.participation_quality = 'valid' AND s.team_id <> '' ORDER BY g.game_date ASC, s.game_id ASC"
+                },
+                "absolute_delta": 106,
+                "relative_change_pct": 107.07070707070707,
+                "relative_change_status": "computable",
+                "calculation_limitation": null,
+                "quality_status": "validated",
+                "limitations": [],
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity_id": "1610612747",
+                  "subject": "team",
+                  "metric": "points_total",
+                  "unit": "points",
+                  "absolute_delta_formula": "comparison_value - baseline_value",
+                  "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100",
+                  "source_table": null,
+                  "source_sql": null,
+                  "source_parameters": [],
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "entity": {
+                    "id": "1610612747",
+                    "subject": "team",
+                    "name": "Los Angeles Lakers"
+                  },
+                  "filters": {}
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "season_compare",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [],
+                "structured": {
+                  "source_sql": "SELECT s.game_id, s.team_score, g.game_date, g.season_status, g.phase_status FROM team_game_stat s JOIN game g ON g.game_id = s.game_id JOIN game_team_participation p ON p.game_id = s.game_id AND p.team_id = s.team_id WHERE s.team_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.participation_quality = 'valid' AND s.team_id <> '' ORDER BY g.game_date ASC, s.game_id ASC",
+                  "source_parameters": [],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": "1610612747",
+                    "subject": "team",
+                    "name": "Los Angeles Lakers"
+                  },
+                  "filters": {},
+                  "sample_count": 1,
+                  "formula": "comparison_value - baseline_value",
+                  "units": {
+                    "points_total": "points"
+                  },
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "entity_id": "1610612747",
+                  "subject": "team",
+                  "metric": "points_total",
+                  "unit": "points",
+                  "absolute_delta_formula": "comparison_value - baseline_value",
+                  "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100",
+                  "source_table": null
+                },
+                "knowledge": null
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-009",
+      "question": "库里 2023-24 常规赛 eFG% 是多少？",
+      "status": "complete",
+      "route": "structured",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "376d10ba41a747f485bd345b37f4e869",
+        "trace_id": "7f7eba8f81af06631a4fc50e1892d6c5",
+        "route": "structured",
+        "answer": "Stephen Curry在 2023-24 常规赛的 eFG% 为 58.3333%，计算输入为 FGM=18、3PM=6、FGA=36。实际样本数为 2。公式：(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100。数据质量：有条件可用。限制：该范围的数据能力证据有条件。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "player_efg",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "reason": null,
+              "reason_code": null,
+              "efg_percentage": 58.333333333333336,
+              "inputs": {
+                "field_goals_made": 18,
+                "three_pointers_made": 6,
+                "field_goals_attempted": 36,
+                "sample_count": 2
+              },
+              "source_table": "player_game_stat",
+              "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+              "quality_status": "conditional",
+              "limitations": [
+                "capability_evidence_conditional"
+              ],
+              "calculation_limitation": null,
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "metric": "efg_percentage",
+                "unit": "percent",
+                "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                "rounding": "full_precision",
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [],
+                "quality_status": "conditional",
+                "limitations": [
+                  "capability_evidence_conditional"
+                ],
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {},
+                "units": {
+                  "efg_percentage": "percent"
+                },
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "sample_count": 2
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "player_efg",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [
+                "capability_evidence_conditional"
+              ],
+              "structured": {
+                "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {},
+                "sample_count": 2,
+                "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                "units": {
+                  "efg_percentage": "percent"
+                },
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "conditional",
+                "limitations": [
+                  "capability_evidence_conditional"
+                ],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "metric": "efg_percentage",
+                "unit": "percent",
+                "rounding": "full_precision",
+                "source_table": "player_game_stat"
+              },
+              "knowledge": null
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "player_efg",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [
+              "capability_evidence_conditional"
+            ],
+            "structured": {
+              "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+              "source_parameters": [],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": "201939",
+                "subject": "player",
+                "name": "Stephen Curry"
+              },
+              "filters": {},
+              "sample_count": 2,
+              "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+              "units": {
+                "efg_percentage": "percent"
+              },
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "conditional",
+              "limitations": [
+                "capability_evidence_conditional"
+              ],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "entity_id": "201939",
+              "season_id": "2023-24",
+              "competition_phase": "regular_season",
+              "metric": "efg_percentage",
+              "unit": "percent",
+              "rounding": "full_precision",
+              "source_table": "player_game_stat"
+            },
+            "knowledge": null
+          }
+        ],
+        "warnings": [
+          "quality_conditional"
+        ],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 10.5,
+          "total_ms": 10.576
+        },
+        "task_state": {
+          "question": "库里 2023-24 常规赛 eFG% 是多少？",
+          "route": {
+            "route": "structured",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "player_efg",
+                "arguments": {
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season"
+                }
+              }
+            ],
+            "reason": "deterministic eFG result",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "player_efg",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "reason": null,
+                "reason_code": null,
+                "efg_percentage": 58.333333333333336,
+                "inputs": {
+                  "field_goals_made": 18,
+                  "three_pointers_made": 6,
+                  "field_goals_attempted": 36,
+                  "sample_count": 2
+                },
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "quality_status": "conditional",
+                "limitations": [
+                  "capability_evidence_conditional"
+                ],
+                "calculation_limitation": null,
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metric": "efg_percentage",
+                  "unit": "percent",
+                  "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                  "rounding": "full_precision",
+                  "source_table": "player_game_stat",
+                  "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [],
+                  "quality_status": "conditional",
+                  "limitations": [
+                    "capability_evidence_conditional"
+                  ],
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {},
+                  "units": {
+                    "efg_percentage": "percent"
+                  },
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "sample_count": 2
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "player_efg",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [
+                  "capability_evidence_conditional"
+                ],
+                "structured": {
+                  "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {},
+                  "sample_count": 2,
+                  "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                  "units": {
+                    "efg_percentage": "percent"
+                  },
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "conditional",
+                  "limitations": [
+                    "capability_evidence_conditional"
+                  ],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metric": "efg_percentage",
+                  "unit": "percent",
+                  "rounding": "full_precision",
+                  "source_table": "player_game_stat"
+                },
+                "knowledge": null
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-010",
+      "question": "eFG% 是什么？",
+      "status": "complete",
+      "route": "knowledge",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "7c5f9d97dbaf4491b5b6521710191a98",
+        "trace_id": "7410eaff767287e35c9da1903046ca2c",
+        "route": "knowledge",
+        "answer": "eFG% 在调整三分球价值后衡量投篮效率。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "knowledge_glossary",
+            "status": "complete",
+            "result": {
+              "status": "answered",
+              "answer": "eFG% 在调整三分球价值后衡量投篮效率。",
+              "claims": [
+                {
+                  "citation_id": "fixture-efg",
+                  "excerpt": "Effective Field Goal Percentage",
+                  "source_id": "fixture-glossary",
+                  "source_version": "fixture-v1",
+                  "validation": "validated"
+                }
+              ],
+              "unresolved": []
+            },
+            "error": null,
+            "evidence": {
+              "capability": "knowledge_glossary",
+              "step_id": "s1",
+              "provenance": "pinned knowledge corpus",
+              "execution_status": "complete",
+              "warnings": [],
+              "structured": null,
+              "knowledge": {
+                "citations": [
+                  {
+                    "citation_id": "fixture-efg",
+                    "excerpt": "Effective Field Goal Percentage",
+                    "source_id": "fixture-glossary",
+                    "source_version": "fixture-v1",
+                    "page": null,
+                    "anchor": null,
+                    "validation": "validated"
+                  }
+                ],
+                "source_version": null,
+                "validation": "validated",
+                "unresolved": []
+              }
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "knowledge_glossary",
+            "step_id": "s1",
+            "provenance": "pinned knowledge corpus",
+            "execution_status": "complete",
+            "warnings": [],
+            "structured": null,
+            "knowledge": {
+              "citations": [
+                {
+                  "citation_id": "fixture-efg",
+                  "excerpt": "Effective Field Goal Percentage",
+                  "source_id": "fixture-glossary",
+                  "source_version": "fixture-v1",
+                  "page": null,
+                  "anchor": null,
+                  "validation": "validated"
+                }
+              ],
+              "source_version": null,
+              "validation": "validated",
+              "unresolved": []
+            }
+          }
+        ],
+        "warnings": [],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 0.058,
+          "total_ms": 0.091
+        },
+        "task_state": {
+          "question": "eFG% 是什么？",
+          "route": {
+            "route": "knowledge",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "knowledge_glossary",
+                "arguments": {}
+              }
+            ],
+            "reason": "glossary explanation",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "knowledge_glossary",
+              "status": "complete",
+              "result": {
+                "status": "answered",
+                "answer": "eFG% 在调整三分球价值后衡量投篮效率。",
+                "claims": [
+                  {
+                    "citation_id": "fixture-efg",
+                    "excerpt": "Effective Field Goal Percentage",
+                    "source_id": "fixture-glossary",
+                    "source_version": "fixture-v1",
+                    "validation": "validated"
+                  }
+                ],
+                "unresolved": []
+              },
+              "error": null,
+              "evidence": {
+                "capability": "knowledge_glossary",
+                "step_id": "s1",
+                "provenance": "pinned knowledge corpus",
+                "execution_status": "complete",
+                "warnings": [],
+                "structured": null,
+                "knowledge": {
+                  "citations": [
+                    {
+                      "citation_id": "fixture-efg",
+                      "excerpt": "Effective Field Goal Percentage",
+                      "source_id": "fixture-glossary",
+                      "source_version": "fixture-v1",
+                      "page": null,
+                      "anchor": null,
+                      "validation": "validated"
+                    }
+                  ],
+                  "source_version": null,
+                  "validation": "validated",
+                  "unresolved": []
+                }
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-011",
+      "question": "库里 2023-24 常规赛 eFG% 是多少？这个指标代表什么？",
+      "status": "complete",
+      "route": "mixed",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "b197b588fae84813a562ef7d39ffc8c1",
+        "trace_id": "52a7be43844bd3606e03ea8e801d5268",
+        "route": "mixed",
+        "answer": "Stephen Curry在 2023-24 常规赛的 eFG% 为 58.3333%，计算输入为 FGM=18、3PM=6、FGA=36。实际样本数为 2。公式：(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100。数据质量：有条件可用。限制：该范围的数据能力证据有条件。\neFG% 在调整三分球价值后衡量投篮效率。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "player_efg",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "reason": null,
+              "reason_code": null,
+              "efg_percentage": 58.333333333333336,
+              "inputs": {
+                "field_goals_made": 18,
+                "three_pointers_made": 6,
+                "field_goals_attempted": 36,
+                "sample_count": 2
+              },
+              "source_table": "player_game_stat",
+              "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+              "quality_status": "conditional",
+              "limitations": [
+                "capability_evidence_conditional"
+              ],
+              "calculation_limitation": null,
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "metric": "efg_percentage",
+                "unit": "percent",
+                "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                "rounding": "full_precision",
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [],
+                "quality_status": "conditional",
+                "limitations": [
+                  "capability_evidence_conditional"
+                ],
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {},
+                "units": {
+                  "efg_percentage": "percent"
+                },
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "sample_count": 2
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "player_efg",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [
+                "capability_evidence_conditional"
+              ],
+              "structured": {
+                "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {},
+                "sample_count": 2,
+                "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                "units": {
+                  "efg_percentage": "percent"
+                },
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "conditional",
+                "limitations": [
+                  "capability_evidence_conditional"
+                ],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "metric": "efg_percentage",
+                "unit": "percent",
+                "rounding": "full_precision",
+                "source_table": "player_game_stat"
+              },
+              "knowledge": null
+            }
+          },
+          {
+            "id": "s2",
+            "capability": "knowledge_glossary",
+            "status": "complete",
+            "result": {
+              "status": "answered",
+              "answer": "eFG% 在调整三分球价值后衡量投篮效率。",
+              "claims": [
+                {
+                  "citation_id": "fixture-efg",
+                  "excerpt": "Effective Field Goal Percentage",
+                  "source_id": "fixture-glossary",
+                  "source_version": "fixture-v1",
+                  "validation": "validated"
+                }
+              ],
+              "unresolved": []
+            },
+            "error": null,
+            "evidence": {
+              "capability": "knowledge_glossary",
+              "step_id": "s2",
+              "provenance": "pinned knowledge corpus",
+              "execution_status": "complete",
+              "warnings": [],
+              "structured": null,
+              "knowledge": {
+                "citations": [
+                  {
+                    "citation_id": "fixture-efg",
+                    "excerpt": "Effective Field Goal Percentage",
+                    "source_id": "fixture-glossary",
+                    "source_version": "fixture-v1",
+                    "page": null,
+                    "anchor": null,
+                    "validation": "validated"
+                  }
+                ],
+                "source_version": null,
+                "validation": "validated",
+                "unresolved": []
+              }
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "player_efg",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [
+              "capability_evidence_conditional"
+            ],
+            "structured": {
+              "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+              "source_parameters": [],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": "201939",
+                "subject": "player",
+                "name": "Stephen Curry"
+              },
+              "filters": {},
+              "sample_count": 2,
+              "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+              "units": {
+                "efg_percentage": "percent"
+              },
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "conditional",
+              "limitations": [
+                "capability_evidence_conditional"
+              ],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "entity_id": "201939",
+              "season_id": "2023-24",
+              "competition_phase": "regular_season",
+              "metric": "efg_percentage",
+              "unit": "percent",
+              "rounding": "full_precision",
+              "source_table": "player_game_stat"
+            },
+            "knowledge": null
+          },
+          {
+            "capability": "knowledge_glossary",
+            "step_id": "s2",
+            "provenance": "pinned knowledge corpus",
+            "execution_status": "complete",
+            "warnings": [],
+            "structured": null,
+            "knowledge": {
+              "citations": [
+                {
+                  "citation_id": "fixture-efg",
+                  "excerpt": "Effective Field Goal Percentage",
+                  "source_id": "fixture-glossary",
+                  "source_version": "fixture-v1",
+                  "page": null,
+                  "anchor": null,
+                  "validation": "validated"
+                }
+              ],
+              "source_version": null,
+              "validation": "validated",
+              "unresolved": []
+            }
+          }
+        ],
+        "warnings": [
+          "quality_conditional"
+        ],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 10.434,
+          "s2_ms": 0.052,
+          "total_ms": 10.566
+        },
+        "task_state": {
+          "question": "库里 2023-24 常规赛 eFG% 是多少？这个指标代表什么？",
+          "route": {
+            "route": "mixed",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "player_efg",
+                "arguments": {
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season"
+                }
+              },
+              {
+                "id": "s2",
+                "capability": "knowledge_glossary",
+                "arguments": {}
+              }
+            ],
+            "reason": "numeric result plus metric explanation",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "player_efg",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "reason": null,
+                "reason_code": null,
+                "efg_percentage": 58.333333333333336,
+                "inputs": {
+                  "field_goals_made": 18,
+                  "three_pointers_made": 6,
+                  "field_goals_attempted": 36,
+                  "sample_count": 2
+                },
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "quality_status": "conditional",
+                "limitations": [
+                  "capability_evidence_conditional"
+                ],
+                "calculation_limitation": null,
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metric": "efg_percentage",
+                  "unit": "percent",
+                  "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                  "rounding": "full_precision",
+                  "source_table": "player_game_stat",
+                  "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [],
+                  "quality_status": "conditional",
+                  "limitations": [
+                    "capability_evidence_conditional"
+                  ],
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {},
+                  "units": {
+                    "efg_percentage": "percent"
+                  },
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "sample_count": 2
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "player_efg",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [
+                  "capability_evidence_conditional"
+                ],
+                "structured": {
+                  "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {},
+                  "sample_count": 2,
+                  "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                  "units": {
+                    "efg_percentage": "percent"
+                  },
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "conditional",
+                  "limitations": [
+                    "capability_evidence_conditional"
+                  ],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metric": "efg_percentage",
+                  "unit": "percent",
+                  "rounding": "full_precision",
+                  "source_table": "player_game_stat"
+                },
+                "knowledge": null
+              }
+            },
+            {
+              "id": "s2",
+              "capability": "knowledge_glossary",
+              "status": "complete",
+              "result": {
+                "status": "answered",
+                "answer": "eFG% 在调整三分球价值后衡量投篮效率。",
+                "claims": [
+                  {
+                    "citation_id": "fixture-efg",
+                    "excerpt": "Effective Field Goal Percentage",
+                    "source_id": "fixture-glossary",
+                    "source_version": "fixture-v1",
+                    "validation": "validated"
+                  }
+                ],
+                "unresolved": []
+              },
+              "error": null,
+              "evidence": {
+                "capability": "knowledge_glossary",
+                "step_id": "s2",
+                "provenance": "pinned knowledge corpus",
+                "execution_status": "complete",
+                "warnings": [],
+                "structured": null,
+                "knowledge": {
+                  "citations": [
+                    {
+                      "citation_id": "fixture-efg",
+                      "excerpt": "Effective Field Goal Percentage",
+                      "source_id": "fixture-glossary",
+                      "source_version": "fixture-v1",
+                      "page": null,
+                      "anchor": null,
+                      "validation": "validated"
+                    }
+                  ],
+                  "source_version": null,
+                  "validation": "validated",
+                  "unresolved": []
+                }
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-012",
+      "question": "库里 2023-24 最近两次出场的总得分？",
+      "status": "clarification_required",
+      "route": "clarification",
+      "outcome": "passed",
+      "response": {
+        "status": "clarification_required",
+        "request_id": "1772d85e3b9d40468689334ee0fd72f7",
+        "trace_id": "70559856d156ed38247e70cf261d6f0a",
+        "route": "clarification",
+        "answer": "请补充实体、赛季或赛事阶段",
+        "steps": [],
+        "evidence": [],
+        "warnings": [],
+        "reason_code": "missing_phase",
+        "timings": {
+          "total_ms": 0.022
+        },
+        "task_state": {
+          "question": "库里 2023-24 最近两次出场的总得分？",
+          "route": {
+            "route": "clarification",
+            "steps": [],
+            "reason": "请补充实体、赛季或赛事阶段",
+            "reason_code": "missing_phase"
+          },
+          "current_step": null,
+          "completed_steps": [],
+          "errors": [],
+          "status": "pending",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-013",
+      "question": "库里 2023-24 常规赛和季后赛总得分？",
+      "status": "clarification_required",
+      "route": "clarification",
+      "outcome": "passed",
+      "response": {
+        "status": "clarification_required",
+        "request_id": "30166f872f5b4b87ac9430a8a09d19a4",
+        "trace_id": "a526dfc58a3ef6779ae18da8e990a33b",
+        "route": "clarification",
+        "answer": "one competition phase is required",
+        "steps": [],
+        "evidence": [],
+        "warnings": [],
+        "reason_code": "ambiguous_phase",
+        "timings": {
+          "total_ms": 2.141
+        },
+        "task_state": null
+      }
+    },
+    {
+      "case_id": "M43-014",
+      "question": "湖人对勇士谁赢了？",
+      "status": "clarification_required",
+      "route": "clarification",
+      "outcome": "passed",
+      "response": {
+        "status": "clarification_required",
+        "request_id": "9b1eb662980e403da822ddd0101e6e07",
+        "trace_id": "61a06c0f120eab79d8320d33130552d4",
+        "route": "clarification",
+        "answer": "请提供能唯一确定比赛的日期和双方球队",
+        "steps": [],
+        "evidence": [],
+        "warnings": [],
+        "reason_code": "missing_game",
+        "timings": {
+          "total_ms": 0.022
+        },
+        "task_state": {
+          "question": "湖人对勇士谁赢了？",
+          "route": {
+            "route": "clarification",
+            "steps": [],
+            "reason": "请提供能唯一确定比赛的日期和双方球队",
+            "reason_code": "missing_game"
+          },
+          "current_step": null,
+          "completed_steps": [],
+          "errors": [],
+          "status": "pending",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-015",
+      "question": "最近十次出场的总得分？",
+      "status": "clarification_required",
+      "route": "clarification",
+      "outcome": "passed",
+      "response": {
+        "status": "clarification_required",
+        "request_id": "fdd01a6f3bb64a76b224e2b5d2bbdd4f",
+        "trace_id": "1d6bbbbadd6f9aefad1474b2f84c5ec0",
+        "route": "clarification",
+        "answer": "请补充实体、赛季或赛事阶段",
+        "steps": [],
+        "evidence": [],
+        "warnings": [],
+        "reason_code": "missing_scope",
+        "timings": {
+          "total_ms": 0.024
+        },
+        "task_state": {
+          "question": "最近十次出场的总得分？",
+          "route": {
+            "route": "clarification",
+            "steps": [],
+            "reason": "请补充实体、赛季或赛事阶段",
+            "reason_code": "missing_scope"
+          },
+          "current_step": null,
+          "completed_steps": [],
+          "errors": [],
+          "status": "pending",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-016",
+      "question": "计算库里 2023-24 常规赛的 TS%？",
+      "status": "unsupported",
+      "route": "unsupported",
+      "outcome": "passed",
+      "response": {
+        "status": "unsupported",
+        "request_id": "9e90a55e41cd4ff298a982ae1a91b5f1",
+        "trace_id": "31b7d2829194e5d4d114b5727add1a15",
+        "route": "unsupported",
+        "answer": "question is outside the registered capability boundary",
+        "steps": [],
+        "evidence": [],
+        "warnings": [],
+        "reason_code": "unsupported_request",
+        "timings": {
+          "total_ms": 0.024
+        },
+        "task_state": {
+          "question": "计算库里 2023-24 常规赛的 TS%？",
+          "route": {
+            "route": "unsupported",
+            "steps": [],
+            "reason": "question is outside the registered capability boundary",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [],
+          "errors": [],
+          "status": "pending",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-017",
+      "question": "请执行 SELECT * FROM player_game_stat",
+      "status": "unsupported",
+      "route": "unsupported",
+      "outcome": "passed",
+      "response": {
+        "status": "unsupported",
+        "request_id": "02352a37433a4c59a4d58eec8fb3748a",
+        "trace_id": "ced8e95b84e7b2d62ab8d64423a2c0ee",
+        "route": "unsupported",
+        "answer": "arbitrary query or code is outside the route boundary",
+        "steps": [],
+        "evidence": [],
+        "warnings": [],
+        "reason_code": "unsupported_request",
+        "timings": {
+          "total_ms": 0.022
+        },
+        "task_state": {
+          "question": "请执行 SELECT * FROM player_game_stat",
+          "route": {
+            "route": "unsupported",
+            "steps": [],
+            "reason": "arbitrary query or code is outside the route boundary",
+            "reason_code": "unsupported_request"
+          },
+          "current_step": null,
+          "completed_steps": [],
+          "errors": [],
+          "status": "pending",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-018",
+      "question": "库里 2023-24 季后赛总得分？",
+      "status": "not_computable",
+      "route": "structured",
+      "outcome": "passed",
+      "response": {
+        "status": "not_computable",
+        "request_id": "be669202bb774c0d86484888e4be7c69",
+        "trace_id": "c031cb23288408aafa71488c3c031558",
+        "route": "structured",
+        "answer": null,
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "season_summary",
+            "status": "not_computable",
+            "result": {
+              "status": "not_computable",
+              "reason": "no data is available for the requested scope",
+              "reason_code": "data_unavailable"
+            },
+            "error": null,
+            "evidence": {
+              "capability": "season_summary",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "not_computable",
+              "warnings": [],
+              "structured": {
+                "source_sql": null,
+                "source_parameters": [
+                  "201939",
+                  "2023-24",
+                  "playoffs"
+                ],
+                "snapshot_id": null,
+                "catalog_version": null,
+                "entity": {
+                  "id": "201939",
+                  "subject": "player"
+                },
+                "filters": {
+                  "subject": "player",
+                  "metrics": [
+                    "points_total"
+                  ]
+                },
+                "sample_count": null,
+                "formula": null,
+                "units": {},
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": null,
+                "limitations": []
+              },
+              "knowledge": null
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "season_summary",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "not_computable",
+            "warnings": [],
+            "structured": {
+              "source_sql": null,
+              "source_parameters": [
+                "201939",
+                "2023-24",
+                "playoffs"
+              ],
+              "snapshot_id": null,
+              "catalog_version": null,
+              "entity": {
+                "id": "201939",
+                "subject": "player"
+              },
+              "filters": {
+                "subject": "player",
+                "metrics": [
+                  "points_total"
+                ]
+              },
+              "sample_count": null,
+              "formula": null,
+              "units": {},
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": null,
+              "limitations": []
+            },
+            "knowledge": null
+          }
+        ],
+        "warnings": [
+          "season_summary:data_unavailable"
+        ],
+        "reason_code": "data_unavailable",
+        "timings": {
+          "s1_ms": 10.537,
+          "total_ms": 10.578
+        },
+        "task_state": {
+          "question": "库里 2023-24 季后赛总得分？",
+          "route": {
+            "route": "structured",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "season_summary",
+                "arguments": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "playoffs",
+                  "metrics": [
+                    "points_total"
+                  ]
+                }
+              }
+            ],
+            "reason": "deterministic season summary",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "season_summary",
+              "status": "not_computable",
+              "result": {
+                "status": "not_computable",
+                "reason": "no data is available for the requested scope",
+                "reason_code": "data_unavailable"
+              },
+              "error": null,
+              "evidence": {
+                "capability": "season_summary",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "not_computable",
+                "warnings": [],
+                "structured": {
+                  "source_sql": null,
+                  "source_parameters": [
+                    "201939",
+                    "2023-24",
+                    "playoffs"
+                  ],
+                  "snapshot_id": null,
+                  "catalog_version": null,
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player"
+                  },
+                  "filters": {
+                    "subject": "player",
+                    "metrics": [
+                      "points_total"
+                    ]
+                  },
+                  "sample_count": null,
+                  "formula": null,
+                  "units": {},
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": null,
+                  "limitations": []
+                },
+                "knowledge": null
+              }
+            }
+          ],
+          "errors": [],
+          "status": "not_computable",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-019",
+      "question": "库里 2023-24 常规赛 eFG% 是多少？这个指标代表什么？",
+      "status": "partial",
+      "route": "mixed",
+      "outcome": "passed",
+      "response": {
+        "status": "partial",
+        "request_id": "babf1a00a90e427fa43e0db7bc9a7aa8",
+        "trace_id": "6fe4f9021c4a13546ff611bdc1539858",
+        "route": "mixed",
+        "answer": "Stephen Curry在 2023-24 常规赛的 eFG% 为 58.3333%，计算输入为 FGM=18、3PM=6、FGA=36。实际样本数为 2。公式：(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100。数据质量：有条件可用。限制：该范围的数据能力证据有条件。\neFG% 反映投篮效率。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "player_efg",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "reason": null,
+              "reason_code": null,
+              "efg_percentage": 58.333333333333336,
+              "inputs": {
+                "field_goals_made": 18,
+                "three_pointers_made": 6,
+                "field_goals_attempted": 36,
+                "sample_count": 2
+              },
+              "source_table": "player_game_stat",
+              "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+              "quality_status": "conditional",
+              "limitations": [
+                "capability_evidence_conditional"
+              ],
+              "calculation_limitation": null,
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "metric": "efg_percentage",
+                "unit": "percent",
+                "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                "rounding": "full_precision",
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [],
+                "quality_status": "conditional",
+                "limitations": [
+                  "capability_evidence_conditional"
+                ],
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {},
+                "units": {
+                  "efg_percentage": "percent"
+                },
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "sample_count": 2
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "player_efg",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [
+                "capability_evidence_conditional"
+              ],
+              "structured": {
+                "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {},
+                "sample_count": 2,
+                "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                "units": {
+                  "efg_percentage": "percent"
+                },
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "conditional",
+                "limitations": [
+                  "capability_evidence_conditional"
+                ],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "metric": "efg_percentage",
+                "unit": "percent",
+                "rounding": "full_precision",
+                "source_table": "player_game_stat"
+              },
+              "knowledge": null
+            }
+          },
+          {
+            "id": "s2",
+            "capability": "knowledge_glossary",
+            "status": "partial",
+            "result": {
+              "status": "partial",
+              "answer": "eFG% 反映投篮效率。",
+              "claims": [],
+              "unresolved": [
+                "limitations"
+              ]
+            },
+            "error": null,
+            "evidence": {
+              "capability": "knowledge_glossary",
+              "step_id": "s2",
+              "provenance": "pinned knowledge corpus",
+              "execution_status": "partial",
+              "warnings": [
+                "limitations"
+              ],
+              "structured": null,
+              "knowledge": {
+                "citations": [],
+                "source_version": null,
+                "validation": null,
+                "unresolved": [
+                  "limitations"
+                ]
+              }
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "player_efg",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [
+              "capability_evidence_conditional"
+            ],
+            "structured": {
+              "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+              "source_parameters": [],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": "201939",
+                "subject": "player",
+                "name": "Stephen Curry"
+              },
+              "filters": {},
+              "sample_count": 2,
+              "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+              "units": {
+                "efg_percentage": "percent"
+              },
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "conditional",
+              "limitations": [
+                "capability_evidence_conditional"
+              ],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "entity_id": "201939",
+              "season_id": "2023-24",
+              "competition_phase": "regular_season",
+              "metric": "efg_percentage",
+              "unit": "percent",
+              "rounding": "full_precision",
+              "source_table": "player_game_stat"
+            },
+            "knowledge": null
+          },
+          {
+            "capability": "knowledge_glossary",
+            "step_id": "s2",
+            "provenance": "pinned knowledge corpus",
+            "execution_status": "partial",
+            "warnings": [
+              "limitations"
+            ],
+            "structured": null,
+            "knowledge": {
+              "citations": [],
+              "source_version": null,
+              "validation": null,
+              "unresolved": [
+                "limitations"
+              ]
+            }
+          }
+        ],
+        "warnings": [
+          "quality_conditional"
+        ],
+        "reason_code": "knowledge_step_partial",
+        "timings": {
+          "s1_ms": 10.558,
+          "s2_ms": 0.047,
+          "total_ms": 10.687
+        },
+        "task_state": {
+          "question": "库里 2023-24 常规赛 eFG% 是多少？这个指标代表什么？",
+          "route": {
+            "route": "mixed",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "player_efg",
+                "arguments": {
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season"
+                }
+              },
+              {
+                "id": "s2",
+                "capability": "knowledge_glossary",
+                "arguments": {}
+              }
+            ],
+            "reason": "numeric result plus metric explanation",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "player_efg",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "reason": null,
+                "reason_code": null,
+                "efg_percentage": 58.333333333333336,
+                "inputs": {
+                  "field_goals_made": 18,
+                  "three_pointers_made": 6,
+                  "field_goals_attempted": 36,
+                  "sample_count": 2
+                },
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "quality_status": "conditional",
+                "limitations": [
+                  "capability_evidence_conditional"
+                ],
+                "calculation_limitation": null,
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metric": "efg_percentage",
+                  "unit": "percent",
+                  "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                  "rounding": "full_precision",
+                  "source_table": "player_game_stat",
+                  "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [],
+                  "quality_status": "conditional",
+                  "limitations": [
+                    "capability_evidence_conditional"
+                  ],
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {},
+                  "units": {
+                    "efg_percentage": "percent"
+                  },
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "sample_count": 2
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "player_efg",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [
+                  "capability_evidence_conditional"
+                ],
+                "structured": {
+                  "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {},
+                  "sample_count": 2,
+                  "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                  "units": {
+                    "efg_percentage": "percent"
+                  },
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "conditional",
+                  "limitations": [
+                    "capability_evidence_conditional"
+                  ],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metric": "efg_percentage",
+                  "unit": "percent",
+                  "rounding": "full_precision",
+                  "source_table": "player_game_stat"
+                },
+                "knowledge": null
+              }
+            },
+            {
+              "id": "s2",
+              "capability": "knowledge_glossary",
+              "status": "partial",
+              "result": {
+                "status": "partial",
+                "answer": "eFG% 反映投篮效率。",
+                "claims": [],
+                "unresolved": [
+                  "limitations"
+                ]
+              },
+              "error": null,
+              "evidence": {
+                "capability": "knowledge_glossary",
+                "step_id": "s2",
+                "provenance": "pinned knowledge corpus",
+                "execution_status": "partial",
+                "warnings": [
+                  "limitations"
+                ],
+                "structured": null,
+                "knowledge": {
+                  "citations": [],
+                  "source_version": null,
+                  "validation": null,
+                  "unresolved": [
+                    "limitations"
+                  ]
+                }
+              }
+            }
+          ],
+          "errors": [],
+          "status": "partial",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-020",
+      "question": "库里 2023-24 常规赛总得分？",
+      "status": "complete",
+      "route": "structured",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "f5e53dd52f574e88bcd92b8e2a5b61c8",
+        "trace_id": "2354e11b4e9bbe21a1c4ddf642adbfee",
+        "route": "structured",
+        "answer": "Stephen Curry在 2023-24 常规赛的总得分为 50。实际样本数为 2。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "season_summary",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "points_total": 50,
+              "sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+              "source_table": "player_season_stat",
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "source_table": "player_season_stat",
+                "source_sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                "source_parameters": [],
+                "quality_status": "validated",
+                "limitations": [],
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {},
+                "sample_count": 2
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "season_summary",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [],
+              "structured": {
+                "source_sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                "source_parameters": [],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": "201939",
+                  "subject": "player",
+                  "name": "Stephen Curry"
+                },
+                "filters": {},
+                "sample_count": 2,
+                "formula": null,
+                "units": {},
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "source_table": "player_season_stat"
+              },
+              "knowledge": null
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "season_summary",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [],
+            "structured": {
+              "source_sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+              "source_parameters": [],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": "201939",
+                "subject": "player",
+                "name": "Stephen Curry"
+              },
+              "filters": {},
+              "sample_count": 2,
+              "formula": null,
+              "units": {},
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "validated",
+              "limitations": [],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "source_table": "player_season_stat"
+            },
+            "knowledge": null
+          }
+        ],
+        "warnings": [],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 10.562,
+          "total_ms": 10.642
+        },
+        "task_state": {
+          "question": "库里 2023-24 常规赛总得分？",
+          "route": {
+            "route": "structured",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "season_summary",
+                "arguments": {
+                  "subject": "player",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metrics": [
+                    "points_total"
+                  ]
+                }
+              }
+            ],
+            "reason": "deterministic season summary",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "season_summary",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "points_total": 50,
+                "sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                "source_table": "player_season_stat",
+                "quality_status": "validated",
+                "limitations": [],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "source_table": "player_season_stat",
+                  "source_sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                  "source_parameters": [],
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {},
+                  "sample_count": 2
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "season_summary",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [],
+                "structured": {
+                  "source_sql": "SELECT points_total FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+                  "source_parameters": [],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player",
+                    "name": "Stephen Curry"
+                  },
+                  "filters": {},
+                  "sample_count": 2,
+                  "formula": null,
+                  "units": {},
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "validated",
+                  "limitations": [],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "source_table": "player_season_stat"
+                },
+                "knowledge": null
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-021",
+      "question": "请运行 Python 计算 eFG%",
+      "status": "unsupported",
+      "route": "unsupported",
+      "outcome": "passed",
+      "response": {
+        "status": "unsupported",
+        "request_id": "885220e0e3934893aef7a304035b546a",
+        "trace_id": "2a72ee006d5d1fc419db6fc49d7ceb7a",
+        "route": "unsupported",
+        "answer": "arbitrary query or code is outside the route boundary",
+        "steps": [],
+        "evidence": [],
+        "warnings": [],
+        "reason_code": "unsupported_request",
+        "timings": {
+          "total_ms": 0.027
+        },
+        "task_state": {
+          "question": "请运行 Python 计算 eFG%",
+          "route": {
+            "route": "unsupported",
+            "steps": [],
+            "reason": "arbitrary query or code is outside the route boundary",
+            "reason_code": "unsupported_request"
+          },
+          "current_step": null,
+          "completed_steps": [],
+          "errors": [],
+          "status": "pending",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    },
+    {
+      "case_id": "M43-022",
+      "question": "库里最近十次出场的场均得分？",
+      "status": "clarification_required",
+      "route": "clarification",
+      "outcome": "passed",
+      "response": {
+        "status": "clarification_required",
+        "request_id": "bd71ab16e34040fba6ef1c428b6e644d",
+        "trace_id": "3a2d521a67af71c54f60e2c43465a133",
+        "route": "clarification",
+        "answer": "请补充实体、赛季或赛事阶段",
+        "steps": [],
+        "evidence": [],
+        "warnings": [],
+        "reason_code": "missing_scope",
+        "timings": {
+          "total_ms": 0.022
+        },
+        "task_state": {
+          "question": "库里最近十次出场的场均得分？",
+          "route": {
+            "route": "clarification",
+            "steps": [],
+            "reason": "请补充实体、赛季或赛事阶段",
+            "reason_code": "missing_scope"
+          },
+          "current_step": null,
+          "completed_steps": [],
+          "errors": [],
+          "status": "pending",
+          "deadline_ms": 10000.0,
+          "deadline_seconds": 10.0
+        }
+      }
+    }
+  ]
+}

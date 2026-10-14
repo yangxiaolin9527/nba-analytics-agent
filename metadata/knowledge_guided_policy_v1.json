@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "prompt_version": "m2.0a-v1",
+  "planner_model": "deepseek-flash",
+  "embedding_model": "text-embedding-3-small",
+  "index_manifest_sha256": "187b86d6700c7882b30d96907c8386bd66375d2ca0d44fe3b5129f11e6d02b92",
+  "min_dense_score": 0.43,
+  "calibration_cases_sha256": "928ef1b76eaa7bb5e2548cd52f14af0e28899a178531b2bd99ee352ce83f5bfb",
+  "calibration_rule": "Maximize development Recall@5 with zero no-answer false acceptances; choose the highest tied threshold from 0.00..0.80 in steps of 0.01"
+}

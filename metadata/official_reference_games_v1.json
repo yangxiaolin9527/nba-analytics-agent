@@ -1,0 +1,31 @@
+{
+  "catalog_version": "1.0.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "access_date": "2026-09-25",
+  "note": "NBA official pages returned HTTP 403 in this environment. ESPN scoreboard is an independent score check where an event ID is recorded; remaining NBA URLs are pending manual verification. Score checks do not verify player statistics or historical shooting collection.",
+  "regular_season_game_count_references": {
+    "2023-24": {"expected_games": 1230, "basis": "30 teams times 82 games divided by two", "verification_status": "format_reference"},
+    "2024-25": {"expected_games": 1230, "basis": "30 teams times 82 games divided by two", "verification_status": "format_reference"}
+  },
+  "player_stat_samples": [
+    {"evidence_id":"REF-P001","game_id":"22300061","person_id":"2544","player":"LeBron James","verification_status":"independent_score_and_boxscore_match","source_url":"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401584689","expected":{"points":21,"rebounds_total":8,"assists":5,"field_goals_made":10,"three_pointers_made":1,"field_goals_attempted":16}},
+    {"evidence_id":"REF-P002","game_id":"22400061","person_id":"1628369","player":"Jayson Tatum","verification_status":"independent_score_and_boxscore_match","source_url":"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401704627","expected":{"points":37,"rebounds_total":4,"assists":10,"field_goals_made":14,"three_pointers_made":8,"field_goals_attempted":18}}
+  ],
+  "team_stat_samples": [
+    {"evidence_id":"REF-T001","game_id":"22300061","team_id":"1610612747","verification_status":"independent_boxscore_match","source_url":"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401584689","expected":{"points":107,"rebounds_total":44,"assists":23}},
+    {"evidence_id":"REF-T002","game_id":"22300061","team_id":"1610612743","verification_status":"independent_boxscore_match","source_url":"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401584689","expected":{"points":119,"rebounds_total":42,"assists":29}}
+  ],
+  "samples": [
+    {"evidence_id":"REF-001","game_id":"22300061","season_id":"2023-24","phase":"regular_season","source_url":"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401584689","official_url":"https://www.nba.com/game/0022300061/box-score","verification_status":"independent_score_match","evidence_tags":["game_score"],"expected":{"home_score":119,"away_score":107}},
+    {"evidence_id":"REF-002","game_id":"22301200","season_id":"2023-24","phase":"regular_season","source_url":"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401585828","official_url":"https://www.nba.com/game/0022301200/box-score","verification_status":"independent_score_match","evidence_tags":["game_score"],"expected":{"home_score":121,"away_score":82}},
+    {"evidence_id":"REF-003","game_id":"42300131","season_id":"2023-24","phase":"playoffs","source_url":"https://www.nba.com/game/0042300131/box-score","official_url":"https://www.nba.com/game/0042300131/box-score","verification_status":"pending_external_check","evidence_tags":[],"expected":{"home_score":97,"away_score":83}},
+    {"evidence_id":"REF-004","game_id":"42300405","season_id":"2023-24","phase":"playoffs","source_url":"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401656363","official_url":"https://www.nba.com/game/0042300405/box-score","verification_status":"independent_score_match","evidence_tags":["game_score"],"expected":{"home_score":106,"away_score":88}},
+    {"evidence_id":"REF-005","game_id":"22301230","season_id":"2023-24","phase":"regular_season","source_url":"https://www.nba.com/game/0022301230/box-score","official_url":"https://www.nba.com/game/0022301230/box-score","verification_status":"pending_external_check","evidence_tags":[],"expected":{"home_score":133,"away_score":89}},
+    {"evidence_id":"REF-006","game_id":"62300001","season_id":"2023-24","phase":"cup_championship","source_url":"https://www.nba.com/game/0062300001/box-score","official_url":"https://www.nba.com/game/0062300001/box-score","verification_status":"pending_external_check","evidence_tags":[],"expected":{"home_score":123,"away_score":109}},
+    {"evidence_id":"REF-007","game_id":"22400061","season_id":"2024-25","phase":"regular_season","source_url":"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401704627","official_url":"https://www.nba.com/game/0022400061/box-score","verification_status":"independent_score_match","evidence_tags":["game_score"],"expected":{"home_score":132,"away_score":109}},
+    {"evidence_id":"REF-008","game_id":"22401200","season_id":"2024-25","phase":"regular_season","source_url":"https://www.nba.com/game/0022401200/box-score","official_url":"https://www.nba.com/game/0022401200/box-score","verification_status":"pending_external_check","evidence_tags":[],"expected":{"home_score":109,"away_score":98}},
+    {"evidence_id":"REF-009","game_id":"42400131","season_id":"2024-25","phase":"playoffs","source_url":"https://www.nba.com/game/0042400131/box-score","official_url":"https://www.nba.com/game/0042400131/box-score","verification_status":"pending_external_check","evidence_tags":[],"expected":{"home_score":117,"away_score":98}},
+    {"evidence_id":"REF-010","game_id":"42400407","season_id":"2024-25","phase":"playoffs","source_url":"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401766128","official_url":"https://www.nba.com/game/0042400407/box-score","verification_status":"independent_score_match","evidence_tags":["game_score"],"expected":{"home_score":103,"away_score":91}},
+    {"evidence_id":"REF-011","game_id":"62400001","season_id":"2024-25","phase":"cup_championship","source_url":"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401734908","official_url":"https://www.nba.com/game/0062400001/box-score","verification_status":"independent_score_match","evidence_tags":["game_score"],"expected":{"home_score":81,"away_score":97}}
+  ]
+}

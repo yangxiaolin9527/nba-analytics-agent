@@ -1,0 +1,148 @@
+{
+  "catalog_version": "0.5.2",
+  "model_status": "m1-physical-sqlite-baseline",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "semantics_rules": {
+    "game": "metadata/game_semantics_v1.json",
+    "player_quality": "metadata/player_quality_v1.json",
+    "reference_games": "metadata/official_reference_games_v1.json",
+    "capability_matrix": "data/profile/eoin-v515-capability-matrix.json",
+    "agent_evaluation_baseline": "metadata/agent_evaluation_baseline_v1.json"
+  },
+  "query_policy": {
+    "read_only": true,
+    "allowed_layers": ["conformed", "mart"],
+    "required_filters": [],
+    "recommended_filters": ["season_id", "competition_phase"],
+    "unknown_availability": "reject_or_request_clarification",
+    "capability_lookup_key": ["season_id", "competition_phase", "subject", "metric"],
+    "validated": "query with normal provenance and entity-level checks",
+    "conditional": "query only with limitation and sample coverage disclosed",
+    "unsupported": "reject affected metric or filter; retain other supported parts",
+    "entity_level_check_required": true
+  },
+  "relations": {
+    "game_team_participation.game_id": "game.game_id",
+    "game_team_participation.team_id": "team_identity.team_id",
+    "game_team_participation.opponent_team_id": "team_identity.team_id",
+    "player_game_stat.game_id": "game.game_id",
+    "player_game_stat.person_id": "player_identity.person_id",
+    "player_game_stat.team_id": "team_identity.team_id",
+    "team_game_stat.game_id": "game.game_id",
+    "team_game_stat.team_id": "team_identity.team_id"
+  },
+  "tables": {
+    "source_file": {
+      "layer": "lineage",
+      "grain": "one source file per snapshot",
+      "primary_key": ["snapshot_id", "file_name"],
+      "columns": ["snapshot_id", "file_name", "file_sha256", "row_count"],
+      "source": "M1 frozen CSV snapshot"
+    },
+    "source_record": {
+      "layer": "lineage",
+      "grain": "one raw CSV row",
+      "primary_key": ["snapshot_id", "file_name", "source_row_id"],
+      "columns": ["snapshot_id", "file_name", "source_row_id", "raw_record_json"],
+      "source": "M1 frozen CSV snapshot"
+    },
+    "game": {
+      "layer": "conformed",
+      "grain": "one row per game",
+      "primary_key": ["game_id"],
+      "columns": [
+        "game_id",
+        "game_date",
+        "season_id",
+        "competition_phase",
+        "raw_game_type",
+        "raw_game_label",
+        "raw_game_sub_label",
+        "season_status",
+        "phase_status",
+        "home_team_id",
+        "away_team_id",
+        "home_score",
+        "away_score"
+      ],
+      "source": "Games.csv",
+      "quality_filters": ["game_id_unique", "season_mapping_valid", "competition_phase_known"]
+    },
+    "player_identity": {
+      "layer": "conformed",
+      "grain": "one row per source player identity",
+      "primary_key": ["person_id"],
+      "columns": ["person_id", "display_name", "identity_quality"],
+      "source": "Players.csv or PlayerStatistics.csv fallback"
+    },
+    "team_identity": {
+      "layer": "conformed",
+      "grain": "one source team ID; history intervals remain in source_record",
+      "primary_key": ["team_id"],
+      "columns": ["team_id", "display_name", "identity_quality"],
+      "source": "TeamHistories.csv or game facts fallback",
+      "source_key_mapping": {
+        "teamId": "team_id",
+        "seasonFounded": "valid_from",
+        "seasonActiveTill": "valid_to"
+      }
+    },
+    "game_team_participation": {
+      "layer": "conformed",
+      "grain": "one row per team in a game",
+      "primary_key": ["game_id", "team_id"],
+      "columns": ["game_id", "team_id", "opponent_team_id", "home_away", "team_score", "opponent_score", "win", "participation_quality"],
+      "source": "Game plus TeamGameStat",
+      "quality_filters": ["completed_game_has_two_teams", "team_id_matches_game"]
+    },
+    "player_game_stat": {
+      "layer": "conformed",
+      "grain": "one source player record per game",
+      "primary_key": ["source_snapshot_id", "source_row_id"],
+      "candidate_key": ["game_id", "person_id", "team_id"],
+      "columns": ["source_snapshot_id", "source_row_id", "game_id", "person_id", "team_id", "opponent_team_id", "appearance_status", "minutes_quality", "raw_comment", "points", "assists", "rebounds_total", "field_goals_made", "three_pointers_made", "field_goals_attempted", "raw_record_json"],
+      "source": "PlayerStatistics.csv",
+      "quality_filters": ["game_reference_valid", "participation_status_in_played_or_played_inferred", "metric_row_valid", "historical_metric_availability_verified"]
+    },
+    "team_game_stat": {
+      "layer": "conformed",
+      "grain": "one source team record per game",
+      "primary_key": ["source_snapshot_id", "source_row_id"],
+      "candidate_key": ["game_id", "team_id"],
+      "columns": ["source_snapshot_id", "source_row_id", "game_id", "team_id", "opponent_team_id", "team_score", "opponent_score", "home_away", "win", "assists", "rebounds_total", "field_goals_made", "three_pointers_made", "field_goals_attempted", "raw_record_json"],
+      "source": "TeamStatistics.csv",
+      "quality_filters": ["game_reference_valid", "team_id_matches_game", "shooting_counts_valid"]
+    },
+    "player_season_stat": {
+      "layer": "mart",
+      "grain": "one player per season and competition phase",
+      "primary_key": ["person_id", "season_id", "competition_phase"],
+      "columns": ["person_id", "season_id", "competition_phase", "games_appeared", "points_total", "assists_total", "rebounds_total", "field_goals_made", "three_pointers_made", "field_goals_attempted"],
+      "source": "Validated player_game_stat",
+      "quality_filters": ["appearance_status_in_played_or_played_inferred", "season_mapping_valid", "historical_metric_availability_verified"]
+    },
+    "team_season_stat": {
+      "layer": "mart",
+      "grain": "one team per season and competition phase",
+      "primary_key": ["team_id", "season_id", "competition_phase"],
+      "columns": ["team_id", "season_id", "competition_phase", "games_played", "points_total", "assists_total", "rebounds_total"],
+      "source": "Validated team_game_stat",
+      "quality_filters": ["team_participation_valid", "season_mapping_valid"]
+    }
+  },
+  "metrics": {
+    "efg_percentage": {
+      "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+      "inputs": ["field_goals_made", "three_pointers_made", "field_goals_attempted"],
+      "unit": "percent",
+      "availability": "field_goals_attempted > 0 and all inputs valid and historical availability verified",
+      "do_not_average_rows": true
+    },
+    "points_per_game": {
+      "formula": "points_total / games_appeared",
+      "inputs": ["points_total", "games_appeared"],
+      "unit": "points per appearance",
+      "availability": "games_appeared > 0"
+    }
+  }
+}

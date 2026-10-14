@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "split": "unreviewed_holdout",
+  "index": "data/indexes/knowledge-500-dense",
+  "label_policy": "Independent holdout drafted from unused indexed nodes. It is not blind after repository inspection and must be human-reviewed before any promotion claim.",
+  "case_hash_policy": "The evaluator records the manifest hash, corpus manifest hash, index hash, and model configuration.",
+  "cases": [
+    {
+      "id": "M25-001", "question": "What does the NBA glossary mean by Passes Made?", "language": "en",
+      "intent": "glossary", "question_type": "single", "question_scope": "definition",
+      "expected_outcome": "answer", "answerable": true,
+      "expected_facts": ["Passes Made is the total number of passes made by a player or team per game."],
+      "supporting_citation_ids": ["nba-stats-glossary:0bac3b397eabdb2f"],
+      "fact_evidence": [{"fact": "Passes Made is the total number of passes made by a player or team per game.", "citation_id": "nba-stats-glossary:0bac3b397eabdb2f", "source_id": "nba-stats-glossary", "page": null, "anchor": "passes_made", "quote": "The number of total passes made by a player or team per game"}],
+      "acceptable_evidence": [{"fact": "Passes Made is the total number of passes made by a player or team per game.", "citation_ids": ["nba-stats-glossary:0bac3b397eabdb2f"], "locations": [{"source_id": "nba-stats-glossary", "page": null, "anchor": "passes_made"}], "quote": "The number of total passes made by a player or team per game"}]
+    },
+    {
+      "id": "M25-002", "question": "How is Rebound Chance Percentage calculated?", "language": "en",
+      "intent": "glossary", "question_type": "single", "question_scope": "definition and formula",
+      "expected_outcome": "answer", "answerable": true,
+      "expected_facts": ["Rebound Chance Percentage is REB divided by REB Chances."],
+      "supporting_citation_ids": ["nba-stats-glossary:fc467330ef7603a5"],
+      "fact_evidence": [{"fact": "Rebound Chance Percentage is REB divided by REB Chances.", "citation_id": "nba-stats-glossary:fc467330ef7603a5", "source_id": "nba-stats-glossary", "page": null, "anchor": "reb_chancepct", "quote": "Formula\n(REB)/(REB Chances)"}],
+      "acceptable_evidence": [{"fact": "Rebound Chance Percentage is REB divided by REB Chances.", "citation_ids": ["nba-stats-glossary:fc467330ef7603a5"], "locations": [{"source_id": "nba-stats-glossary", "page": null, "anchor": "reb_chancepct"}], "quote": "Formula\n(REB)/(REB Chances)"}]
+    },
+    {
+      "id": "M25-003", "question": "What is a Secondary Assist?", "language": "en",
+      "intent": "glossary", "question_type": "single", "question_scope": "definition",
+      "expected_outcome": "answer", "answerable": true,
+      "expected_facts": ["A secondary assist is awarded when a player passes to a player who records an assist within one second without dribbling."],
+      "supporting_citation_ids": ["nba-stats-glossary:bca9adbcfd67d2e1"],
+      "fact_evidence": [{"fact": "A secondary assist is awarded when a player passes to a player who records an assist within one second without dribbling.", "citation_id": "nba-stats-glossary:bca9adbcfd67d2e1", "source_id": "nba-stats-glossary", "page": null, "anchor": "secondary_assist", "quote": "A player is awarded a secondary assist if they passed the ball to a player who recorded an assist within 1 second and without dribbling"}],
+      "acceptable_evidence": [{"fact": "A secondary assist is awarded when a player passes to a player who records an assist within one second without dribbling.", "citation_ids": ["nba-stats-glossary:bca9adbcfd67d2e1"], "locations": [{"source_id": "nba-stats-glossary", "page": null, "anchor": "secondary_assist"}], "quote": "A player is awarded a secondary assist if they passed the ball to a player who recorded an assist within 1 second and without dribbling"}]
+    },
+    {
+      "id": "M25-004", "question": "What does the NBA glossary define as an uncontested defensive rebound?", "language": "en",
+      "intent": "glossary", "question_type": "single", "question_scope": "definition",
+      "expected_outcome": "answer", "answerable": true,
+      "expected_facts": ["An uncontested defensive rebound is a defensive rebound gathered while no opponent is within 3.5 feet."],
+      "supporting_citation_ids": ["nba-stats-glossary:6fab73d3f3f43594"],
+      "fact_evidence": [{"fact": "An uncontested defensive rebound is a defensive rebound gathered while no opponent is within 3.5 feet.", "citation_id": "nba-stats-glossary:6fab73d3f3f43594", "source_id": "nba-stats-glossary", "page": null, "anchor": "uncontested_dreb", "quote": "The number of defensive rebounds gathered by a player or team while no opponent is within 3.5 feet"}],
+      "acceptable_evidence": [{"fact": "An uncontested defensive rebound is a defensive rebound gathered while no opponent is within 3.5 feet.", "citation_ids": ["nba-stats-glossary:6fab73d3f3f43594"], "locations": [{"source_id": "nba-stats-glossary", "page": null, "anchor": "uncontested_dreb"}], "quote": "The number of defensive rebounds gathered by a player or team while no opponent is within 3.5 feet"}]
+    },
+    {
+      "id": "M25-005", "question": "Which player currently leads the league in passes made?", "language": "en", "intent": "outside", "question_type": "refusal", "question_scope": "live/statistical lookup",
+      "expected_outcome": "refusal", "answerable": false, "refusal_category": "statistical", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []
+    },
+    {
+      "id": "M25-006", "question": "What is the current score of the Warriors game?", "language": "en", "intent": "outside", "question_type": "refusal", "question_scope": "live game state",
+      "expected_outcome": "refusal", "answerable": false, "refusal_category": "live", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []
+    },
+    {
+      "id": "M25-007", "question": "Under NCAA rules, what is the definition of a secondary assist?", "language": "en", "intent": "outside", "question_type": "refusal", "question_scope": "outside corpus",
+      "expected_outcome": "refusal", "answerable": false, "refusal_category": "outside_corpus", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []
+    },
+    {
+      "id": "M25-008", "question": "How many passes did the leading player make last night, and what does Passes Made mean?", "language": "en", "intent": "outside", "question_type": "refusal", "question_scope": "mixed statistical and glossary",
+      "expected_outcome": "refusal", "answerable": false, "refusal_category": "mixed_domain", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []
+    }
+  ]
+}

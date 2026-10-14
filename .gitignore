@@ -1,0 +1,51 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.worktrees/
+
+# Local secrets and environment overrides
+.env
+.env.*
+!.env.example
+
+# Downloaded source datasets; keep provenance in docs, not large raw files in Git.
+data/raw/
+data/profile/
+data/indexes/
+
+# Local databases, logs, caches and editor state
+*.db
+*.sqlite
+*.sqlite3
+*.log
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.idea/
+.vscode/
+.DS_Store
+.codex/
+.agents/
+qdrant_storage/
+data/qdrant/
+.secrets/
+credentials/
+
+# Private resume workspace, fonts, original template and build artifacts.
+/resume/
+
+# Independent public release workspace, audit state and isolated dependencies.
+/.release/
+
+# User-prepared live runtime resources and private corpus manifest.
+/runtime-data/
+/metadata/knowledge_corpus_v1.json

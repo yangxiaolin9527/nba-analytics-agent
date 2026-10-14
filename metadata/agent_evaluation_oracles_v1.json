@@ -1,0 +1,42 @@
+{
+  "oracle_version": "1.0.1",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "generated_by": "scripts.relational_baseline.py",
+  "scope": "Exact deterministic baseline outputs; values are tied to this source snapshot and query contract.",
+  "cases": {
+    "AG-001": {
+      "person_id": "201939",
+      "display_name": "Stephen Curry",
+      "season_id": "2023-24",
+      "competition_phase": "regular_season",
+      "games_appeared": 74,
+      "points_total": 1956,
+      "points_per_appearance": 26.43243243243243,
+      "quality_status": "conditional",
+      "limitations": ["historical_shooting_evidence_conditional"]
+    },
+    "AG-002": {
+      "game_id": "22300061",
+      "home_score": 119,
+      "away_score": 107,
+      "team_row_count": 2
+    },
+    "AG-004": {
+      "person_id": "201939",
+      "opponent_team_id": "1610612747",
+      "season_id": "2023-24",
+      "competition_phase": "regular_season",
+      "games_appeared": 4,
+      "points_total": 132,
+      "points_per_appearance": 33.0,
+      "quality_status": "conditional",
+      "limitations": ["historical_shooting_evidence_conditional"]
+    },
+    "AG-009": {
+      "game_id": "22400061",
+      "home_score": 132,
+      "away_score": 109,
+      "team_row_count": 2
+    }
+  }
+}

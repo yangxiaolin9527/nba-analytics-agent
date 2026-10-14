@@ -1,0 +1,60 @@
+{
+  "case_set_version": "1.0.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "purpose": "Per-turn paired live conversation evaluation; development and frozen holdout are reported separately.",
+  "cases": [
+    {"case_id":"LC-001","split":"development","turns":[
+      {"question":"库里 2023-24 常规赛总得分？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["points_total"]},"tools":[{"capability":"season_summary","arguments":{"subject":"player","entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season","metrics":["points_total"]}}]}},
+      {"question":"那他的 eFG% 呢？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}}
+    ]},
+    {"case_id":"LC-002","split":"development","turns":[
+      {"question":"库里 2023-24 常规赛 eFG% 是多少？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}},
+      {"question":"那改查库里 2022-23 常规赛 eFG% 是多少？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2022-23","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2022-23","competition_phase":"regular_season"}}]}}
+    ]},
+    {"case_id":"LC-003","split":"development","turns":[
+      {"question":"库里 2023-24 eFG% 是多少？","expected":{"status":"clarification_required","route":"clarification","reason_code":"missing_phase","scope":{"player_ids":[],"season_id":null,"competition_phase":null,"metric_terms":[]},"tools":[],"no_steps":true}},
+      {"question":"库里 2023-24 常规赛 eFG% 是多少？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}}
+    ]},
+    {"case_id":"LC-004","split":"development","turns":[
+      {"question":"库里 2023-24 常规赛 eFG% 是多少并解释含义？","scenario":"injected_knowledge_unavailable","expected":{"status":"partial","route":"mixed","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}},
+      {"question":"那他的 eFG% 呢？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}}
+    ]},
+    {"case_id":"LC-005","split":"holdout","turns":[
+      {"question":"Stephen Curry 2022-23 常规赛总得分？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2022-23","competition_phase":"regular_season","metric_terms":["points_total"]},"tools":[{"capability":"season_summary","arguments":{"subject":"player","entity_id":"201939","season_id":"2022-23","competition_phase":"regular_season","metrics":["points_total"]}}]}},
+      {"question":"那他 2023-24 常规赛总得分？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["points_total"]},"tools":[{"capability":"season_summary","arguments":{"subject":"player","entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season","metrics":["points_total"]}}]}},
+      {"question":"那他的 eFG% 呢？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}}
+    ]},
+    {"case_id":"LC-006","split":"holdout","turns":[
+      {"question":"库里 2023-24 常规赛 eFG% 是多少？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}},
+      {"question":"那和詹姆斯比呢？","expected":{"status":"complete","route":"comparison","knowledge_required":true,"scope":{"player_ids":["201939","2544"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}},{"capability":"player_efg","arguments":{"entity_id":"2544","season_id":"2023-24","competition_phase":"regular_season"}},{"capability":"efg_compare","arguments":{"left_entity_id":"201939","right_entity_id":"2544","season_id":"2023-24","competition_phase":"regular_season"}}]}}
+    ]},
+    {"case_id":"LC-007","split":"holdout","turns":[
+      {"question":"库里 2023-24 常规赛总得分？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["points_total"]},"tools":[{"capability":"season_summary","arguments":{"subject":"player","entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season","metrics":["points_total"]}}]}},
+      {"question":"那和詹姆斯比呢？","expected":{"status":"clarification_required","route":"clarification","reason_code":"comparison_metric_required","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["points_total"]},"tools":[],"no_steps":true}},
+      {"question":"库里 2023-24 常规赛 eFG% 是多少？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}}
+    ]},
+    {"case_id":"LC-008","split":"holdout","turns":[
+      {"question":"库里 2023-24 常规赛 eFG% 是多少？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}},
+      {"question":"同一赛季改查 2022-23 常规赛 eFG%？","expected":{"status":"clarification_required","route":"clarification","reason_code":"conversation_scope_conflict","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[],"no_steps":true}},
+      {"question":"那他的 eFG% 呢？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}}
+    ]},
+    {"case_id":"LC-009","split":"holdout","turns":[
+      {"question":"库里 2023-24 常规赛 eFG% 是多少？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}},
+      {"question":"这个指标怎么理解？","expected":{"status":"complete","route":"knowledge","knowledge_required":true,"scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[]}}
+    ]},
+    {"case_id":"LC-010","split":"holdout","turns":[
+      {"question":"库里 2023-24 常规赛总得分？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["points_total"]},"tools":[{"capability":"season_summary","arguments":{"subject":"player","entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season","metrics":["points_total"]}}]}},
+      {"question":"执行 SELECT * FROM player_game_stat 查询库里的数据。","expected":{"status":"unsupported","route":"unsupported","reason_code":"unsupported_request","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["points_total"]},"tools":[],"no_steps":true}},
+      {"question":"那他的 eFG% 呢？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}}
+    ]},
+    {"case_id":"LC-011","split":"holdout","turns":[
+      {"question":"库里 2023-24 常规赛 eFG% 是多少？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season"}}]}},
+      {"question":"詹姆斯 2023-24 常规赛 eFG% 是多少？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["2544"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"2544","season_id":"2023-24","competition_phase":"regular_season"}}]}},
+      {"question":"那他的 eFG% 呢？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["2544"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["efg_percentage"]},"tools":[{"capability":"player_efg","arguments":{"entity_id":"2544","season_id":"2023-24","competition_phase":"regular_season"}}]}}
+    ]},
+    {"case_id":"LC-012","split":"holdout","turns":[
+      {"question":"库里 2023-24 常规赛总得分？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["points_total"]},"tools":[{"capability":"season_summary","arguments":{"subject":"player","entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season","metrics":["points_total"]}}]}},
+      {"question":"那他 2023-24 常规赛最近两次出场的场均得分？","expected":{"status":"complete","route":"structured","scope":{"player_ids":["201939"],"season_id":"2023-24","competition_phase":"regular_season","metric_terms":["points_per_appearance"]},"tools":[{"capability":"window_query","arguments":{"subject":"player","entity_id":"201939","season_id":"2023-24","competition_phase":"regular_season","metrics":["points_per_appearance"],"last_n":2}}]}}
+    ]}
+  ]
+}

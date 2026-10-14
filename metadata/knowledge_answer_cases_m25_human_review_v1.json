@@ -1,0 +1,17 @@
+{
+  "reviewer": "YangHL",
+  "reviewer_type": "human",
+  "review_origin": "docs/m2-m25-human-review.md",
+  "human_review_confirmed": true,
+  "review_policy": "Answer rows require every in-scope fact and every returned claim to be supported by the full pinned excerpt. Refusal rows are checked against their frozen refusal category. Runtime failures remain unknown.",
+  "cases": {
+    "M25-001": {"facts_present": [true], "claim_support": [true], "notes": "语义正确且 anchor 正确定位"},
+    "M25-002": {"facts_present": [true], "claim_support": [true], "notes": "语义正确且 anchor 正确定位"},
+    "M25-003": {"facts_present": [true], "claim_support": [true], "notes": "语义正确且 anchor 正确定位"},
+    "M25-004": {"facts_present": [true], "claim_support": [true], "notes": "语义正确且 anchor 正确定位"},
+    "M25-005": {"facts_present": [], "claim_support": [], "runtime_unknown": false, "notes": "正确拒答：statistical"},
+    "M25-006": {"facts_present": [], "claim_support": [], "runtime_unknown": false, "notes": "正确拒答：live"},
+    "M25-007": {"facts_present": [], "claim_support": [], "runtime_unknown": false, "notes": "正确拒答：outside_corpus"},
+    "M25-008": {"facts_present": [], "claim_support": [], "runtime_unknown": false, "notes": "正确拒答：mixed_domain"}
+  }
+}

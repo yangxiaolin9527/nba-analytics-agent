@@ -1,0 +1,47 @@
+{
+  "case_set_version": "1.0.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "oracle_method": "Independent read-only joins of game with player_game_stat or team_game_stat and game_team_participation; rows manually fixed before scoring the API.",
+  "cases": [
+    {
+      "case_id": "M110A-001",
+      "request": {"subject": "player", "entity_id": "201939", "season_id": "2023-24", "competition_phase": "regular_season", "metrics": ["points_total", "games_appeared", "points_per_appearance"], "last_n": 10},
+      "expected": {"status": "complete", "values": {"points_total": 238, "games_appeared": 10, "points_per_appearance": 23.8}, "actual_sample_count": 10, "available_sample_count": 74, "selected_game_ids": ["22301044", "22301049", "22301062", "22301085", "22300589", "22301113", "22301097", "22301155", "22301169", "22301182"], "actual_date_from": "2024-03-26", "actual_date_to": "2024-04-12", "quality_status": "validated", "limitations": [], "source_table": "player_game_stat"}
+    },
+    {
+      "case_id": "M110A-002",
+      "request": {"subject": "player", "entity_id": "2544", "season_id": "2023-24", "competition_phase": "playoffs", "metrics": ["points_total", "games_appeared", "points_per_appearance"], "last_n": 10},
+      "expected": {"status": "partial", "values": {"points_total": 139, "games_appeared": 5, "points_per_appearance": 27.8}, "actual_sample_count": 5, "available_sample_count": 5, "selected_game_ids": ["42300151", "42300152", "42300153", "42300154", "42300155"], "actual_date_from": "2024-04-20", "actual_date_to": "2024-04-29", "quality_status": "conditional", "limitations": ["season_completeness_not_checked", "capability_evidence_conditional"], "source_table": "player_game_stat"}
+    },
+    {
+      "case_id": "M110A-003",
+      "request": {"subject": "team", "entity_id": "1610612747", "season_id": "2023-24", "competition_phase": "regular_season", "metrics": ["points_total", "games_played"], "last_n": 10},
+      "expected": {"status": "complete", "values": {"points_total": 1195, "games_played": 10}, "actual_sample_count": 10, "available_sample_count": 82, "selected_game_ids": ["22301055", "22301063", "22301078", "22301094", "22301103", "22301127", "22301143", "22301155", "22301177", "22301195"], "actual_date_from": "2024-03-27", "actual_date_to": "2024-04-14", "quality_status": "validated", "limitations": [], "source_table": "team_game_stat"}
+    },
+    {
+      "case_id": "M110A-004",
+      "request": {"subject": "team", "entity_id": "1610612747", "season_id": "2023-24", "competition_phase": "playoffs", "metrics": ["points_total", "games_played"], "date_from": "2024-04-20", "date_to": "2024-04-29"},
+      "expected": {"status": "complete", "values": {"points_total": 532, "games_played": 5}, "actual_sample_count": 5, "available_sample_count": 5, "selected_game_ids": ["42300151", "42300152", "42300153", "42300154", "42300155"], "actual_date_from": "2024-04-20", "actual_date_to": "2024-04-29", "quality_status": "conditional", "limitations": ["season_completeness_not_checked", "capability_evidence_conditional"], "source_table": "team_game_stat"}
+    },
+    {
+      "case_id": "M110A-005",
+      "request": {"subject": "player", "entity_id": "201939", "season_id": "2023-24", "competition_phase": "regular_season", "metrics": ["points_total", "games_appeared", "points_per_appearance"], "opponent_team_id": "1610612747"},
+      "expected": {"status": "complete", "values": {"points_total": 132, "games_appeared": 4, "points_per_appearance": 33.0}, "actual_sample_count": 4, "available_sample_count": 4, "selected_game_ids": ["22300650", "22300802", "22300973", "22301155"], "actual_date_from": "2024-01-27", "actual_date_to": "2024-04-09", "quality_status": "validated", "limitations": [], "source_table": "player_game_stat"}
+    },
+    {
+      "case_id": "M110A-006",
+      "request": {"subject": "team", "entity_id": "1610612747", "season_id": "2023-24", "competition_phase": "regular_season", "metrics": ["points_total", "games_played"], "opponent_team_id": "1610612744"},
+      "expected": {"status": "complete", "values": {"points_total": 496, "games_played": 4}, "actual_sample_count": 4, "available_sample_count": 4, "selected_game_ids": ["22300650", "22300802", "22300973", "22301155"], "actual_date_from": "2024-01-27", "actual_date_to": "2024-04-09", "quality_status": "unverified", "limitations": ["capability_not_profiled"], "source_table": "team_game_stat"}
+    },
+    {
+      "case_id": "M110A-007",
+      "request": {"subject": "player", "entity_id": "201939", "season_id": "2023-24", "competition_phase": "regular_season", "metrics": ["points_total", "games_appeared", "points_per_appearance"], "date_from": "2024-03-26", "date_to": "2024-03-31"},
+      "expected": {"status": "complete", "values": {"points_total": 90, "games_appeared": 4, "points_per_appearance": 22.5}, "actual_sample_count": 4, "available_sample_count": 4, "selected_game_ids": ["22301044", "22301049", "22301062", "22301085"], "actual_date_from": "2024-03-26", "actual_date_to": "2024-03-31", "quality_status": "validated", "limitations": [], "source_table": "player_game_stat"}
+    },
+    {
+      "case_id": "M110A-008",
+      "request": {"subject": "player", "entity_id": "201939", "season_id": "2023-24", "competition_phase": "regular_season", "metrics": ["points_total"], "date_from": "2025-01-01"},
+      "expected": {"status": "not_computable", "reason_code": "no_observation", "quality_status": "unverified", "limitations": []}
+    }
+  ]
+}

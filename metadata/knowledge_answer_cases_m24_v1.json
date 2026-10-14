@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "split": "blind_holdout",
+  "index": "data/indexes/knowledge-500-dense",
+  "label_policy": "Frozen before M2.4 live queries. A supported answer requires every expected fact with semantic source support; exact gold citations are diagnostic. Each fact_evidence quote is verbatim from the pinned nodes.json. Refusals have no gold facts or citations.",
+  "cases": [
+    {
+      "id": "M24-001", "question": "球员因违反体育道德行为收到一次或两次技术犯规时，驱逐规则是什么？", "language": "zh", "intent": "rules", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["A player, coach, trainer, or bench person may be ejected for one unsportsmanlike act and must be ejected for two."],
+      "supporting_citation_ids": ["nba-rulebook-2025-26:f501655f59020238"],
+      "fact_evidence": [{"fact": "A player, coach, trainer, or bench person may be ejected for one unsportsmanlike act and must be ejected for two.", "citation_id": "nba-rulebook-2025-26:f501655f59020238", "source_id": "nba-rulebook-2025-26", "page": 41, "anchor": null, "quote": "Any of these offenders may be ejected \nfor committing only one unsportsmanlike act, and they must be ejected for committing two \nunsportsmanlike acts."}]
+    },
+    {
+      "id": "M24-002", "question": "When officials are unsure whether a called personal foul was a clear-path-to-the-basket foul, is that listed as an instant replay trigger?", "language": "en", "intent": "rules", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["Yes. Uncertainty about whether a called personal foul meets clear-path criteria is listed as an instant replay trigger."],
+      "supporting_citation_ids": ["nba-rulebook-2025-26:49bc3e425f821df3"],
+      "fact_evidence": [{"fact": "Yes. Uncertainty about whether a called personal foul meets clear-path criteria is listed as an instant replay trigger.", "citation_id": "nba-rulebook-2025-26:49bc3e425f821df3", "source_id": "nba-rulebook-2025-26", "page": 51, "anchor": null, "quote": "Officials are not reasonably certain whether a personal foul called at any time  \nduring a game met the criteria for a clear-path-to-the-basket foul."}]
+    },
+    {
+      "id": "M24-003", "question": "裁判因犯规启动即时回放后，可否核查该犯规前是否已发生八秒未过半场违例？", "language": "zh", "intent": "rules", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["Yes. The review may determine whether an eight-second backcourt violation occurred before the player was fouled."],
+      "supporting_citation_ids": ["nba-rulebook-2025-26:8aae19fa1722939b"],
+      "fact_evidence": [{"fact": "Yes. The review may determine whether an eight-second backcourt violation occurred before the player was fouled.", "citation_id": "nba-rulebook-2025-26:8aae19fa1722939b", "source_id": "nba-rulebook-2025-26", "page": 53, "anchor": null, "quote": "Whether an 8-second backcourt violation occurred before the player was fouled."}]
+    },
+    {
+      "id": "M24-004", "question": "In a replay about whether a fouled shooter was attempting a two- or three-point field goal, when must the review occur?", "language": "en", "intent": "rules", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["The review must occur before the shooter releases the first free throw, throughout the game."],
+      "supporting_citation_ids": ["nba-rulebook-2025-26:d127642b578025a4"],
+      "fact_evidence": [{"fact": "The review must occur before the shooter releases the first free throw, throughout the game.", "citation_id": "nba-rulebook-2025-26:d127642b578025a4", "source_id": "nba-rulebook-2025-26", "page": 54, "anchor": null, "quote": "During the entire game, the review must take place prior to the shooter releasing the  \nfirst free throw attempt."}]
+    },
+    {
+      "id": "M24-005", "question": "打架犯规如何处罚参与者？", "language": "zh", "intent": "rules", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["No free throws are attempted for fighting fouls and the participants are ejected immediately."],
+      "supporting_citation_ids": ["nba-rulebook-2025-26:dd73b83780f8d480"],
+      "fact_evidence": [{"fact": "No free throws are attempted for fighting fouls and the participants are ejected immediately.", "citation_id": "nba-rulebook-2025-26:dd73b83780f8d480", "source_id": "nba-rulebook-2025-26", "page": 43, "anchor": null, "quote": "No free  \nthrows will be attempted. The participants will be ejected immediately."}]
+    },
+    {
+      "id": "M24-006", "question": "What is the minimum number of dressed, eligible players for a regular-season game versus a playoff game?", "language": "en", "intent": "rules", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["A team needs at least eight dressed, eligible and able players in a regular-season game and nine in a playoff game."],
+      "supporting_citation_ids": ["nba-rulebook-2025-26:294fe7f2151565f6"],
+      "fact_evidence": [{"fact": "A team needs at least eight dressed, eligible and able players in a regular-season game and nine in a playoff game.", "citation_id": "nba-rulebook-2025-26:294fe7f2151565f6", "source_id": "nba-rulebook-2025-26", "page": 44, "anchor": null, "quote": "A team must have a minimum of eight players dressed and eligible and able to play in each \npreseason and regular season game and nine in each Play-In and playoff game."}]
+    },
+    {
+      "id": "M24-007", "question": "挥拳没有击中对手，经即时回放确认后，球员面临什么驱逐和停赛处罚？", "language": "zh", "intent": "rules", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["A punch is unsportsmanlike whether it connects or not; after replay confirmation, the player is ejected and suspended at least one game."],
+      "supporting_citation_ids": ["nba-rulebook-2025-26:9cbe5d8cc7b9450f"],
+      "fact_evidence": [{"fact": "A punch is unsportsmanlike whether it connects or not; after replay confirmation, the player is ejected and suspended at least one game.", "citation_id": "nba-rulebook-2025-26:9cbe5d8cc7b9450f", "source_id": "nba-rulebook-2025-26", "page": 49, "anchor": null, "quote": "Any player who throws a punch, whether it connects or not, has committed an  \nunsportsmanlike act. He will be ejected following confirmation during review by instant  \nreplay and suspended for a minimum of one game."}]
+    },
+    {
+      "id": "M24-008", "question": "If a defensive coach's challenge overturns a foul called after the shooter started a made shot, does the basket count and who gets the next possession?", "language": "en", "intent": "rules", "question_type": "multipart", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["The made basket counts despite the overturned defensive foul.", "The defensive team receives the ball for the next possession."],
+      "supporting_citation_ids": ["nba-rulebook-2025-26:5c3e305db4316b06"],
+      "fact_evidence": [
+        {"fact": "The made basket counts despite the overturned defensive foul.", "citation_id": "nba-rulebook-2025-26:5c3e305db4316b06", "source_id": "nba-rulebook-2025-26", "page": 64, "anchor": null, "quote": "the basket shall count (regardless of when the whistle sounded)"},
+        {"fact": "The defensive team receives the ball for the next possession.", "citation_id": "nba-rulebook-2025-26:5c3e305db4316b06", "source_id": "nba-rulebook-2025-26", "page": 64, "anchor": null, "quote": "the \ndefensive team is awarded the ball to start the next possession"}
+      ]
+    },
+    {
+      "id": "M24-009", "question": "球队挑战出界判罚时，回放官员除核对出界判罚外，还能核查比赛计时和进攻计时是否先到时吗？请分别说明。", "language": "zh", "intent": "rules", "question_type": "multipart", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["The Replay Center Official may check whether the game clock expired before the ball went out of bounds.", "The Replay Center Official may check whether the shot clock expired before the ball went out of bounds."],
+      "supporting_citation_ids": ["nba-rulebook-2025-26:0f358aaa6faed6d8"],
+      "fact_evidence": [
+        {"fact": "The Replay Center Official may check whether the game clock expired before the ball went out of bounds.", "citation_id": "nba-rulebook-2025-26:0f358aaa6faed6d8", "source_id": "nba-rulebook-2025-26", "page": 62, "anchor": null, "quote": "Whether the game clock expired prior to the ball being out-of-bounds;"},
+        {"fact": "The Replay Center Official may check whether the shot clock expired before the ball went out of bounds.", "citation_id": "nba-rulebook-2025-26:0f358aaa6faed6d8", "source_id": "nba-rulebook-2025-26", "page": 62, "anchor": null, "quote": "Whether the shot clock expired prior to the ball being out-of-bounds;"}
+      ]
+    },
+    {
+      "id": "M24-010", "question": "What space must a screener leave when setting a screen behind a stationary opponent?", "language": "en", "intent": "rules", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["The stationary opponent must be able to take a normal step backward without contact."],
+      "supporting_citation_ids": ["nba-rulebook-2025-26:2b1bcac88ededceb"],
+      "fact_evidence": [{"fact": "The stationary opponent must be able to take a normal step backward without contact.", "citation_id": "nba-rulebook-2025-26:2b1bcac88ededceb", "source_id": "nba-rulebook-2025-26", "page": 66, "anchor": null, "quote": "the opponent must be able to take a normal  \nstep backward without contact."}]
+    },
+    {
+      "id": "M24-011", "question": "调整后的防守篮板机会率衡量什么？其公式为何要减去延让的防守篮板机会？", "language": "zh", "intent": "glossary", "question_type": "multipart", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["Adjusted defensive rebound chance percentage is the percentage of defensive rebound chances converted into rebounds, excluding deferred rebounds.", "Its formula is DREB divided by DREB chances minus deferred DREB chances."],
+      "supporting_citation_ids": ["nba-stats-glossary:64ecee96811e65d6"],
+      "fact_evidence": [
+        {"fact": "Adjusted defensive rebound chance percentage is the percentage of defensive rebound chances converted into rebounds, excluding deferred rebounds.", "citation_id": "nba-stats-glossary:64ecee96811e65d6", "source_id": "nba-stats-glossary", "page": null, "anchor": "adjusted_dreb_chance_pct", "quote": "Percentage of rebounds gathered when given a rebound chance on defense; excludes all deferred rebounds"},
+        {"fact": "Its formula is DREB divided by DREB chances minus deferred DREB chances.", "citation_id": "nba-stats-glossary:64ecee96811e65d6", "source_id": "nba-stats-glossary", "page": null, "anchor": "adjusted_dreb_chance_pct", "quote": "(DREB)/(DREB Chances - Deferred DREB Chances)"}
+      ]
+    },
+    {
+      "id": "M24-012", "question": "In the NBA glossary, what event contributes to And One Frequency?", "language": "en", "intent": "glossary", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["An and-one play is a made field goal with an awarded free throw because of a shooting foul; the metric is the percentage of plays with that result."],
+      "supporting_citation_ids": ["nba-stats-glossary:9a7f2b6c6d466d0f"],
+      "fact_evidence": [{"fact": "An and-one play is a made field goal with an awarded free throw because of a shooting foul; the metric is the percentage of plays with that result.", "citation_id": "nba-stats-glossary:9a7f2b6c6d466d0f", "source_id": "nba-stats-glossary", "page": null, "anchor": "and_one_freq", "quote": "The percentage of plays where a player or team makes a field goal while also being awarded a free throw attempt due to a shooting foul"}]
+    },
+    {
+      "id": "M24-013", "question": "统计中的 Boxouts 要满足怎样的身体接触和篮板结果条件？", "language": "zh", "intent": "glossary", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["A boxout involves physical contact with an opponent pursuing a rebound, a visible effort to disadvantage them, and successfully preventing them from securing it."],
+      "supporting_citation_ids": ["nba-stats-glossary:c577f3df2e8be6af"],
+      "fact_evidence": [{"fact": "A boxout involves physical contact with an opponent pursuing a rebound, a visible effort to disadvantage them, and successfully preventing them from securing it.", "citation_id": "nba-stats-glossary:c577f3df2e8be6af", "source_id": "nba-stats-glossary", "page": null, "anchor": "boxouts", "quote": "The number of times a player made physical contact with an opponent who was actively pursuing a rebound, showed visible progress or strong effort in disadvantaging the opponent, and successfully prevented that opponent from securing the rebound"}]
+    },
+    {
+      "id": "M24-014", "question": "For adjusted assist-to-pass percentage, which three kinds of assists count, and what is the denominator?", "language": "en", "intent": "glossary", "question_type": "multipart", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["The numerator includes assists, free-throw assists, and secondary assists.", "The denominator is passes made by the player or team."],
+      "supporting_citation_ids": ["nba-stats-glossary:3149e58504b81630"],
+      "fact_evidence": [
+        {"fact": "The numerator includes assists, free-throw assists, and secondary assists.", "citation_id": "nba-stats-glossary:3149e58504b81630", "source_id": "nba-stats-glossary", "page": null, "anchor": "ast_to_passpct_adj", "quote": "assists, free throw assists, or secondary assists"},
+        {"fact": "The denominator is passes made by the player or team.", "citation_id": "nba-stats-glossary:3149e58504b81630", "source_id": "nba-stats-glossary", "page": null, "anchor": "ast_to_passpct_adj", "quote": "(Adjusted Assists)/(Passes Made)"}
+      ]
+    },
+    {
+      "id": "M24-015", "question": "Contested DREB% 是如何计算的？", "language": "zh", "intent": "glossary", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["Contested DREB% is the share of a player's defensive rebounds collected with an opponent within 3.5 feet, divided by all defensive rebounds."],
+      "supporting_citation_ids": ["nba-stats-glossary:0636ef339681cea7"],
+      "fact_evidence": [{"fact": "Contested DREB% is the share of a player's defensive rebounds collected with an opponent within 3.5 feet, divided by all defensive rebounds.", "citation_id": "nba-stats-glossary:0636ef339681cea7", "source_id": "nba-stats-glossary", "page": null, "anchor": "contested_drebpct", "quote": "The percentage of defensive rebounds the player collects while an opponent is within 3.5 feet of the rebounder\nFormula\n(Contested DREB)/(DREB)"}]
+    },
+    {
+      "id": "M24-016", "question": "What counts as a deferred rebound chance?", "language": "en", "intent": "glossary", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["A player has a rebound chance but defers the rebound to a teammate."],
+      "supporting_citation_ids": ["nba-stats-glossary:9ee244caf7f3491a"],
+      "fact_evidence": [{"fact": "A player has a rebound chance but defers the rebound to a teammate.", "citation_id": "nba-stats-glossary:9ee244caf7f3491a", "source_id": "nba-stats-glossary", "page": null, "anchor": "deferred_reb_chances", "quote": "a player has a rebound chance, but defers the rebound to a teammate"}]
+    },
+    {
+      "id": "M24-017", "question": "NBA 统计的 Deflections 是否包含对投篮的碰球？它实际统计什么？", "language": "zh", "intent": "glossary", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["Deflections count a defender's hand on the ball on a non-shot attempt, excluding shot attempts."],
+      "supporting_citation_ids": ["nba-stats-glossary:0592a2b0c4ebaef5"],
+      "fact_evidence": [{"fact": "Deflections count a defender's hand on the ball on a non-shot attempt, excluding shot attempts.", "citation_id": "nba-stats-glossary:0592a2b0c4ebaef5", "source_id": "nba-stats-glossary", "page": null, "anchor": "deflections", "quote": "a defensive player or team gets their hand on the ball on a non-shot attempt"}]
+    },
+    {
+      "id": "M24-018", "question": "How soon after receiving a pass must a player draw a shooting foul for the passer to get a free-throw assist?", "language": "en", "intent": "glossary", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["The recipient must draw a shooting foul within one dribble of receiving the pass."],
+      "supporting_citation_ids": ["nba-stats-glossary:2e0752b3f120c931"],
+      "fact_evidence": [{"fact": "The recipient must draw a shooting foul within one dribble of receiving the pass.", "citation_id": "nba-stats-glossary:2e0752b3f120c931", "source_id": "nba-stats-glossary", "page": null, "anchor": "ft_assists", "quote": "drew a shooting foul within one dribble of receiving the pass"}]
+    },
+    {
+      "id": "M24-019", "question": "什么样的活球争夺才会记作 Loose Balls Recovered？", "language": "zh", "intent": "glossary", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["A loose-ball recovery is gaining sole possession of a live ball controlled by neither team."],
+      "supporting_citation_ids": ["nba-stats-glossary:4a21bbe2c2c08cb3"],
+      "fact_evidence": [{"fact": "A loose-ball recovery is gaining sole possession of a live ball controlled by neither team.", "citation_id": "nba-stats-glossary:4a21bbe2c2c08cb3", "source_id": "nba-stats-glossary", "page": null, "anchor": "loose_balls_recovered", "quote": "gains sole possession of a live ball that is not in the control of either team"}]
+    },
+    {
+      "id": "M24-020", "question": "How does Average Speed Defense define the speed it measures?", "language": "en", "intent": "glossary", "question_type": "single", "answerable": true, "expected_outcome": "answer",
+      "expected_facts": ["It includes sprinting, jogging, standing and walking while on defense, measured in miles per hour."],
+      "supporting_citation_ids": ["nba-stats-glossary:cf97a26a5447c2bf"],
+      "fact_evidence": [{"fact": "It includes sprinting, jogging, standing and walking while on defense, measured in miles per hour.", "citation_id": "nba-stats-glossary:cf97a26a5447c2bf", "source_id": "nba-stats-glossary", "page": null, "anchor": "avg_speed_def", "quote": "The average speed in miles per hour of all movements (sprinting, jogging, standing, walking) by a player or team while on defense"}]
+    },
+    {"id": "M24-021", "question": "2025-26 常规赛所有球队中，哪支球队的调整后防守篮板机会率最高？", "language": "zh", "intent": "outside", "question_type": "refusal", "answerable": false, "expected_outcome": "refusal", "refusal_category": "statistical", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []},
+    {"id": "M24-022", "question": "What was the average number of boxouts per game by the 2025-26 playoff leaders?", "language": "en", "intent": "outside", "question_type": "refusal", "answerable": false, "expected_outcome": "refusal", "refusal_category": "statistical", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []},
+    {"id": "M24-023", "question": "2025-26 赛季哪名球员的罚球助攻总数最多？", "language": "zh", "intent": "outside", "question_type": "refusal", "answerable": false, "expected_outcome": "refusal", "refusal_category": "statistical", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []},
+    {"id": "M24-024", "question": "Which players are currently on the court in the live Celtics game?", "language": "en", "intent": "outside", "question_type": "refusal", "answerable": false, "expected_outcome": "refusal", "refusal_category": "live", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []},
+    {"id": "M24-025", "question": "此刻勇士队比赛的进攻计时还剩几秒？", "language": "zh", "intent": "outside", "question_type": "refusal", "answerable": false, "expected_outcome": "refusal", "refusal_category": "live", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []},
+    {"id": "M24-026", "question": "Under FIBA rules, which coach's challenges can be made in the final two minutes?", "language": "en", "intent": "outside", "question_type": "refusal", "answerable": false, "expected_outcome": "refusal", "refusal_category": "outside_corpus", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []},
+    {"id": "M24-027", "question": "2026-27 赛季 NBA 对教练挑战次数作了哪些改动？", "language": "zh", "intent": "outside", "question_type": "refusal", "answerable": false, "expected_outcome": "refusal", "refusal_category": "outside_corpus", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []},
+    {"id": "M24-028", "question": "只知道球员在三分线附近与防守者接触，能确定是否应该判进攻犯规吗？", "language": "zh", "intent": "outside", "question_type": "refusal", "answerable": false, "expected_outcome": "refusal", "refusal_category": "ambiguous", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []},
+    {"id": "M24-029", "question": "How does the NBA define a boxout, and which player led the league in boxouts last night?", "language": "en", "intent": "outside", "question_type": "refusal", "answerable": false, "expected_outcome": "refusal", "refusal_category": "mixed_domain", "expected_facts": [], "supporting_citation_ids": [], "fact_evidence": []},
+    {
+      "id": "M24-030", "question": "If a challenged foul stays assigned to the originally called player but another reviewable detail changes in the challenging team's favor, does that make the foul challenge successful?", "language": "en", "intent": "rules", "question_type": "premise_denial", "answerable": false, "expected_outcome": "premise_denial",
+      "expected_facts": ["No. A foul challenge is unsuccessful if the foul remains assigned to the originally called player, even when another reviewable matter changes in the challenging team's favor."],
+      "supporting_citation_ids": ["nba-rulebook-2025-26:ffc16769c023c67c"],
+      "fact_evidence": [{"fact": "No. A foul challenge is unsuccessful if the foul remains assigned to the originally called player, even when another reviewable matter changes in the challenging team's favor.", "citation_id": "nba-rulebook-2025-26:ffc16769c023c67c", "source_id": "nba-rulebook-2025-26", "page": 63, "anchor": null, "quote": "shall be deemed unsuccessful if the foul remains assigned to the player originally called for the \nfoul regardless of whether any other reviewable matters are changed to the challenging team’s \nbenefit."}]
+    }
+  ]
+}

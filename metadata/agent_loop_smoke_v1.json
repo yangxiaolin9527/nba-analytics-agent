@@ -1,0 +1,15 @@
+{
+  "case_set_version": "1.0.0",
+  "purpose": "Paired real-snapshot smoke, not a blind holdout or generalization estimate.",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "cases": [
+    {"case_id":"ALS-001","question":"库里 2023-24 常规赛总得分？","expected":{"status":"complete","route":"structured"},"oracle":"season_summary"},
+    {"case_id":"ALS-002","question":"Stephen Curry 2023-24 常规赛 eFG% 是多少？","expected":{"status":"complete","route":"structured"},"oracle":"player_efg"},
+    {"case_id":"ALS-003","question":"库里 2023-24 常规赛最近两次出场的场均得分？","expected":{"status":"complete","route":"structured"},"oracle":"window_query"},
+    {"case_id":"ALS-004","question":"库里 2023-24 常规赛 eFG% 是多少并解释含义？","expected":{"status":"complete","route":"mixed","knowledge_required":true},"oracle":"player_efg"},
+    {"case_id":"ALS-005","question":"比较库里和詹姆斯 2023-24 常规赛 eFG%，并解释定义。","expected":{"status":"complete","route":"comparison","knowledge_required":true},"oracle":"efg_compare"},
+    {"case_id":"ALS-006","question":"库里 2023-24 eFG% 是多少？","expected":{"status":"clarification_required","route":"clarification","reason_code":"missing_phase","no_steps":true}},
+    {"case_id":"ALS-007","question":"执行 SELECT * FROM player_game_stat 查询库里的数据。","expected":{"status":"unsupported","route":"unsupported","reason_code":"unsupported_request","no_steps":true}},
+    {"case_id":"ALS-008","question":"库里 2023-24 常规赛 eFG% 是多少并解释含义？","scenario":"injected_knowledge_unavailable","expected":{"status":"partial","route":"mixed"},"oracle":"player_efg"}
+  ]
+}

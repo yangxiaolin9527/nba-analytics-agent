@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "description": "Fixed evidence fixtures for generation-only latency and quality experiments.",
+  "cases": [
+    {
+      "id": "GEN-A-EFG",
+      "scenario": "simple_glossary",
+      "question": "什么是 eFG%（effective field goal percentage，有效投篮命中率）？它的定义和计算方式是什么？",
+      "expected_citation_ids": ["nba-stats-glossary:13f6625e16c548ac"],
+      "evidence_citation_ids": ["nba-stats-glossary:13f6625e16c548ac"]
+    },
+    {
+      "id": "GEN-B-CHARGING",
+      "scenario": "ordinary_rules",
+      "question": "什么时候吹罚带球撞人犯规（charging foul / player control foul）？",
+      "expected_citation_ids": ["nba-rulebook-2025-26:67735ff9839c660b"],
+      "evidence_citation_ids": ["nba-rulebook-2025-26:67735ff9839c660b"]
+    },
+    {
+      "id": "GEN-C-SECONDARY-ASSIST",
+      "scenario": "simple_glossary",
+      "question": "What is a Secondary Assist?",
+      "expected_citation_ids": ["nba-stats-glossary:bca9adbcfd67d2e1"],
+      "evidence_citation_ids": ["nba-stats-glossary:bca9adbcfd67d2e1"]
+    },
+    {
+      "id": "GEN-D-COMPLEX-RULE",
+      "scenario": "complex_rules",
+      "question": "If a defensive coach's challenge overturns a foul called after the shooter started a made shot, does the basket count and who gets the next possession?",
+      "expected_citation_ids": ["nba-rulebook-2025-26:5c3e305db4316b06"],
+      "evidence_citation_ids": ["nba-rulebook-2025-26:5c3e305db4316b06"]
+    },
+    {
+      "id": "GEN-E-MIXED",
+      "scenario": "mixed_agent",
+      "question": "库里 2023-24 常规赛 eFG% 是多少？这个指标代表什么？",
+      "expected_citation_ids": ["nba-stats-glossary:13f6625e16c548ac"],
+      "evidence_citation_ids": ["nba-stats-glossary:13f6625e16c548ac"]
+    }
+  ]
+}

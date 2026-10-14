@@ -1,0 +1,41 @@
+{
+  "fixture_version": "1.0.1",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "purpose": "M1.5 SQL gateway validation and exact-oracle smoke cases",
+  "cases": [
+    {
+      "case_id": "AG-001-SQL",
+      "source_case": "AG-001",
+      "sql": "SELECT games_appeared, points_total, points_total * 1.0 / games_appeared AS points_per_appearance FROM player_season_stat WHERE person_id = '201939' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+      "expected": {"games_appeared": 74, "points_total": 1956, "points_per_appearance": 26.43243243243243}
+    },
+    {
+      "case_id": "AG-002-SQL",
+      "source_case": "AG-002",
+      "sql": "SELECT home_score, away_score FROM game WHERE game_id = '22300061'",
+      "expected": {"home_score": 119, "away_score": 107}
+    },
+    {
+      "case_id": "AG-004-SQL",
+      "source_case": "AG-004",
+      "sql": "SELECT COUNT(*) AS games_appeared, SUM(p.points) AS points_total, SUM(p.points) * 1.0 / COUNT(*) AS points_per_appearance FROM player_game_stat AS p JOIN game AS g ON g.game_id = p.game_id WHERE p.person_id = '201939' AND p.opponent_team_id = '1610612747' AND g.season_id = '2023-24' AND g.competition_phase = 'regular_season' AND p.appearance_status IN ('played', 'played_inferred')",
+      "expected": {"games_appeared": 4, "points_total": 132, "points_per_appearance": 33.0}
+    },
+    {
+      "case_id": "AG-009-SQL",
+      "source_case": "AG-009",
+      "sql": "SELECT home_score, away_score FROM game WHERE game_id = '22400061'",
+      "expected": {"home_score": 132, "away_score": 109}
+    },
+    {
+      "case_id": "AG-017-DML",
+      "source_case": "AG-017",
+      "sql": "UPDATE game SET home_score = 0"
+    },
+    {
+      "case_id": "AG-017-LINEAGE",
+      "source_case": "AG-017",
+      "sql": "SELECT * FROM source_record"
+    }
+  ]
+}

@@ -1,0 +1,651 @@
+{
+  "version": "2.0.0",
+  "fixture_mode": "answer_flow_replay",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "catalog_version": "0.5.2",
+  "cases": [
+    {
+      "case_id": "M34-FIX-001",
+      "source_case_id": "M31-DEV-001",
+      "label": "湖人 2023-24 常规赛总得分和比赛场数？",
+      "tool": "season_summary",
+      "question": "湖人 2023-24 常规赛总得分和比赛场数？",
+      "response": {
+        "status": "complete",
+        "request_id": "3a687b6e0b5a436bbbb618b1775726c5",
+        "answer": "湖人在 2023-24 常规赛的总得分为 9679，比赛场数为 82。实际样本数为 82。",
+        "reason_code": null,
+        "reason": null,
+        "tool": "season_summary",
+        "arguments": {
+          "subject": "team",
+          "entity_id": "1610612747",
+          "season_id": "2023-24",
+          "competition_phase": "regular_season",
+          "metrics": [
+            "points_total",
+            "games_played"
+          ]
+        },
+        "tool_result": {
+          "status": "complete",
+          "points_total": 9679,
+          "games_played": 82,
+          "sql": "SELECT points_total, games_played FROM team_season_stat WHERE team_id = '1610612747' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+          "source_table": "team_season_stat",
+          "quality_status": "validated",
+          "limitations": [],
+          "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515"
+        },
+        "evidence": {
+          "source_name": "eoinamoore/historical-nba-data-and-player-box-scores",
+          "source_version": "515",
+          "snapshot_id": "eoin-v515",
+          "catalog_version": "0.5.2",
+          "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+          "requested_scope": {
+            "subject": "team",
+            "entity_id": "1610612747",
+            "season_id": "2023-24",
+            "competition_phase": "regular_season",
+            "metrics": [
+              "points_total",
+              "games_played"
+            ]
+          },
+          "tool_status": "complete",
+          "quality_status": "validated",
+          "limitations": [],
+          "precision": {
+            "calculation": "full_precision",
+            "display_decimal_places": 4
+          },
+          "entity": {
+            "id": "1610612747",
+            "subject": "team",
+            "name": "湖人"
+          },
+          "season_id": "2023-24",
+          "competition_phase": "regular_season",
+          "filters": {},
+          "units": {
+            "points_total": "points",
+            "games_played": "games"
+          },
+          "source_table": "team_season_stat",
+          "source_sql": "SELECT points_total, games_played FROM team_season_stat WHERE team_id = '1610612747' AND season_id = '2023-24' AND competition_phase = 'regular_season'",
+          "source_parameters": [],
+          "sample_count": 82,
+          "sample_source_sql": "SELECT games_played FROM team_season_stat WHERE team_id = ? AND season_id = ? AND competition_phase = ?",
+          "sample_source_parameters": [
+            "1610612747",
+            "2023-24",
+            "regular_season"
+          ]
+        },
+        "query_metadata": {
+          "source_name": "eoinamoore/historical-nba-data-and-player-box-scores",
+          "source_version": "515",
+          "snapshot_id": "eoin-v515",
+          "catalog_version": "0.5.2",
+          "planner_reason_code": null
+        },
+        "warnings": [],
+        "quality_status": "validated",
+        "limitations": [],
+        "tool_calls_used": 1,
+        "timings": {
+          "total_ms": 183.697,
+          "model_ms": 0.332,
+          "tool_ms": 162.513,
+          "render_ms": 14.015
+        }
+      }
+    },
+    {
+      "case_id": "M34-FIX-002",
+      "source_case_id": "M31-DEV-003",
+      "label": "库里 2023-24 常规赛最近两次出场的场均得分？",
+      "tool": "window_query",
+      "question": "库里 2023-24 常规赛最近两次出场的场均得分？",
+      "response": {
+        "status": "complete",
+        "request_id": "b0f880de8e83495398dd063956e3d225",
+        "answer": "库里在 2023-24 常规赛，请求最近 2 次出场，实际样本数为 2，场均得分为 27.5。实际日期范围为 2024-04-11 至 2024-04-12。",
+        "reason_code": null,
+        "reason": null,
+        "tool": "window_query",
+        "arguments": {
+          "subject": "player",
+          "entity_id": "201939",
+          "season_id": "2023-24",
+          "competition_phase": "regular_season",
+          "metrics": [
+            "points_per_appearance"
+          ],
+          "last_n": 2
+        },
+        "tool_result": {
+          "status": "complete",
+          "reason": null,
+          "reason_code": null,
+          "values": {
+            "points_per_appearance": 27.5
+          },
+          "actual_sample_count": 2,
+          "available_sample_count": 74,
+          "selected_game_ids": [
+            "22301169",
+            "22301182"
+          ],
+          "actual_date_from": "2024-04-11",
+          "actual_date_to": "2024-04-12",
+          "source_table": "player_game_stat",
+          "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+          "source_parameters": [
+            "201939",
+            "2023-24",
+            "regular_season"
+          ],
+          "quality_status": "validated",
+          "limitations": [],
+          "evidence": {
+            "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+            "snapshot_id": "eoin-v515",
+            "catalog_version": "0.5.2",
+            "subject": "player",
+            "entity_id": "201939",
+            "season_id": "2023-24",
+            "competition_phase": "regular_season",
+            "requested_scope": {
+              "subject": "player",
+              "entity_id": "201939",
+              "season_id": "2023-24",
+              "competition_phase": "regular_season",
+              "metrics": [
+                "points_per_appearance"
+              ],
+              "last_n": 2
+            },
+            "selection_rule": "filter_then_date_game_order_then_last_n"
+          }
+        },
+        "evidence": {
+          "source_name": "eoinamoore/historical-nba-data-and-player-box-scores",
+          "source_version": "515",
+          "snapshot_id": "eoin-v515",
+          "catalog_version": "0.5.2",
+          "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+          "subject": "player",
+          "entity_id": "201939",
+          "season_id": "2023-24",
+          "competition_phase": "regular_season",
+          "requested_scope": {
+            "subject": "player",
+            "entity_id": "201939",
+            "season_id": "2023-24",
+            "competition_phase": "regular_season",
+            "metrics": [
+              "points_per_appearance"
+            ],
+            "last_n": 2
+          },
+          "selection_rule": "filter_then_date_game_order_then_last_n",
+          "tool_status": "complete",
+          "quality_status": "validated",
+          "limitations": [],
+          "precision": {
+            "calculation": "full_precision",
+            "display_decimal_places": 4
+          },
+          "entity": {
+            "id": "201939",
+            "subject": "player",
+            "name": "库里"
+          },
+          "filters": {
+            "last_n": 2
+          },
+          "units": {
+            "points_per_appearance": "points/appearance"
+          },
+          "source_table": "player_game_stat",
+          "source_sql": "SELECT p.game_id, g.game_date, p.points, p.appearance_status, p.team_id, p.opponent_team_id, g.season_status, g.phase_status, (SELECT gp.participation_quality FROM game_team_participation gp WHERE gp.game_id = p.game_id AND gp.team_id = p.team_id) FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+          "source_parameters": [
+            "201939",
+            "2023-24",
+            "regular_season"
+          ],
+          "actual_sample_count": 2,
+          "available_sample_count": 74,
+          "actual_date_from": "2024-04-11",
+          "actual_date_to": "2024-04-12",
+          "selected_game_ids": [
+            "22301169",
+            "22301182"
+          ],
+          "sample_count": 2
+        },
+        "query_metadata": {
+          "source_name": "eoinamoore/historical-nba-data-and-player-box-scores",
+          "source_version": "515",
+          "snapshot_id": "eoin-v515",
+          "catalog_version": "0.5.2",
+          "planner_reason_code": null
+        },
+        "warnings": [],
+        "quality_status": "validated",
+        "limitations": [],
+        "tool_calls_used": 1,
+        "timings": {
+          "total_ms": 12.072,
+          "model_ms": 0.404,
+          "tool_ms": 10.538,
+          "render_ms": 0.05
+        }
+      }
+    },
+    {
+      "case_id": "M34-FIX-003",
+      "source_case_id": "M31-DEV-004",
+      "label": "库里 2023-24 常规赛总得分比上一季增加多少，增幅多少？",
+      "tool": "season_compare",
+      "question": "库里 2023-24 常规赛总得分比上一季增加多少，增幅多少？",
+      "response": {
+        "status": "complete",
+        "request_id": "f001f30e0cf44846988fab0f3ad6cce2",
+        "answer": "库里在常规赛的总得分：基线赛季 2022-23 为 1648，比较赛季 2023-24 为 1956，绝对变化为 308，相对变化为 18.6893%。基线样本数为 56，比较样本数为 74。公式：comparison_value - baseline_value；(comparison_value - baseline_value) / baseline_value * 100。数据质量：有条件可用。限制：未核验赛季数据完整性、该范围的数据能力证据有条件。",
+        "reason_code": null,
+        "reason": null,
+        "tool": "season_compare",
+        "arguments": {
+          "subject": "player",
+          "entity_id": "201939",
+          "metric": "points_total",
+          "baseline_season": "2022-23",
+          "comparison_season": "2023-24",
+          "competition_phase": "regular_season"
+        },
+        "tool_result": {
+          "status": "complete",
+          "reason": null,
+          "reason_code": null,
+          "baseline": {
+            "season_id": "2022-23",
+            "competition_phase": "regular_season",
+            "value": 1648,
+            "sample_count": 56,
+            "source_table": "player_game_stat",
+            "source_sql": "SELECT s.game_id, s.points, g.game_date, g.season_status, g.phase_status FROM player_game_stat s JOIN game g ON g.game_id = s.game_id WHERE s.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND s.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, s.game_id ASC"
+          },
+          "comparison": {
+            "season_id": "2023-24",
+            "competition_phase": "regular_season",
+            "value": 1956,
+            "sample_count": 74,
+            "source_table": "player_game_stat",
+            "source_sql": "SELECT s.game_id, s.points, g.game_date, g.season_status, g.phase_status FROM player_game_stat s JOIN game g ON g.game_id = s.game_id WHERE s.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND s.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, s.game_id ASC"
+          },
+          "absolute_delta": 308,
+          "relative_change_pct": 18.689320388349515,
+          "relative_change_status": "computable",
+          "calculation_limitation": null,
+          "quality_status": "conditional",
+          "limitations": [
+            "season_completeness_not_checked",
+            "capability_evidence_conditional"
+          ],
+          "evidence": {
+            "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+            "snapshot_id": "eoin-v515",
+            "catalog_version": "0.5.2",
+            "entity_id": "201939",
+            "subject": "player",
+            "metric": "points_total",
+            "unit": "points",
+            "absolute_delta_formula": "comparison_value - baseline_value",
+            "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100"
+          }
+        },
+        "evidence": {
+          "source_name": "eoinamoore/historical-nba-data-and-player-box-scores",
+          "source_version": "515",
+          "snapshot_id": "eoin-v515",
+          "catalog_version": "0.5.2",
+          "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+          "entity_id": "201939",
+          "subject": "player",
+          "metric": "points_total",
+          "unit": "points",
+          "absolute_delta_formula": "comparison_value - baseline_value",
+          "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100",
+          "requested_scope": {
+            "subject": "player",
+            "entity_id": "201939",
+            "metric": "points_total",
+            "baseline_season": "2022-23",
+            "comparison_season": "2023-24",
+            "competition_phase": "regular_season"
+          },
+          "tool_status": "complete",
+          "quality_status": "conditional",
+          "limitations": [
+            "season_completeness_not_checked",
+            "capability_evidence_conditional"
+          ],
+          "precision": {
+            "calculation": "full_precision",
+            "display_decimal_places": 4
+          },
+          "entity": {
+            "id": "201939",
+            "subject": "player",
+            "name": "库里"
+          },
+          "season_id": null,
+          "competition_phase": "regular_season",
+          "filters": {},
+          "units": {},
+          "sources": [
+            {
+              "season_id": "2022-23",
+              "competition_phase": "regular_season",
+              "value": 1648,
+              "sample_count": 56,
+              "source_table": "player_game_stat",
+              "source_sql": "SELECT s.game_id, s.points, g.game_date, g.season_status, g.phase_status FROM player_game_stat s JOIN game g ON g.game_id = s.game_id WHERE s.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND s.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, s.game_id ASC",
+              "role": "baseline",
+              "source_parameters": [
+                "201939",
+                "2022-23",
+                "regular_season"
+              ]
+            },
+            {
+              "season_id": "2023-24",
+              "competition_phase": "regular_season",
+              "value": 1956,
+              "sample_count": 74,
+              "source_table": "player_game_stat",
+              "source_sql": "SELECT s.game_id, s.points, g.game_date, g.season_status, g.phase_status FROM player_game_stat s JOIN game g ON g.game_id = s.game_id WHERE s.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND s.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, s.game_id ASC",
+              "role": "comparison",
+              "source_parameters": [
+                "201939",
+                "2023-24",
+                "regular_season"
+              ]
+            }
+          ],
+          "sample_count": {
+            "baseline": 56,
+            "comparison": 74
+          }
+        },
+        "query_metadata": {
+          "source_name": "eoinamoore/historical-nba-data-and-player-box-scores",
+          "source_version": "515",
+          "snapshot_id": "eoin-v515",
+          "catalog_version": "0.5.2",
+          "planner_reason_code": null
+        },
+        "warnings": [
+          "quality_conditional"
+        ],
+        "quality_status": "conditional",
+        "limitations": [
+          "season_completeness_not_checked",
+          "capability_evidence_conditional"
+        ],
+        "tool_calls_used": 1,
+        "timings": {
+          "total_ms": 11.742,
+          "model_ms": 0.335,
+          "tool_ms": 10.547,
+          "render_ms": 0.065
+        }
+      }
+    },
+    {
+      "case_id": "M34-FIX-004",
+      "source_case_id": "M31-HOLD-004",
+      "label": "库里 2023-24 常规赛 eFG% 是多少？",
+      "tool": "player_efg",
+      "question": "库里 2023-24 常规赛 eFG% 是多少？",
+      "response": {
+        "status": "complete",
+        "request_id": "90356de4bd734d8395ff664c638ae864",
+        "answer": "库里在 2023-24 常规赛的 eFG% 为 57.3356%，计算输入为 FGM=650、3PM=357、FGA=1445。实际样本数为 74。公式：(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100。数据质量：有条件可用。限制：历史投篮数据未独立核验、该范围的数据能力证据有条件。",
+        "reason_code": null,
+        "reason": null,
+        "tool": "player_efg",
+        "arguments": {
+          "entity_id": "201939",
+          "season_id": "2023-24",
+          "competition_phase": "regular_season"
+        },
+        "tool_result": {
+          "status": "complete",
+          "reason": null,
+          "reason_code": null,
+          "efg_percentage": 57.33564013840831,
+          "inputs": {
+            "field_goals_made": 650,
+            "three_pointers_made": 357,
+            "field_goals_attempted": 1445,
+            "sample_count": 74
+          },
+          "source_table": "player_game_stat",
+          "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+          "quality_status": "conditional",
+          "limitations": [
+            "historical_shooting_unverified",
+            "capability_evidence_conditional"
+          ],
+          "calculation_limitation": null,
+          "evidence": {
+            "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+            "snapshot_id": "eoin-v515",
+            "catalog_version": "0.5.2",
+            "entity_id": "201939",
+            "season_id": "2023-24",
+            "competition_phase": "regular_season",
+            "metric": "efg_percentage",
+            "unit": "percent",
+            "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+            "rounding": "full_precision"
+          }
+        },
+        "evidence": {
+          "source_name": "eoinamoore/historical-nba-data-and-player-box-scores",
+          "source_version": "515",
+          "snapshot_id": "eoin-v515",
+          "catalog_version": "0.5.2",
+          "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+          "entity_id": "201939",
+          "season_id": "2023-24",
+          "competition_phase": "regular_season",
+          "metric": "efg_percentage",
+          "unit": "percent",
+          "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+          "rounding": "full_precision",
+          "requested_scope": {
+            "entity_id": "201939",
+            "season_id": "2023-24",
+            "competition_phase": "regular_season"
+          },
+          "tool_status": "complete",
+          "quality_status": "conditional",
+          "limitations": [
+            "historical_shooting_unverified",
+            "capability_evidence_conditional"
+          ],
+          "precision": {
+            "calculation": "full_precision",
+            "display_decimal_places": 4
+          },
+          "entity": {
+            "id": "201939",
+            "subject": "player",
+            "name": "库里"
+          },
+          "filters": {},
+          "units": {},
+          "source_table": "player_game_stat",
+          "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+          "inputs": {
+            "field_goals_made": 650,
+            "three_pointers_made": 357,
+            "field_goals_attempted": 1445,
+            "sample_count": 74
+          },
+          "source_parameters": [
+            "201939",
+            "2023-24",
+            "regular_season"
+          ],
+          "sample_count": 74
+        },
+        "query_metadata": {
+          "source_name": "eoinamoore/historical-nba-data-and-player-box-scores",
+          "source_version": "515",
+          "snapshot_id": "eoin-v515",
+          "catalog_version": "0.5.2",
+          "planner_reason_code": null
+        },
+        "warnings": [
+          "quality_conditional"
+        ],
+        "quality_status": "conditional",
+        "limitations": [
+          "historical_shooting_unverified",
+          "capability_evidence_conditional"
+        ],
+        "tool_calls_used": 1,
+        "timings": {
+          "total_ms": 11.515,
+          "model_ms": 0.253,
+          "tool_ms": 10.399,
+          "render_ms": 0.038
+        }
+      }
+    },
+    {
+      "case_id": "M34-FIX-005",
+      "source_case_id": "M31-DEV-002",
+      "label": "2023-10-24 湖人对掘金双方各得多少分，谁获胜？",
+      "tool": "single_game_score",
+      "question": "2023-10-24 湖人对掘金双方各得多少分，谁获胜？",
+      "response": {
+        "status": "complete",
+        "request_id": "f2f86a6e5bee44c498348beac884dfa9",
+        "answer": "2023-10-24 比赛 22300061：主队 掘金 得分为 119，客队 湖人 得分为 107；胜者为 掘金。",
+        "reason_code": null,
+        "reason": null,
+        "tool": "single_game_score",
+        "arguments": {
+          "game_id": "22300061"
+        },
+        "tool_result": {
+          "status": "complete",
+          "home_score": 119,
+          "away_score": 107,
+          "winner_team_id": "1610612743",
+          "sql": "SELECT home_score, away_score FROM game WHERE game_id = '22300061'",
+          "source_table": "game",
+          "quality_status": "validated",
+          "limitations": [],
+          "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515"
+        },
+        "evidence": {
+          "source_name": "eoinamoore/historical-nba-data-and-player-box-scores",
+          "source_version": "515",
+          "snapshot_id": "eoin-v515",
+          "catalog_version": "0.5.2",
+          "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+          "requested_scope": {
+            "game_id": "22300061"
+          },
+          "tool_status": "complete",
+          "quality_status": "validated",
+          "limitations": [],
+          "precision": {
+            "calculation": "full_precision",
+            "display_decimal_places": 4
+          },
+          "season_id": "2023-24",
+          "competition_phase": "regular_season",
+          "filters": {},
+          "units": {},
+          "source_table": "game",
+          "source_sql": "SELECT home_score, away_score FROM game WHERE game_id = '22300061'",
+          "source_parameters": [],
+          "game_id": "22300061",
+          "game_date": "2023-10-24",
+          "sample_count": 1,
+          "home_team": {
+            "id": "1610612743",
+            "name": "掘金"
+          },
+          "away_team": {
+            "id": "1610612747",
+            "name": "湖人"
+          }
+        },
+        "query_metadata": {
+          "source_name": "eoinamoore/historical-nba-data-and-player-box-scores",
+          "source_version": "515",
+          "snapshot_id": "eoin-v515",
+          "catalog_version": "0.5.2",
+          "planner_reason_code": null
+        },
+        "warnings": [],
+        "quality_status": "validated",
+        "limitations": [],
+        "tool_calls_used": 1,
+        "timings": {
+          "total_ms": 15.958,
+          "model_ms": 0.344,
+          "tool_ms": 10.43,
+          "render_ms": 0.346
+        }
+      }
+    }
+  ],
+  "provenance": {
+    "generator": "scripts/generate_demo_fixtures.py",
+    "source_case_file": "metadata/m3_1_answer_cases_v1.json",
+    "source_case_ids": [
+      "M31-DEV-001",
+      "M31-DEV-003",
+      "M31-DEV-004",
+      "M31-HOLD-004",
+      "M31-DEV-002"
+    ],
+    "evaluation_route": "answer_one_tool_deterministic_render",
+    "evaluation_report_summary": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "mean_latency_ms": 48.061,
+      "tool_calls": 5
+    },
+    "input_provenance": {
+      "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+      "model_id": "fixture",
+      "route": "answer_one_tool_deterministic_render",
+      "git_commit": "f1e5128ee7446cb114a7d29702313d662a71f60a",
+      "git_dirty": true,
+      "input_sha256": {
+        "cases": "e5e2dcc10be5be32daa744ad8a89deb51d4fcc3a8a0b919ffb82fb1ab4288922",
+        "catalog": "4e1dc16a2c7f273dc99e9612a938c15b5aefce3997f7211a0db3e74862e16544",
+        "matrix": "e0403630f3c412a79c215a0ab4e78e9689edcfde5a6f0712ce63bed9a3612d93",
+        "route": "413147b9a4fd40485d62a4f17da529ba828c0f0124d9439d55af7091bc4d7e36",
+        "renderer": "f4efa1d646e6560000b5982f08a4989c15c59c77c5ea3c68c45b5c5bf02bef65",
+        "evidence": "01d080a071fe805670e114c541bed9d7c81f0c8e7797a48aef670579479995d4",
+        "ask_flow": "21e4ddaef022ffe0a97f376a9e8fa520b26a77028a68f629cae9f257fcd50786",
+        "tools": "93915efc6d216e713e14e6466d3807283df86a2381ab3d819aadf1306f0d8011",
+        "evaluator": "26d40ce774ac528da121d87d052c749519597b712a060cee004ee5ee777e503c"
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "case_set_version": "1.1.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "cases": [
+    {
+      "case_id": "M19A-001",
+      "subject": "player",
+      "entity_id": "201939",
+      "metric": "points_total",
+      "baseline_season": "2022-23",
+      "comparison_season": "2023-24",
+      "competition_phase": "regular_season",
+      "expected": {
+        "baseline_value": 1648,
+        "baseline_sample_count": 56,
+        "comparison_value": 1956,
+        "comparison_sample_count": 74,
+        "absolute_delta": 308,
+        "relative_change_pct": 18.689320388349515,
+        "status": "complete",
+        "quality_status": "conditional",
+        "limitations": ["season_completeness_not_checked", "capability_evidence_conditional"]
+      }
+    },
+    {
+      "case_id": "M19A-002",
+      "subject": "team",
+      "entity_id": "1610612747",
+      "metric": "points_total",
+      "baseline_season": "2022-23",
+      "comparison_season": "2023-24",
+      "competition_phase": "regular_season",
+      "expected": {
+        "baseline_value": 9608,
+        "baseline_sample_count": 82,
+        "comparison_value": 9679,
+        "comparison_sample_count": 82,
+        "absolute_delta": 71,
+        "relative_change_pct": 0.7389675270607827,
+        "status": "complete",
+        "quality_status": "conditional",
+        "limitations": ["season_completeness_not_checked", "capability_evidence_conditional"]
+      }
+    }
+  ]
+}

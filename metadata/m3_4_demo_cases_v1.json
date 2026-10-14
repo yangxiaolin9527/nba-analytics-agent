@@ -1,0 +1,91 @@
+{
+  "version": "1.0.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "cases": [
+    {
+      "case_id": "M34-FIX-001",
+      "label": "赛季汇总",
+      "tool": "season_summary",
+      "question": "湖人 2023-24 常规赛总得分和比赛场数？",
+      "response": {
+        "status": "complete",
+        "answer": "湖人在 2023-24 常规赛的总得分为 9679，比赛场数为 82。实际样本数为 82。",
+        "tool": "season_summary",
+        "arguments": {"subject": "team", "entity_id": "1610612747", "season_id": "2023-24", "competition_phase": "regular_season", "metrics": ["points_total", "games_played"]},
+        "tool_result": {"status": "complete", "points_total": 9679, "games_played": 82, "sql": "SELECT points_total, games_played FROM team_season_stat WHERE team_id = '1610612747' AND season_id = '2023-24' AND competition_phase = 'regular_season'", "source_table": "team_season_stat", "quality_status": "validated", "limitations": [], "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515"},
+        "evidence": {"source_table": "team_season_stat", "source_sql": "SELECT points_total, games_played FROM team_season_stat WHERE team_id = '1610612747' AND season_id = '2023-24' AND competition_phase = 'regular_season'", "snapshot_id": "eoin-v515", "catalog_version": "0.5.2", "quality_status": "validated", "sample_count": 82},
+        "quality_status": "validated",
+        "limitations": [],
+        "timings": {"total_ms": 18.0}
+      }
+    },
+    {
+      "case_id": "M34-FIX-002",
+      "label": "窗口统计",
+      "tool": "window_query",
+      "question": "库里 2023-24 常规赛最近两次出场的场均得分？",
+      "response": {
+        "status": "complete",
+        "answer": "库里在 2023-24 常规赛，请求最近 2 次出场，实际样本数为 2，场均得分为 27.5。实际日期范围为 2024-04-11 至 2024-04-12。",
+        "tool": "window_query",
+        "arguments": {"subject": "player", "entity_id": "201939", "season_id": "2023-24", "competition_phase": "regular_season", "metrics": ["points_per_appearance"], "last_n": 2},
+        "tool_result": {"status": "complete", "values": {"points_per_appearance": 27.5}, "actual_sample_count": 2, "actual_date_from": "2024-04-11", "actual_date_to": "2024-04-12", "source_table": "player_game_stat", "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515"},
+        "evidence": {"source_table": "player_game_stat", "snapshot_id": "eoin-v515", "catalog_version": "0.5.2", "sample_count": 2, "source_sql": "registered window_query"},
+        "quality_status": "validated",
+        "limitations": [],
+        "timings": {"total_ms": 22.0}
+      }
+    },
+    {
+      "case_id": "M34-FIX-003",
+      "label": "跨赛季比较",
+      "tool": "season_compare",
+      "question": "库里 2023-24 常规赛总得分比上一季增加多少，增幅多少？",
+      "response": {
+        "status": "complete",
+        "answer": "库里在常规赛的总得分：基线赛季 2022-23 为 1648，比较赛季 2023-24 为 1956，绝对变化为 308，相对变化为 18.6893%。公式：comparison_value - baseline_value；(comparison_value - baseline_value) / baseline_value * 100。",
+        "tool": "season_compare",
+        "arguments": {"subject": "player", "entity_id": "201939", "metric": "points_total", "baseline_season": "2022-23", "comparison_season": "2023-24", "competition_phase": "regular_season"},
+        "tool_result": {"status": "complete", "absolute_delta": 308, "relative_change_pct": 18.689320388349515, "relative_change_status": "computable", "baseline": {"season_id": "2022-23", "value": 1648, "sample_count": 56, "source_table": "player_game_stat"}, "comparison": {"season_id": "2023-24", "value": 1956, "sample_count": 74, "source_table": "player_game_stat"}, "quality_status": "conditional", "limitations": ["season_completeness_not_checked"], "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515"},
+        "evidence": {"source_table": "player_game_stat", "snapshot_id": "eoin-v515", "catalog_version": "0.5.2", "absolute_delta_formula": "comparison_value - baseline_value", "relative_change_formula": "(comparison_value - baseline_value) / baseline_value * 100"},
+        "quality_status": "conditional",
+        "limitations": ["season_completeness_not_checked"],
+        "timings": {"total_ms": 28.0}
+      }
+    },
+    {
+      "case_id": "M34-FIX-004",
+      "label": "衍生指标",
+      "tool": "player_efg",
+      "question": "库里 2023-24 常规赛 eFG% 是多少？",
+      "response": {
+        "status": "complete",
+        "answer": "库里在 2023-24 常规赛的 eFG% 为 57.3356%，计算输入为 FGM=650、3PM=357、FGA=1445。实际样本数为 74。公式：(FGM + 0.5 × 3PM) / FGA × 100。",
+        "tool": "player_efg",
+        "arguments": {"entity_id": "201939", "season_id": "2023-24", "competition_phase": "regular_season"},
+        "tool_result": {"status": "complete", "efg_percentage": 57.3356401384083, "inputs": {"field_goals_made": 650, "three_pointers_made": 357, "field_goals_attempted": 1445, "sample_count": 74}, "quality_status": "conditional", "limitations": ["historical_shooting_unverified"], "source_table": "player_game_stat", "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515"},
+        "evidence": {"source_table": "player_game_stat", "snapshot_id": "eoin-v515", "catalog_version": "0.5.2", "formula": "(FGM + 0.5 × 3PM) / FGA × 100", "sample_count": 74},
+        "quality_status": "conditional",
+        "limitations": ["historical_shooting_unverified"],
+        "timings": {"total_ms": 19.0}
+      }
+    },
+    {
+      "case_id": "M34-FIX-005",
+      "label": "单场比赛",
+      "tool": "single_game_score",
+      "question": "2023-10-24 湖人对掘金双方各得多少分，谁获胜？",
+      "response": {
+        "status": "complete",
+        "answer": "2023-10-24 比赛 22300061：主队 掘金 得分为 119，客队 湖人 得分为 107；胜者为 掘金。",
+        "tool": "single_game_score",
+        "arguments": {"game_id": "22300061"},
+        "tool_result": {"status": "complete", "home_score": 119, "away_score": 107, "winner_team_id": "1610612743", "sql": "SELECT home_score, away_score FROM game WHERE game_id = '22300061'", "source_table": "game", "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515"},
+        "evidence": {"source_table": "game", "source_sql": "SELECT home_score, away_score FROM game WHERE game_id = '22300061'", "snapshot_id": "eoin-v515", "catalog_version": "0.5.2", "game_id": "22300061", "game_date": "2023-10-24", "sample_count": 1},
+        "quality_status": "validated",
+        "limitations": [],
+        "timings": {"total_ms": 16.0}
+      }
+    }
+  ]
+}

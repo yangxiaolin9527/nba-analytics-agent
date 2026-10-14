@@ -1,0 +1,310 @@
+{
+  "case_set_version": "2.0.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "purpose": "Live-model evaluation of natural-language routing through the M3.1 structured answer endpoint; all cases use verified Eoin v515 snapshot oracles.",
+  "cases": [
+    {
+      "case_id": "M32-001",
+      "category": "answerable",
+      "question": "湖人 2023-24 常规赛总得分和比赛场数？",
+      "expected": {
+        "status": "complete",
+        "tool": "season_summary",
+        "arguments": {
+          "subject": "team",
+          "entity_id": "1610612747",
+          "season_id": "2023-24",
+          "competition_phase": "regular_season",
+          "metrics": [
+            "points_total",
+            "games_played"
+          ]
+        },
+        "tool_result": {
+          "points_total": 9679,
+          "games_played": 82
+        },
+        "answer_contains": [
+          "总得分为 9679",
+          "比赛场数为 82"
+        ],
+        "require_evidence": true
+      }
+    },
+    {
+      "case_id": "M32-002",
+      "category": "answerable",
+      "question": "湖人 2023-24 季后赛总得分和比赛场数？",
+      "expected": {
+        "status": "complete",
+        "tool": "season_summary",
+        "arguments": {
+          "subject": "team",
+          "entity_id": "1610612747",
+          "season_id": "2023-24",
+          "competition_phase": "playoffs",
+          "metrics": [
+            "points_total",
+            "games_played"
+          ]
+        },
+        "tool_result": {
+          "points_total": 532,
+          "games_played": 5
+        },
+        "answer_contains": [
+          "总得分为 532",
+          "比赛场数为 5"
+        ],
+        "require_evidence": true
+      }
+    },
+    {
+      "case_id": "M32-003",
+      "category": "answerable",
+      "question": "2023-10-24 湖人对掘金双方各得多少分，谁获胜？",
+      "expected": {
+        "status": "complete",
+        "tool": "single_game_score",
+        "arguments": {
+          "game_id": "22300061"
+        },
+        "tool_result": {
+          "home_score": 119,
+          "away_score": 107,
+          "winner_team_id": "1610612743"
+        },
+        "answer_contains": [
+          "得分为 119",
+          "得分为 107",
+          "胜者为"
+        ],
+        "require_evidence": true
+      }
+    },
+    {
+      "case_id": "M32-004",
+      "category": "answerable",
+      "question": "库里 2023-24 常规赛最近两次出场的场均得分？",
+      "expected": {
+        "status": "complete",
+        "tool": "window_query",
+        "arguments": {
+          "subject": "player",
+          "entity_id": "201939",
+          "season_id": "2023-24",
+          "competition_phase": "regular_season",
+          "metrics": [
+            "points_per_appearance"
+          ],
+          "last_n": 2
+        },
+        "tool_result": {
+          "values": {
+            "points_per_appearance": 27.5
+          },
+          "actual_sample_count": 2
+        },
+        "answer_contains": [
+          "最近 2 次出场",
+          "场均得分为 27.5"
+        ],
+        "require_evidence": true
+      }
+    },
+    {
+      "case_id": "M32-005",
+      "category": "answerable",
+      "question": "库里 2023-24 常规赛最近十次出场的总得分？",
+      "expected": {
+        "status": "complete",
+        "tool": "window_query",
+        "arguments": {
+          "subject": "player",
+          "entity_id": "201939",
+          "season_id": "2023-24",
+          "competition_phase": "regular_season",
+          "metrics": [
+            "points_total"
+          ],
+          "last_n": 10
+        },
+        "tool_result": {
+          "values": {
+            "points_total": 238
+          },
+          "actual_sample_count": 10
+        },
+        "answer_contains": [
+          "最近 10 次出场",
+          "总得分为 238"
+        ],
+        "require_evidence": true
+      }
+    },
+    {
+      "case_id": "M32-006",
+      "category": "answerable",
+      "question": "库里 2023-24 常规赛总得分比上一季增加多少，增幅多少？",
+      "expected": {
+        "status": "complete",
+        "tool": "season_compare",
+        "arguments": {
+          "subject": "player",
+          "entity_id": "201939",
+          "metric": "points_total",
+          "baseline_season": "2022-23",
+          "comparison_season": "2023-24",
+          "competition_phase": "regular_season"
+        },
+        "tool_result": {
+          "baseline": {
+            "value": 1648
+          },
+          "comparison": {
+            "value": 1956
+          },
+          "absolute_delta": 308,
+          "relative_change_pct": 18.689320388349515
+        },
+        "answer_contains": [
+          "2022-23 为 1648",
+          "2023-24 为 1956",
+          "绝对变化为 308",
+          "相对变化为 18.6893%"
+        ],
+        "require_evidence": true
+      }
+    },
+    {
+      "case_id": "M32-007",
+      "category": "answerable",
+      "question": "库里 2023-24 常规赛 eFG% 是多少？",
+      "expected": {
+        "status": "complete",
+        "tool": "player_efg",
+        "arguments": {
+          "entity_id": "201939",
+          "season_id": "2023-24",
+          "competition_phase": "regular_season"
+        },
+        "tool_result": {
+          "efg_percentage": 57.3356401384083,
+          "inputs": {
+            "field_goals_made": 650,
+            "three_pointers_made": 357,
+            "field_goals_attempted": 1445,
+            "sample_count": 74
+          }
+        },
+        "answer_contains": [
+          "eFG% 为 57.3356%",
+          "FGM=650",
+          "3PM=357",
+          "FGA=1445"
+        ],
+        "require_evidence": true
+      }
+    },
+    {
+      "case_id": "M32-008",
+      "category": "answerable",
+      "question": "库里 2023-24 常规赛出场次数？",
+      "expected": {
+        "status": "complete",
+        "tool": "season_summary",
+        "arguments": {
+          "subject": "player",
+          "entity_id": "201939",
+          "season_id": "2023-24",
+          "competition_phase": "regular_season",
+          "metrics": [
+            "games_appeared"
+          ]
+        },
+        "tool_result": {
+          "games_appeared": 74
+        },
+        "answer_contains": [
+          "出场次数为 74"
+        ],
+        "require_evidence": true
+      }
+    },
+    {
+      "case_id": "M32-009",
+      "category": "answerable",
+      "question": "湖人 2023-24 常规赛打了多少场？",
+      "expected": {
+        "status": "complete",
+        "tool": "season_summary",
+        "arguments": {
+          "subject": "team",
+          "entity_id": "1610612747",
+          "season_id": "2023-24",
+          "competition_phase": "regular_season",
+          "metrics": [
+            "games_played"
+          ]
+        },
+        "tool_result": {
+          "games_played": 82
+        },
+        "answer_contains": [
+          "比赛场数为 82"
+        ],
+        "require_evidence": true
+      }
+    },
+    {
+      "case_id": "M32-010",
+      "category": "clarification",
+      "question": "库里 2023-24 总得分？",
+      "expected": {
+        "status": "clarification_required",
+        "tool": null,
+        "reason_code": "missing_phase"
+      }
+    },
+    {
+      "case_id": "M32-011",
+      "category": "clarification",
+      "question": "库里最近十次出场的总得分？",
+      "expected": {
+        "status": "clarification_required",
+        "tool": null,
+        "reason_code": "missing_season"
+      }
+    },
+    {
+      "case_id": "M32-012",
+      "category": "unsupported",
+      "question": "计算库里 2023-24 常规赛的 TS%？",
+      "expected": {
+        "status": "unsupported",
+        "tool": null,
+        "reason_code": "unsupported_request"
+      }
+    },
+    {
+      "case_id": "M32-013",
+      "category": "unsupported",
+      "question": "列出 2023-24 常规赛得分最高的前五名球员。",
+      "expected": {
+        "status": "unsupported",
+        "tool": null,
+        "reason_code": "multi_row_query_out_of_scope"
+      }
+    },
+    {
+      "case_id": "M32-014",
+      "category": "unsupported",
+      "question": "计算湖人 2023-24 常规赛的 Net Rating。",
+      "expected": {
+        "status": "unsupported",
+        "tool": null,
+        "reason_code": "unsupported_request"
+      }
+    }
+  ]
+}

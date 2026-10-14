@@ -1,0 +1,33 @@
+{
+  "baseline_version": "1.0.0",
+  "purpose": "M1 high-confidence structured-query and calculation evaluation; 2023-24 and 2024-25 are reference/evaluation seasons, not the queryable data boundary.",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "reference_catalog": "metadata/official_reference_games_v1.json",
+  "matrix": "data/profile/eoin-v515-capability-matrix.json",
+  "evaluation_rules": {
+    "sql_text_exact_match": false,
+    "required_dimensions": ["routing", "entity_and_filter", "join", "aggregation", "result", "evidence", "quality_disclosure"],
+    "unsupported_metric_behavior": "reject only the affected metric or filter with a reason",
+    "holdout_policy": "Do not use evaluation cases to tune prompts or routing rules."
+  },
+  "cases": [
+    {"case_id":"AG-001","taxonomy_id":"QT-001","split":"evaluation","query":"库里在 2023-24 常规赛的总得分、场均得分和出场次数？","mode":"structured","season_id":"2023-24","phase":"regular_season","subject":"player","oracle_type":"snapshot_query","gate":"player.points","expected_contract":["total_points","points_per_appearance","games_appeared","quality_status"]},
+    {"case_id":"AG-002","taxonomy_id":"QT-002","split":"evaluation","query":"2023-10-24 湖人对掘金那场双方各得多少分？","mode":"structured","season_id":"2023-24","phase":"regular_season","subject":"game","game_id":"22300061","evidence_ids":["REF-001"],"oracle_type":"reference_game_score","expected":{"home_score":119,"away_score":107}},
+    {"case_id":"AG-003","taxonomy_id":"QT-003","split":"evaluation","query":"库里在 2023-24 常规赛最近十次出场的场均得分？","mode":"structured","season_id":"2023-24","phase":"regular_season","subject":"player","oracle_type":"snapshot_query","gate":"player.points","expected_contract":["ordered_last_n_appearances","actual_sample_count","points_per_appearance"]},
+    {"case_id":"AG-004","taxonomy_id":"QT-004","split":"evaluation","query":"库里在 2023-24 常规赛对湖人的场均得分？","mode":"structured","season_id":"2023-24","phase":"regular_season","subject":"player_opponent","oracle_type":"snapshot_query","gate":"player.team_opponent_filter","expected_contract":["opponent_filter","actual_sample_count","points_per_appearance"]},
+    {"case_id":"AG-005","taxonomy_id":"QT-005","split":"evaluation","query":"2023-24 常规赛总助攻前五名球员是谁？","mode":"structured","season_id":"2023-24","phase":"regular_season","subject":"player","oracle_type":"snapshot_query","gate":"player.assists","expected_contract":["ranked_rows","tie_rule","assist_total","sample_scope"]},
+    {"case_id":"AG-006","taxonomy_id":"QT-006","split":"evaluation","query":"比较库里和利拉德在 2023-24 常规赛的场均得分。","mode":"structured","season_id":"2023-24","phase":"regular_season","subject":"player","oracle_type":"snapshot_query","gate":"player.points","expected_contract":["two_entities","same_scope","points_per_appearance","difference"]},
+    {"case_id":"AG-007","taxonomy_id":"QT-007","split":"evaluation","query":"库里 2023-24 常规赛场均得分比上一季增加多少？","mode":"structured_calculation","season_id":"2023-24","phase":"regular_season","subject":"player","oracle_type":"snapshot_query_plus_calculation","gate":"player.points","expected_contract":["new_value","baseline_value","difference","relative_change","formula"]},
+    {"case_id":"AG-008","taxonomy_id":"QT-008","split":"evaluation","query":"用库里 2023-24 常规赛累计命中数、三分命中数和出手数计算 eFG%。","mode":"structured_calculation","season_id":"2023-24","phase":"regular_season","subject":"player","oracle_type":"calculation_with_quality_gate","gate":"player.efg_percentage","expected_contract":["fgm","three_pointers_made","fga","formula","efg_percentage"]},
+    {"case_id":"AG-009","taxonomy_id":"QT-009","split":"evaluation","query":"2024-10-22 凯尔特人和尼克斯各得多少分，谁获胜？","mode":"structured","season_id":"2024-25","phase":"regular_season","subject":"team_game","game_id":"22400061","evidence_ids":["REF-007"],"oracle_type":"reference_game_score","gate":"team.participation","expected":{"home_score":132,"away_score":109}},
+    {"case_id":"AG-010","taxonomy_id":"QT-010","split":"evaluation","query":"某转会球员在 2023-24 常规赛各队分别得到多少分，合计多少？","mode":"structured","season_id":"2023-24","phase":"regular_season","subject":"player_team_split","oracle_type":"snapshot_query","gate":"player.points","expected_contract":["team_segments","all_teams_total","no_duplicate_source_total"]},
+    {"case_id":"AG-011","taxonomy_id":"QT-011","split":"evaluation","query":"库里最近十场表现如何？","mode":"clarification","oracle_type":"expected_clarification","expected_contract":["ask_for_season_or_as_of_date"]},
+    {"case_id":"AG-012","taxonomy_id":"QT-012","split":"evaluation","query":"湖人 2023-24 赛季战绩？","mode":"clarification","oracle_type":"expected_clarification","expected_contract":["ask_for_competition_phase"]},
+    {"case_id":"AG-013","taxonomy_id":"QT-013","split":"evaluation","query":"把 2024-25 赛季杯赛决赛当作常规赛统计。","mode":"unsupported_filter","season_id":"2024-25","phase":"cup_championship","oracle_type":"expected_quality_rejection","expected_contract":["retain_raw_label","disclose_phase_mapping","do_not_silently_mix"]},
+    {"case_id":"AG-014","taxonomy_id":"QT-014","split":"evaluation","query":"按球队筛选一条缺少当场球队 ID 的球员记录。","mode":"unsupported_filter","oracle_type":"expected_quality_rejection","expected_contract":["reject_team_filter","quality_issue_reference","do_not_infer_team"]},
+    {"case_id":"AG-015","taxonomy_id":"QT-015","split":"evaluation","query":"FGA=0 时计算 eFG%。","mode":"unsupported_metric","oracle_type":"expected_quality_rejection","expected_contract":["reject_zero_denominator","no_numeric_result"]},
+    {"case_id":"AG-016","taxonomy_id":"QT-016","split":"evaluation","query":"基准赛季场均得分为 0 时计算增幅。","mode":"unsupported_metric","oracle_type":"expected_quality_rejection","expected_contract":["return_valid_subresults","reject_relative_change","explain_zero_baseline"]},
+    {"case_id":"AG-017","taxonomy_id":"QT-017","split":"evaluation","query":"执行一条写入 SQL 或访问未注册表的请求。","mode":"sql_safety_failure","oracle_type":"expected_pre_execution_rejection","expected_contract":["read_only_check","schema_allowlist_check","no_execution","reason_logged"]},
+    {"case_id":"AG-018","taxonomy_id":"QT-018","split":"evaluation","query":"计算并比较两名球员的 eFG%，再解释指标局限。","mode":"structured_calculation_plus_knowledge","oracle_type":"partial_m1_expected","expected_contract":["calculate_supported_numeric_part","mark_knowledge_part_m2","separate_evidence"]}
+  ]
+}

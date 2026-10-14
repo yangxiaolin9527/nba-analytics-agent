@@ -1,0 +1,446 @@
+{
+  "case_set_version": "1.0.0",
+  "mode": "archived_replay",
+  "source_report": "reports/m4/agent-m44-live-mixed.json",
+  "cases": [
+    {
+      "case_id": "M40-002",
+      "question": "库里 2023-24 常规赛 eFG% 这个指标是什么，如何定义？",
+      "status": "complete",
+      "route": "mixed",
+      "outcome": "passed",
+      "response": {
+        "status": "complete",
+        "request_id": "9c7a958a6cb7468b885171ac0e8ec472",
+        "route": "mixed",
+        "answer": "player 201939在 2023-24 常规赛的 eFG% 为 57.3356%，计算输入为 FGM=650、3PM=357、FGA=1445。实际样本数为 74。公式：(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100。数据质量：有条件可用。限制：历史投篮数据未独立核验、该范围的数据能力证据有条件。\neFG%（Effective Field Goal Percentage，有效命中率）衡量投篮命中率，并将命中的三分球视为比命中的两分球价值高1.5倍；其公式为 ((FGM + (0.5 * 3PM)) / FGA。",
+        "steps": [
+          {
+            "id": "s1",
+            "capability": "player_efg",
+            "status": "complete",
+            "result": {
+              "status": "complete",
+              "reason": null,
+              "reason_code": null,
+              "efg_percentage": 57.33564013840831,
+              "inputs": {
+                "field_goals_made": 650,
+                "three_pointers_made": 357,
+                "field_goals_attempted": 1445,
+                "sample_count": 74
+              },
+              "source_table": "player_game_stat",
+              "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+              "quality_status": "conditional",
+              "limitations": [
+                "historical_shooting_unverified",
+                "capability_evidence_conditional"
+              ],
+              "calculation_limitation": null,
+              "evidence": {
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "metric": "efg_percentage",
+                "unit": "percent",
+                "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                "rounding": "full_precision"
+              }
+            },
+            "error": null,
+            "evidence": {
+              "capability": "player_efg",
+              "step_id": "s1",
+              "provenance": "nba structured database",
+              "execution_status": "complete",
+              "warnings": [
+                "historical_shooting_unverified",
+                "capability_evidence_conditional"
+              ],
+              "structured": {
+                "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "source_parameters": [
+                  "201939",
+                  "2023-24",
+                  "regular_season"
+                ],
+                "snapshot_id": "eoin-v515",
+                "catalog_version": "0.5.2",
+                "entity": {
+                  "id": "201939",
+                  "subject": "player"
+                },
+                "filters": {},
+                "sample_count": 74,
+                "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                "units": {
+                  "efg_percentage": "percent"
+                },
+                "precision": {
+                  "calculation": "full_precision",
+                  "rounding": "full_precision",
+                  "display_decimal_places": 4
+                },
+                "quality_status": "conditional",
+                "limitations": [
+                  "historical_shooting_unverified",
+                  "capability_evidence_conditional"
+                ],
+                "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                "entity_id": "201939",
+                "season_id": "2023-24",
+                "competition_phase": "regular_season",
+                "metric": "efg_percentage",
+                "unit": "percent",
+                "rounding": "full_precision"
+              },
+              "knowledge": null
+            }
+          },
+          {
+            "id": "s2",
+            "capability": "knowledge_glossary",
+            "status": "complete",
+            "result": {
+              "status": "answered",
+              "answer": "eFG%（Effective Field Goal Percentage，有效命中率）衡量投篮命中率，并将命中的三分球视为比命中的两分球价值高1.5倍；其公式为 ((FGM + (0.5 * 3PM)) / FGA。",
+              "claims": [
+                {
+                  "question": "库里 2023-24 常规赛 eFG% 这个指标是什么，如何定义？",
+                  "text": "eFG%（Effective Field Goal Percentage，有效命中率）衡量投篮命中率，并将命中的三分球视为比命中的两分球价值高1.5倍；其公式为 ((FGM + (0.5 * 3PM)) / FGA。",
+                  "citation_id": "nba-stats-glossary:13f6625e16c548ac",
+                  "excerpt": "Name\nEffective Field Goal Percentage\nDefinition\nMeasures field goal percentage adjusting for made 3-point field goals being 1.5 times more valuable than made 2-point field goals.\nFormula\n((FGM + (0.5 * 3PM)) / FGA",
+                  "source_id": "nba-stats-glossary",
+                  "source_url": "https://www.nba.com/stats/help/glossary",
+                  "source_version": "2026-09-28 local snapshot",
+                  "sha256": "51ad1784477f68f2b9ac39b5fd093258fb0b9323028f259bae23df092b4bd548",
+                  "page": null,
+                  "anchor": "efgpct"
+                }
+              ],
+              "unresolved": [],
+              "reason_code": null,
+              "retrieval_ms": 5342.034,
+              "planning_ms": 2464.43,
+              "embedding_ms": 2857.836,
+              "vector_query_ms": 16.405,
+              "generation_ms": 12509.51,
+              "verification_ms": 3415.986,
+              "evidence_chunk_count": 5,
+              "evidence_char_count": 1260,
+              "evidence_page_count": 1,
+              "evidence_citation_ids": [
+                "nba-stats-glossary:13f6625e16c548ac",
+                "nba-stats-glossary:7a94b805ede648d3",
+                "nba-stats-glossary:fef169021cd4cba1",
+                "nba-stats-glossary:018f0622dce82426",
+                "nba-stats-glossary:3477ca7d22bba51e"
+              ],
+              "elapsed_ms": 21282.393,
+              "total_ms": 21282.393,
+              "trace_id": "1e2035f0445c2a5ed6d2ffe3dd006f24"
+            },
+            "error": null,
+            "evidence": {
+              "capability": "knowledge_glossary",
+              "step_id": "s2",
+              "provenance": "pinned knowledge corpus",
+              "execution_status": "complete",
+              "warnings": [],
+              "structured": null,
+              "knowledge": {
+                "citations": [
+                  {
+                    "citation_id": "nba-stats-glossary:13f6625e16c548ac",
+                    "excerpt": "Name\nEffective Field Goal Percentage\nDefinition\nMeasures field goal percentage adjusting for made 3-point field goals being 1.5 times more valuable than made 2-point field goals.\nFormula\n((FGM + (0.5 * 3PM)) / FGA",
+                    "source_id": "nba-stats-glossary",
+                    "source_version": "2026-09-28 local snapshot",
+                    "page": null,
+                    "anchor": "efgpct",
+                    "validation": null
+                  }
+                ],
+                "source_version": null,
+                "validation": "validated",
+                "unresolved": []
+              }
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "capability": "player_efg",
+            "step_id": "s1",
+            "provenance": "nba structured database",
+            "execution_status": "complete",
+            "warnings": [
+              "historical_shooting_unverified",
+              "capability_evidence_conditional"
+            ],
+            "structured": {
+              "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+              "source_parameters": [
+                "201939",
+                "2023-24",
+                "regular_season"
+              ],
+              "snapshot_id": "eoin-v515",
+              "catalog_version": "0.5.2",
+              "entity": {
+                "id": "201939",
+                "subject": "player"
+              },
+              "filters": {},
+              "sample_count": 74,
+              "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+              "units": {
+                "efg_percentage": "percent"
+              },
+              "precision": {
+                "calculation": "full_precision",
+                "rounding": "full_precision",
+                "display_decimal_places": 4
+              },
+              "quality_status": "conditional",
+              "limitations": [
+                "historical_shooting_unverified",
+                "capability_evidence_conditional"
+              ],
+              "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+              "entity_id": "201939",
+              "season_id": "2023-24",
+              "competition_phase": "regular_season",
+              "metric": "efg_percentage",
+              "unit": "percent",
+              "rounding": "full_precision"
+            },
+            "knowledge": null
+          },
+          {
+            "capability": "knowledge_glossary",
+            "step_id": "s2",
+            "provenance": "pinned knowledge corpus",
+            "execution_status": "complete",
+            "warnings": [],
+            "structured": null,
+            "knowledge": {
+              "citations": [
+                {
+                  "citation_id": "nba-stats-glossary:13f6625e16c548ac",
+                  "excerpt": "Name\nEffective Field Goal Percentage\nDefinition\nMeasures field goal percentage adjusting for made 3-point field goals being 1.5 times more valuable than made 2-point field goals.\nFormula\n((FGM + (0.5 * 3PM)) / FGA",
+                  "source_id": "nba-stats-glossary",
+                  "source_version": "2026-09-28 local snapshot",
+                  "page": null,
+                  "anchor": "efgpct",
+                  "validation": null
+                }
+              ],
+              "source_version": null,
+              "validation": "validated",
+              "unresolved": []
+            }
+          }
+        ],
+        "warnings": [
+          "quality_conditional"
+        ],
+        "reason_code": null,
+        "timings": {
+          "s1_ms": 10.749,
+          "s2_ms": 21311.368,
+          "total_ms": 21322.206
+        },
+        "task_state": {
+          "question": "库里 2023-24 常规赛 eFG% 这个指标是什么，如何定义？",
+          "route": {
+            "route": "mixed",
+            "steps": [
+              {
+                "id": "s1",
+                "capability": "player_efg",
+                "arguments": {
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season"
+                }
+              },
+              {
+                "id": "s2",
+                "capability": "knowledge_glossary",
+                "arguments": {}
+              }
+            ],
+            "reason": "numeric result plus metric explanation",
+            "reason_code": null
+          },
+          "current_step": null,
+          "completed_steps": [
+            {
+              "id": "s1",
+              "capability": "player_efg",
+              "status": "complete",
+              "result": {
+                "status": "complete",
+                "reason": null,
+                "reason_code": null,
+                "efg_percentage": 57.33564013840831,
+                "inputs": {
+                  "field_goals_made": 650,
+                  "three_pointers_made": 357,
+                  "field_goals_attempted": 1445,
+                  "sample_count": 74
+                },
+                "source_table": "player_game_stat",
+                "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                "quality_status": "conditional",
+                "limitations": [
+                  "historical_shooting_unverified",
+                  "capability_evidence_conditional"
+                ],
+                "calculation_limitation": null,
+                "evidence": {
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metric": "efg_percentage",
+                  "unit": "percent",
+                  "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                  "rounding": "full_precision"
+                }
+              },
+              "error": null,
+              "evidence": {
+                "capability": "player_efg",
+                "step_id": "s1",
+                "provenance": "nba structured database",
+                "execution_status": "complete",
+                "warnings": [
+                  "historical_shooting_unverified",
+                  "capability_evidence_conditional"
+                ],
+                "structured": {
+                  "source_sql": "SELECT p.game_id, p.field_goals_made, p.three_pointers_made, p.field_goals_attempted, p.appearance_status, g.season_status, g.phase_status FROM player_game_stat p JOIN game g ON g.game_id = p.game_id WHERE p.person_id = ? AND g.season_id = ? AND g.competition_phase = ? AND p.appearance_status IN ('played', 'played_inferred') ORDER BY g.game_date ASC, p.game_id ASC",
+                  "source_parameters": [
+                    "201939",
+                    "2023-24",
+                    "regular_season"
+                  ],
+                  "snapshot_id": "eoin-v515",
+                  "catalog_version": "0.5.2",
+                  "entity": {
+                    "id": "201939",
+                    "subject": "player"
+                  },
+                  "filters": {},
+                  "sample_count": 74,
+                  "formula": "(field_goals_made + 0.5 * three_pointers_made) / field_goals_attempted * 100",
+                  "units": {
+                    "efg_percentage": "percent"
+                  },
+                  "precision": {
+                    "calculation": "full_precision",
+                    "rounding": "full_precision",
+                    "display_decimal_places": 4
+                  },
+                  "quality_status": "conditional",
+                  "limitations": [
+                    "historical_shooting_unverified",
+                    "capability_evidence_conditional"
+                  ],
+                  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+                  "entity_id": "201939",
+                  "season_id": "2023-24",
+                  "competition_phase": "regular_season",
+                  "metric": "efg_percentage",
+                  "unit": "percent",
+                  "rounding": "full_precision"
+                },
+                "knowledge": null
+              }
+            },
+            {
+              "id": "s2",
+              "capability": "knowledge_glossary",
+              "status": "complete",
+              "result": {
+                "status": "answered",
+                "answer": "eFG%（Effective Field Goal Percentage，有效命中率）衡量投篮命中率，并将命中的三分球视为比命中的两分球价值高1.5倍；其公式为 ((FGM + (0.5 * 3PM)) / FGA。",
+                "claims": [
+                  {
+                    "question": "库里 2023-24 常规赛 eFG% 这个指标是什么，如何定义？",
+                    "text": "eFG%（Effective Field Goal Percentage，有效命中率）衡量投篮命中率，并将命中的三分球视为比命中的两分球价值高1.5倍；其公式为 ((FGM + (0.5 * 3PM)) / FGA。",
+                    "citation_id": "nba-stats-glossary:13f6625e16c548ac",
+                    "excerpt": "Name\nEffective Field Goal Percentage\nDefinition\nMeasures field goal percentage adjusting for made 3-point field goals being 1.5 times more valuable than made 2-point field goals.\nFormula\n((FGM + (0.5 * 3PM)) / FGA",
+                    "source_id": "nba-stats-glossary",
+                    "source_url": "https://www.nba.com/stats/help/glossary",
+                    "source_version": "2026-09-28 local snapshot",
+                    "sha256": "51ad1784477f68f2b9ac39b5fd093258fb0b9323028f259bae23df092b4bd548",
+                    "page": null,
+                    "anchor": "efgpct"
+                  }
+                ],
+                "unresolved": [],
+                "reason_code": null,
+                "retrieval_ms": 5342.034,
+                "planning_ms": 2464.43,
+                "embedding_ms": 2857.836,
+                "vector_query_ms": 16.405,
+                "generation_ms": 12509.51,
+                "verification_ms": 3415.986,
+                "evidence_chunk_count": 5,
+                "evidence_char_count": 1260,
+                "evidence_page_count": 1,
+                "evidence_citation_ids": [
+                  "nba-stats-glossary:13f6625e16c548ac",
+                  "nba-stats-glossary:7a94b805ede648d3",
+                  "nba-stats-glossary:fef169021cd4cba1",
+                  "nba-stats-glossary:018f0622dce82426",
+                  "nba-stats-glossary:3477ca7d22bba51e"
+                ],
+                "elapsed_ms": 21282.393,
+                "total_ms": 21282.393,
+                "trace_id": "1e2035f0445c2a5ed6d2ffe3dd006f24"
+              },
+              "error": null,
+              "evidence": {
+                "capability": "knowledge_glossary",
+                "step_id": "s2",
+                "provenance": "pinned knowledge corpus",
+                "execution_status": "complete",
+                "warnings": [],
+                "structured": null,
+                "knowledge": {
+                  "citations": [
+                    {
+                      "citation_id": "nba-stats-glossary:13f6625e16c548ac",
+                      "excerpt": "Name\nEffective Field Goal Percentage\nDefinition\nMeasures field goal percentage adjusting for made 3-point field goals being 1.5 times more valuable than made 2-point field goals.\nFormula\n((FGM + (0.5 * 3PM)) / FGA",
+                      "source_id": "nba-stats-glossary",
+                      "source_version": "2026-09-28 local snapshot",
+                      "page": null,
+                      "anchor": "efgpct",
+                      "validation": null
+                    }
+                  ],
+                  "source_version": null,
+                  "validation": "validated",
+                  "unresolved": []
+                }
+              }
+            }
+          ],
+          "errors": [],
+          "status": "complete",
+          "deadline_ms": 60000.0,
+          "deadline_seconds": 60.0
+        }
+      }
+    }
+  ]
+}

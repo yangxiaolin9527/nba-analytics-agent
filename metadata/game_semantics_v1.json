@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "source_snapshot": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "season_start_min": 1946,
+  "season_start_max": 2026,
+  "phase_by_type": {
+    "Regular Season": "regular_season",
+    "NBA Emirates Cup": "regular_season",
+    "Playoffs": "playoffs",
+    "Play-in Tournament": "play_in",
+    "Preseason": "preseason",
+    "All-Star Game": "all_star"
+  },
+  "phase_by_id_prefix": {
+    "1": "preseason",
+    "2": "regular_season",
+    "3": "all_star",
+    "4": "playoffs",
+    "5": "play_in",
+    "6": "cup_championship"
+  },
+  "cup_championship_ids": ["62300001", "62400001", "62500001"],
+  "cup_championship_types": ["NBA Cup", "Emirates NBA Cup"]
+}

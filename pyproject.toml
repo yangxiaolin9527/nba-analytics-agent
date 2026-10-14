@@ -1,0 +1,36 @@
+[project]
+name = "nba-analytics-agent"
+version = "0.1.0"
+description = "A traceable FastAPI agent for grounded NBA statistics and knowledge questions"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "arize-phoenix-otel>=0.17.1",
+    "beautifulsoup4>=4.15.0",
+    "fastapi>=0.141.1",
+    "httpx>=0.28.1",
+    "llama-index-core>=0.14.25",
+    "llama-index-retrievers-bm25>=0.8.0",
+    "llama-index-vector-stores-qdrant>=0.10.3",
+    "pydantic>=2.13.5",
+    "pypdf>=6.19.0",
+    "python-dotenv>=1.2.4",
+    "qdrant-client>=1.19.1",
+    "sqlalchemy>=2.1.1",
+    "sqlglot>=27.0.0",
+    "uvicorn>=0.53.0",
+]
+
+[project.optional-dependencies]
+local-embedding = ["sentence-transformers>=3.4", "transformers>=4.51.0"]
+
+[dependency-groups]
+dev = ["pytest>=9.1.1"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+addopts = "-m 'not legacy and not live'"
+markers = [
+    "legacy: frozen historical experiments and route contracts kept for reproducibility",
+    "live: tests for provider, subprocess, or live-stream evaluation paths; run explicitly",
+]

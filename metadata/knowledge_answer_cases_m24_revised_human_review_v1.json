@@ -1,0 +1,178 @@
+{
+  "reviewer": "YangHL",
+  "reviewer_type": "human",
+  "review_origin": "docs/m2-m24-human-review.md",
+  "human_review_confirmed": true,
+  "review_policy": "facts_present follows the revised question scope; claim_support checks each returned compound claim against its full pinned source. Runtime failures remain unknown.",
+  "cases": {
+    "M24-001": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ],
+      "notes": "Question scope is player; answer matches pinned rule."
+    },
+    "M24-002": {
+      "facts_present": [
+        false
+      ],
+      "claim_support": []
+    },
+    "M24-003": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ],
+      "notes": "Semantically supported by an equivalent indexed location; exact frozen gold location is diagnostic only."
+    },
+    "M24-004": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ]
+    },
+    "M24-005": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        false
+      ],
+      "notes": "Compound claim: the no-free-throws/ejection portion is supported, but the appended fine/suspension clause is not covered by the cited excerpt; classify the full returned claim as unsupported."
+    },
+    "M24-006": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ]
+    },
+    "M24-007": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ],
+      "notes": "Answer is semantically supported; gold citation appears at dense rank 4 but remains in evidence."
+    },
+    "M24-008": {
+      "facts_present": [],
+      "claim_support": [],
+      "notes": "Generation timeout; no semantic judgment."
+    },
+    "M24-009": {
+      "facts_present": [
+        true,
+        true
+      ],
+      "claim_support": [
+        true,
+        true
+      ]
+    },
+    "M24-010": {
+      "facts_present": [],
+      "claim_support": [],
+      "notes": "Retrieval timeout; no semantic judgment."
+    },
+    "M24-011": {
+      "facts_present": [],
+      "claim_support": [],
+      "notes": "Retrieval timeout; no semantic judgment."
+    },
+    "M24-012": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ]
+    },
+    "M24-013": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ]
+    },
+    "M24-014": {
+      "facts_present": [
+        true,
+        true
+      ],
+      "claim_support": [
+        true
+      ],
+      "source_claim_support": [true, true],
+      "normalization_confirmed_by": "YangHL, direct confirmation 2026-10-04"
+    },
+    "M24-015": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ]
+    },
+    "M24-016": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ]
+    },
+    "M24-017": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true,
+        true
+      ],
+      "source_claim_support": [true],
+      "normalization_confirmed_by": "YangHL, direct confirmation 2026-10-04"
+    },
+    "M24-018": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ]
+    },
+    "M24-019": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ]
+    },
+    "M24-020": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ]
+    },
+    "M24-030": {
+      "facts_present": [
+        true
+      ],
+      "claim_support": [
+        true
+      ]
+    }
+  }
+}
