@@ -221,12 +221,12 @@ The diagram shows **the isolated hybrid experiment, not the deployed default**:
 
 ```mermaid
 flowchart TB
-  Q["User statistics question"] --> M["Model extracts requirements<br/>Entities, season, phase, metrics and operation"]
-  M --> G["Server checks question and database<br/>Confirm IDs, values and query scope"]
-  G --> D{"Select path by query capability"}
-  D -->|Existing statistics| T["Call predefined query functions<br/>Validate parameters; use fixed SQL and calculations"]
-  D -->|Rankings, threshold counts| S["Model writes SQL from confirmed requirements<br/>Check requirement consistency and read-only safety"]
-  T --> R["Query database and check results<br/>Return answer or explicit incomplete status"]
+  Q["User statistics question"] --> M["Model extracts requirements<br/>Entity, scope, metrics, operation"]
+  M --> G["Server checks question and DB<br/>Confirm IDs, values and scope"]
+  G --> D{"Select query path"}
+  D -->|Existing statistics| T["Call predefined query functions<br/>Fixed SQL and calculations"]
+  D -->|Rankings, threshold counts| S["Model generates SQL<br/>Requirement and read-only checks"]
+  T --> R["Execute query and check results<br/>Answer or incomplete status"]
   S --> R
 
   classDef service fill:#eef5ff,stroke:#7698bf,color:#173753
