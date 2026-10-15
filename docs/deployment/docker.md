@@ -16,6 +16,27 @@ Compose binds localhost. No provider, database, index or GPU is needed. Select a
 registered replay; entering a new live question requires real resources.
 `/readyz` checks replay readiness, not live provider health.
 
+## Structured-query research and deployment scope
+
+The [query-route study](../research/structured-query-selection.md) compares
+predefined query functions with model-generated SQL and an experimental hybrid.
+It does **not** change the default Agent. Docker still starts `app.main:app`;
+the isolated `/experiment/structured/answer` endpoint is not registered there.
+Replay uses saved cases; live mode uses the existing validated query tools.
+
+The image copies `scripts/` and `metadata/`, including research code and case
+definitions. Packaging these files does not enable the experimental route.
+The image omits research reports, frozen experiment plans and test snapshots,
+so it is not a complete experiment environment. Run research from a local
+checkout with the prerequisites and commands in the study. Neither Compose
+override enables the hybrid; no new dependency or model setting is required
+for default replay.
+
+Release checks build from the public checkout, wait for Compose readiness,
+execute all 16 replays, and confirm the experimental endpoint returns 404.
+Default, development and live Compose configurations are checked separately;
+parsing live configuration does not test real model access or data quality.
+
 ## Why code changes do not reinstall everything
 
 The Dockerfile installs locked default dependencies before copying source, using

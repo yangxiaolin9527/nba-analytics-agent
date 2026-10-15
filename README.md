@@ -178,7 +178,9 @@ uv sync --locked --extra local-embedding
 
 回放保留来源标签，区分人工测试数据、合成知识和历史模型输出；其中的统计值不代表完整 NBA 赛季数据。
 
-## 评估与模型选型
+## 评估与技术选型
+
+### Embedding 模型选型
 
 在固定 **30 题**上比较在线 Qwen Embedding 和本地 BGE-M3，其中 **21 道有来源依据的题目**用于检索评分。
 
@@ -193,11 +195,33 @@ uv sync --locked --extra local-embedding
 
 BGE 未达到预设的替换条件，因此保留在线方案。题集包含开发阶段用过的问题，每个模型对每题运行一次，分批执行。表中耗时按阶段估算，并非完整 HTTP 请求实测；检索召回也不等于答案准确率。该实验不能证明在线方案全面优于本地模型，位置融合的收益尚无独立消融结论。详见 [评估说明](docs/evaluation.md)。
 
-<details>
-<summary>结构化查询选型：工具、两阶段 SQL 与在线分流</summary>
+### 结构化查询路线选型
 
-先共享模型需求提取和数据库 grounding，对照确定性工具与模型生成 SQL，再将按能力分流放进真实请求。
-在 **24 道新问题、每题两次**的有限结构化实验中：
+**如何扩大统计查询范围，同时保住已有查询的可靠性？** 当前 Agent 让模型选择查询功能并填写参数，服务器校验后执行预先编写的 SQL 与计算逻辑（Text2Plan）。这种方式便于约束统计口径，但新分析需求可能需要扩展查询功能。
+
+研究中对比了让模型直接生成 SQL 的方式（Text2SQL），并增加“两阶段”流程：模型先提取实体、赛季和指标等需求，服务器核对原问题及数据库中的真实取值，再让模型根据已确认的需求生成 SQL。最后尝试在线混合：已有查询复用预先编写的功能，排名和阈值计数交给模型生成 SQL。
+
+下图仅展示**混合实验路线，尚未接入产品默认服务**：
+
+```mermaid
+flowchart TB
+  Q["用户统计问题"] --> M["模型提取查询需求<br/>实体、赛季、阶段、指标及操作"]
+  M --> G["服务器核对原问题与数据库<br/>确认实体 ID、取值和查询范围"]
+  G --> D{"按查询能力选择路径"}
+  D -->|已有统计查询| T["调用预先编写的查询功能<br/>校验参数后执行固定 SQL 与计算"]
+  D -->|排名、阈值计数| S["模型根据已确认的需求生成 SQL<br/>检查需求一致性与只读安全"]
+  T --> R["查询数据库并检查结果<br/>返回答案或明确的未完成状态"]
+  S --> R
+
+  classDef service fill:#eef5ff,stroke:#7698bf,color:#173753
+  classDef store fill:#f1f7f3,stroke:#7d9e88,color:#254b32
+  classDef result fill:#fff6e8,stroke:#c5a16c,color:#64491d
+  class Q,M,G,T,S service
+  class D store
+  class R result
+```
+
+在 **24 道新问题、每题两次**的有限结构化实验中，以实际 Agent 请求链路对照：
 
 | 指标 | 当前模型规划 Agent | 在线混合实验 |
 | --- | ---: | ---: |
@@ -210,9 +234,7 @@ BGE 未达到预设的替换条件，因此保留在线方案。题集包含开�
 混合路线增加了球队排名和阈值计数覆盖，但已有查询、扩展稳定性及延迟未达到事前替换门槛，因此保留当前默认 Agent。
 这是隔离研究，未接入产品；不覆盖 RAG、多目标或多轮，不是生产准确率或并发测试。两道球员排名 SQL 单独执行正确，但完整性检查与查询共享预算，完整链路仍未完成。
 旧题离线分流 44/48 与新题在线 43/48 来自不同题集，不能作前后差值。
-详见 [路线演进、方法与失败归因](docs/research/structured-query-selection.md) 和 [脱敏汇总](reports/structured-query-selection/summary.json)。
-
-</details>
+详见 [路线演进、方法与失败归因](docs/research/structured-query-selection.md) 和 [脱敏汇总](reports/structured-query-selection/summary.json)。Docker 仍运行当前默认 Agent；实验需在本地单独运行，见 [部署范围](docs/deployment/docker.md#structured-query-research-and-deployment-scope)。
 
 ### 离线测试
 

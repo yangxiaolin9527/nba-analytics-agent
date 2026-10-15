@@ -188,7 +188,9 @@ This saved synthetic knowledge answer demonstrates the UI and execution records 
 Fixture statistics, synthetic knowledge and historical online outputs keep their
 source labels; they are not presented as fresh live runs.
 
-## Evaluation and model selection
+## Evaluation and technical choices
+
+### Embedding model selection
 
 A frozen **30-question** paired comparison evaluates online Qwen and local BGE-M3;
 retrieval uses its **21 source-grounded questions**.
@@ -209,11 +211,33 @@ Retrieval recall is not answer accuracy; these results do not establish that the
 model is better overall. The benefit of location fusion has not been isolated in an ablation.
 See [evaluation details](docs/evaluation.md).
 
-<details>
-<summary>Structured-query selection: tools, two-stage SQL and online dispatch</summary>
+### Structured-query route selection
 
-The study first shared model requirement extraction and database grounding between tools and model-generated SQL, then tested capability dispatch inside real requests.
-On **24 new, author-selected structured cases, each repeated twice**:
+**How can query coverage grow while preserving existing reliability?** The current Agent asks the model to select query functions and supply parameters. The server validates them and runs predefined SQL and calculations (Text2Plan). This constrains statistical definitions, but new analysis requests may require extending those functions.
+
+The study compared model-generated SQL (Text2SQL) and added a two-stage process: the model first extracts entities, season, metrics and other requirements; the server checks them against the question and database values; a second model step writes SQL from the confirmed requirements. An online hybrid then sends existing queries to predefined functions and rankings or threshold counts to SQL generation.
+
+The diagram shows **the isolated hybrid experiment, not the deployed default**:
+
+```mermaid
+flowchart TB
+  Q["User statistics question"] --> M["Model extracts requirements<br/>Entities, season, phase, metrics and operation"]
+  M --> G["Server checks question and database<br/>Confirm IDs, values and query scope"]
+  G --> D{"Select path by query capability"}
+  D -->|Existing statistics| T["Call predefined query functions<br/>Validate parameters; use fixed SQL and calculations"]
+  D -->|Rankings, threshold counts| S["Model writes SQL from confirmed requirements<br/>Check requirement consistency and read-only safety"]
+  T --> R["Query database and check results<br/>Return answer or explicit incomplete status"]
+  S --> R
+
+  classDef service fill:#eef5ff,stroke:#7698bf,color:#173753
+  classDef store fill:#f1f7f3,stroke:#7d9e88,color:#254b32
+  classDef result fill:#fff6e8,stroke:#c5a16c,color:#64491d
+  class Q,M,G,T,S service
+  class D store
+  class R result
+```
+
+The comparison used the actual Agent request path on **24 new, author-selected structured cases, each repeated twice**:
 
 | Metric | Current model-planned Agent | Online hybrid experiment |
 | --- | ---: | ---: |
@@ -228,8 +252,7 @@ This is isolated research, with no product integration or RAG, multi-target or c
 Player-ranking SQL was correct alone, while input checks and execution exceeded their shared budget.
 The older offline 44/48 and new online 43/48 use different cases and are not a before/after comparison.
 See the [study and failure analysis](docs/research/structured-query-selection.md#english-overview) and [sanitized aggregates](reports/structured-query-selection/summary.json).
-
-</details>
+Docker retains the current default Agent; research runs separately from a local checkout. See [deployment scope](docs/deployment/docker.md#structured-query-research-and-deployment-scope).
 
 ### Offline tests
 
