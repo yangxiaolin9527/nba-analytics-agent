@@ -39,6 +39,34 @@ They retain their historical experiment identity. The source hashes describe
 local original reports, which are not all distributed; this release does not
 claim full regeneration of those online runs.
 
+## Structured-query route selection
+
+An isolated study compares the current model-planned Agent, shared-grounding
+tools/SQL, and request-time capability dispatch. The independent Oracle reads
+raw facts and calculates results in Python; it does not call the tested compiler
+or provide gold requirements to the runtime. Scores require the complete scope,
+columns, rows, ordering and outcome; gateway acceptance alone is not correctness.
+
+On 24 new author-selected cases repeated twice, the actual Agent passed 32/48
+and online hybrid 43/48. Common queries were 20/20 versus 19/20, expansions 0/16
+(explicit unsupported) versus 12/16, and protection 12/12 for both. Only 6/8
+expanded scenarios passed twice, below 7/8; common P95 was 1.641 versus 3.266 s,
+above the allowed 1.25 ratio. The replacement gate failed; defaults are unchanged.
+
+Timings include real provider, IPC/ASGI and full response; worker bootstrap and
+post-request Oracle are excluded. No TCP, concurrent-load, RAG or conversation
+claim follows. Repeats are correlated, and small samples do not establish
+statistical significance. Historical scores predate later IO/audit hardening;
+the hardened version was only regressed on old cases, not another new holdout.
+
+The [full study](research/structured-query-selection.md) explains the older
+shared-grounding comparison, version boundaries, scan-budget diagnosis and
+replication commands. The [aggregate-only export](../reports/structured-query-selection/summary.json)
+omits raw provider outputs and source archives; it cannot independently replay
+historical calls. The published cases are now replication material, not fresh
+holdout data. Running them again requires the user's own data/config and incurs
+provider charges; no live calls run in CI.
+
 ## Running offline checks
 
 ```bash

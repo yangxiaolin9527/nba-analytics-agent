@@ -49,3 +49,9 @@ credentials/
 # User-prepared live runtime resources and private corpus manifest.
 /runtime-data/
 /metadata/knowledge_corpus_v1.json
+
+# Experiment runs contain raw provider output and frozen local source snapshots.
+# Reviewed aggregate exports live separately in reports/structured-query-selection/.
+/reports/plan-vs-sql/
+/reports/two-stage-sql/
+/reports/online-hybrid/

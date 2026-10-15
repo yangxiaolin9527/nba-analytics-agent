@@ -1,0 +1,648 @@
+{
+  "version": "structured-query-selection-public-v1",
+  "evidence_date": "2026-10-15",
+  "status": "isolated research; existing model-planned Agent retained; no product default changes",
+  "dataset": "eoinamoore/historical-nba-data-and-player-box-scores@515",
+  "provider_model": "deepseek-flash",
+  "thinking": "disabled",
+  "distribution": "Explicit aggregate-only export; no original prompts/responses, database or frozen source archives included. Original reports audited locally; aggregates alone cannot independently replay historical results.",
+  "single_stage_development_diagnostic": {
+    "source_sha256": "849dac5a5571b747d11e89b43bab9a06b56ddeefb73fd16efb60f96401ff0b02",
+    "design": "development retest after general output instruction; not a blind holdout or causal Plan-vs-SQL ablation",
+    "summary": {
+      "agent_plan": {
+        "runs": 24,
+        "groups": {
+          "common": {
+            "runs": 10,
+            "outcome_match": 10,
+            "numeric_match": 10,
+            "verified_numeric": 10,
+            "safe_no_answer": 0,
+            "mean_latency_ms": 1147.6201
+          },
+          "no_data": {
+            "runs": 2,
+            "outcome_match": 2,
+            "numeric_match": 2,
+            "verified_numeric": 0,
+            "safe_no_answer": 2,
+            "mean_latency_ms": 980.3254999999999
+          },
+          "clarification": {
+            "runs": 4,
+            "outcome_match": 4,
+            "numeric_match": 0,
+            "verified_numeric": 0,
+            "safe_no_answer": 4,
+            "mean_latency_ms": 1279.233
+          },
+          "filtered": {
+            "runs": 4,
+            "outcome_match": 4,
+            "numeric_match": 4,
+            "verified_numeric": 4,
+            "safe_no_answer": 0,
+            "mean_latency_ms": 1038.56
+          },
+          "open_analysis": {
+            "runs": 4,
+            "outcome_match": 0,
+            "numeric_match": 0,
+            "verified_numeric": 0,
+            "safe_no_answer": 4,
+            "mean_latency_ms": 1362.3695
+          }
+        },
+        "requests": 24,
+        "mean_latency_ms": 1173.22925,
+        "tokens": {
+          "prompt_tokens": 160090,
+          "completion_tokens": 2655,
+          "total_tokens": 162745,
+          "prompt_cache_hit_tokens": 154876,
+          "prompt_cache_miss_tokens": 5214
+        },
+        "requests_missing_usage": 0
+      },
+      "direct_full_values": {
+        "runs": 24,
+        "groups": {
+          "common": {
+            "runs": 10,
+            "outcome_match": 6,
+            "numeric_match": 6,
+            "verified_numeric": 6,
+            "safe_no_answer": 4,
+            "mean_latency_ms": 857.2148000000001
+          },
+          "no_data": {
+            "runs": 2,
+            "outcome_match": 0,
+            "numeric_match": 0,
+            "verified_numeric": 0,
+            "safe_no_answer": 0,
+            "mean_latency_ms": 780.7215
+          },
+          "clarification": {
+            "runs": 4,
+            "outcome_match": 0,
+            "numeric_match": 0,
+            "verified_numeric": 0,
+            "safe_no_answer": 3,
+            "mean_latency_ms": 857.894
+          },
+          "filtered": {
+            "runs": 4,
+            "outcome_match": 3,
+            "numeric_match": 3,
+            "verified_numeric": 3,
+            "safe_no_answer": 1,
+            "mean_latency_ms": 1064.53
+          },
+          "open_analysis": {
+            "runs": 4,
+            "outcome_match": 2,
+            "numeric_match": 2,
+            "verified_numeric": 2,
+            "safe_no_answer": 2,
+            "mean_latency_ms": 960.91925
+          }
+        },
+        "requests": 24,
+        "mean_latency_ms": 902.7901666666667,
+        "tokens": {
+          "prompt_tokens": 62758,
+          "completion_tokens": 1390,
+          "total_tokens": 64148,
+          "prompt_cache_hit_tokens": 58616,
+          "prompt_cache_miss_tokens": 4142
+        },
+        "requests_missing_usage": 0
+      }
+    }
+  },
+  "shared_grounding_frozen": {
+    "source_sha256": "b51d522fec987bb21032c0f282c555b0dfac04cde8b839b7169d8da8b17f2472",
+    "design": "24 author-selected scenarios, twice per route; B/C share one immutable grounded request per repetition; hybrid is capability-based offline selection, not online endpoint",
+    "summary": {
+      "A": {
+        "all": {
+          "turns": 48,
+          "passed": 32,
+          "accepted_wrong": 0,
+          "requirements_matched": 32,
+          "mean_latency_ms": 1088.41,
+          "p50_latency_ms": 1068.079,
+          "p95_latency_ms": 1463.645,
+          "model_calls": 48,
+          "calls_with_usage": 48,
+          "prompt_tokens": 319916,
+          "completion_tokens": 5199,
+          "cache_hit_tokens": 305280,
+          "cache_miss_tokens": 14636,
+          "statuses": {
+            "complete": 20,
+            "unsupported": 18,
+            "clarify": 8,
+            "not_computable": 2
+          }
+        },
+        "common": {
+          "turns": 20,
+          "passed": 20,
+          "accepted_wrong": 0,
+          "requirements_matched": 20,
+          "mean_latency_ms": 976.587,
+          "p50_latency_ms": 959.601,
+          "p95_latency_ms": 1396.111,
+          "model_calls": 20,
+          "calls_with_usage": 20,
+          "prompt_tokens": 134724,
+          "completion_tokens": 2321,
+          "cache_hit_tokens": 127872,
+          "cache_miss_tokens": 6852,
+          "statuses": {
+            "complete": 20
+          }
+        },
+        "expanded": {
+          "turns": 16,
+          "passed": 0,
+          "accepted_wrong": 0,
+          "requirements_matched": 0,
+          "mean_latency_ms": 1273.317,
+          "p50_latency_ms": 1267.119,
+          "p95_latency_ms": 2011.91,
+          "model_calls": 16,
+          "calls_with_usage": 16,
+          "prompt_tokens": 105890,
+          "completion_tokens": 1733,
+          "cache_hit_tokens": 101376,
+          "cache_miss_tokens": 4514,
+          "statuses": {
+            "unsupported": 16
+          }
+        },
+        "protection": {
+          "turns": 12,
+          "passed": 12,
+          "accepted_wrong": 0,
+          "requirements_matched": 12,
+          "mean_latency_ms": 1028.239,
+          "p50_latency_ms": 1020.699,
+          "p95_latency_ms": 1260.115,
+          "model_calls": 12,
+          "calls_with_usage": 12,
+          "prompt_tokens": 79302,
+          "completion_tokens": 1145,
+          "cache_hit_tokens": 76032,
+          "cache_miss_tokens": 3270,
+          "statuses": {
+            "clarify": 8,
+            "not_computable": 2,
+            "unsupported": 2
+          }
+        }
+      },
+      "B": {
+        "all": {
+          "turns": 48,
+          "passed": 32,
+          "accepted_wrong": 0,
+          "requirements_matched": 48,
+          "mean_latency_ms": 1265.566,
+          "p50_latency_ms": 1238.409,
+          "p95_latency_ms": 1633.035,
+          "model_calls": 48,
+          "calls_with_usage": 48,
+          "prompt_tokens": 79632,
+          "completion_tokens": 9535,
+          "cache_hit_tokens": 69881,
+          "cache_miss_tokens": 9751,
+          "statuses": {
+            "complete": 20,
+            "unsupported": 18,
+            "clarify": 8,
+            "not_computable": 2
+          }
+        },
+        "common": {
+          "turns": 20,
+          "passed": 20,
+          "accepted_wrong": 0,
+          "requirements_matched": 20,
+          "mean_latency_ms": 1233.063,
+          "p50_latency_ms": 1271.361,
+          "p95_latency_ms": 1633.035,
+          "model_calls": 20,
+          "calls_with_usage": 20,
+          "prompt_tokens": 33372,
+          "completion_tokens": 4149,
+          "cache_hit_tokens": 29564,
+          "cache_miss_tokens": 3808,
+          "statuses": {
+            "complete": 20
+          }
+        },
+        "expanded": {
+          "turns": 16,
+          "passed": 0,
+          "accepted_wrong": 0,
+          "requirements_matched": 16,
+          "mean_latency_ms": 1246.097,
+          "p50_latency_ms": 1256.12,
+          "p95_latency_ms": 1551.124,
+          "model_calls": 16,
+          "calls_with_usage": 16,
+          "prompt_tokens": 26502,
+          "completion_tokens": 3418,
+          "cache_hit_tokens": 23421,
+          "cache_miss_tokens": 3081,
+          "statuses": {
+            "unsupported": 16
+          }
+        },
+        "protection": {
+          "turns": 12,
+          "passed": 12,
+          "accepted_wrong": 0,
+          "requirements_matched": 12,
+          "mean_latency_ms": 1345.698,
+          "p50_latency_ms": 1095.792,
+          "p95_latency_ms": 2766.534,
+          "model_calls": 12,
+          "calls_with_usage": 12,
+          "prompt_tokens": 19758,
+          "completion_tokens": 1968,
+          "cache_hit_tokens": 16896,
+          "cache_miss_tokens": 2862,
+          "statuses": {
+            "clarify": 8,
+            "not_computable": 2,
+            "unsupported": 2
+          }
+        }
+      },
+      "C": {
+        "all": {
+          "turns": 48,
+          "passed": 38,
+          "accepted_wrong": 0,
+          "requirements_matched": 48,
+          "mean_latency_ms": 2207.999,
+          "p50_latency_ms": 2116.647,
+          "p95_latency_ms": 4063.238,
+          "model_calls": 86,
+          "calls_with_usage": 86,
+          "prompt_tokens": 129350,
+          "completion_tokens": 12938,
+          "cache_hit_tokens": 110713,
+          "cache_miss_tokens": 18637,
+          "statuses": {
+            "complete": 26,
+            "rejected": 6,
+            "incomplete": 4,
+            "clarify": 8,
+            "not_computable": 2,
+            "unsupported": 2
+          }
+        },
+        "common": {
+          "turns": 20,
+          "passed": 14,
+          "accepted_wrong": 0,
+          "requirements_matched": 20,
+          "mean_latency_ms": 2259.758,
+          "p50_latency_ms": 2117.338,
+          "p95_latency_ms": 3153.435,
+          "model_calls": 40,
+          "calls_with_usage": 40,
+          "prompt_tokens": 59550,
+          "completion_tokens": 6231,
+          "cache_hit_tokens": 50940,
+          "cache_miss_tokens": 8610,
+          "statuses": {
+            "complete": 14,
+            "rejected": 6
+          }
+        },
+        "expanded": {
+          "turns": 16,
+          "passed": 12,
+          "accepted_wrong": 0,
+          "requirements_matched": 16,
+          "mean_latency_ms": 2642.497,
+          "p50_latency_ms": 2272.454,
+          "p95_latency_ms": 4285.298,
+          "model_calls": 32,
+          "calls_with_usage": 32,
+          "prompt_tokens": 47424,
+          "completion_tokens": 4642,
+          "cache_hit_tokens": 40701,
+          "cache_miss_tokens": 6723,
+          "statuses": {
+            "incomplete": 4,
+            "complete": 12
+          }
+        },
+        "protection": {
+          "turns": 12,
+          "passed": 12,
+          "accepted_wrong": 0,
+          "requirements_matched": 12,
+          "mean_latency_ms": 1542.406,
+          "p50_latency_ms": 1187.546,
+          "p95_latency_ms": 2766.534,
+          "model_calls": 14,
+          "calls_with_usage": 14,
+          "prompt_tokens": 22376,
+          "completion_tokens": 2065,
+          "cache_hit_tokens": 19072,
+          "cache_miss_tokens": 3304,
+          "statuses": {
+            "clarify": 8,
+            "not_computable": 2,
+            "unsupported": 2
+          }
+        }
+      },
+      "hybrid": {
+        "all": {
+          "turns": 48,
+          "passed": 44,
+          "accepted_wrong": 0,
+          "requirements_matched": 48,
+          "mean_latency_ms": 1731.033,
+          "p50_latency_ms": 1399.207,
+          "p95_latency_ms": 4063.238,
+          "model_calls": 64,
+          "calls_with_usage": 64,
+          "prompt_tokens": 100554,
+          "completion_tokens": 10759,
+          "cache_hit_tokens": 87161,
+          "cache_miss_tokens": 13393,
+          "statuses": {
+            "complete": 32,
+            "incomplete": 4,
+            "clarify": 8,
+            "not_computable": 2,
+            "unsupported": 2
+          }
+        },
+        "common": {
+          "turns": 20,
+          "passed": 20,
+          "accepted_wrong": 0,
+          "requirements_matched": 20,
+          "mean_latency_ms": 1233.063,
+          "p50_latency_ms": 1271.361,
+          "p95_latency_ms": 1633.035,
+          "model_calls": 20,
+          "calls_with_usage": 20,
+          "prompt_tokens": 33372,
+          "completion_tokens": 4149,
+          "cache_hit_tokens": 29564,
+          "cache_miss_tokens": 3808,
+          "statuses": {
+            "complete": 20
+          }
+        },
+        "expanded": {
+          "turns": 16,
+          "passed": 12,
+          "accepted_wrong": 0,
+          "requirements_matched": 16,
+          "mean_latency_ms": 2642.497,
+          "p50_latency_ms": 2272.454,
+          "p95_latency_ms": 4285.298,
+          "model_calls": 32,
+          "calls_with_usage": 32,
+          "prompt_tokens": 47424,
+          "completion_tokens": 4642,
+          "cache_hit_tokens": 40701,
+          "cache_miss_tokens": 6723,
+          "statuses": {
+            "incomplete": 4,
+            "complete": 12
+          }
+        },
+        "protection": {
+          "turns": 12,
+          "passed": 12,
+          "accepted_wrong": 0,
+          "requirements_matched": 12,
+          "mean_latency_ms": 1345.698,
+          "p50_latency_ms": 1095.792,
+          "p95_latency_ms": 2766.534,
+          "model_calls": 12,
+          "calls_with_usage": 12,
+          "prompt_tokens": 19758,
+          "completion_tokens": 1968,
+          "cache_hit_tokens": 16896,
+          "cache_miss_tokens": 2862,
+          "statuses": {
+            "clarify": 8,
+            "not_computable": 2,
+            "unsupported": 2
+          }
+        }
+      },
+      "research_gate": {
+        "expanded_scenarios_both_repeats_correct": 6,
+        "expanded_scenarios": 8,
+        "zero_accepted_wrong": true,
+        "met": false,
+        "meaning": "eligibility for further study only; never deployment authorization"
+      }
+    },
+    "historical_version": "frozen v2; later offline v3 hardening not assigned these scores"
+  },
+  "online_new_cases": {
+    "source_sha256": "96585a25f216dd3b8b2246c8d2015b484c4675a4002bcfa7454336b51dc28d00",
+    "design": "24 NEW author-selected scenarios, twice per arm; common=10 expanded=8 protection=6; independent A/H parsing; alternating serial order",
+    "budgets": {
+      "model_seconds": 15,
+      "database_seconds": 2,
+      "parent_request_seconds": 60
+    },
+    "timing": "IPC + ASGI + real external provider + full response; worker bootstrap and post-request Oracle excluded; not TCP/concurrency/production benchmark",
+    "summary": {
+      "A": {
+        "all": {
+          "turns": 48,
+          "passed": 32,
+          "accepted_wrong": 0,
+          "mean_latency_ms": 1201.105,
+          "p50_latency_ms": 1181.13,
+          "p95_latency_ms": 1759.189,
+          "completed_model_calls": 48,
+          "calls_with_usage": 48,
+          "prompt_tokens": 318118,
+          "completion_tokens": 5355,
+          "cache_hit_tokens": 304636,
+          "cache_miss_tokens": 13482,
+          "statuses": {
+            "complete": 20,
+            "unsupported": 18,
+            "clarify": 8,
+            "not_computable": 2
+          }
+        },
+        "common": {
+          "turns": 20,
+          "passed": 20,
+          "accepted_wrong": 0,
+          "mean_latency_ms": 1148.107,
+          "p50_latency_ms": 1150.905,
+          "p95_latency_ms": 1640.899,
+          "completed_model_calls": 20,
+          "calls_with_usage": 20,
+          "prompt_tokens": 133148,
+          "completion_tokens": 2444,
+          "cache_hit_tokens": 127228,
+          "cache_miss_tokens": 5920,
+          "statuses": {
+            "complete": 20
+          }
+        },
+        "expanded": {
+          "turns": 16,
+          "passed": 0,
+          "accepted_wrong": 0,
+          "mean_latency_ms": 1319.836,
+          "p50_latency_ms": 1384.52,
+          "p95_latency_ms": 1799.257,
+          "completed_model_calls": 16,
+          "calls_with_usage": 16,
+          "prompt_tokens": 105758,
+          "completion_tokens": 1742,
+          "cache_hit_tokens": 101376,
+          "cache_miss_tokens": 4382,
+          "statuses": {
+            "unsupported": 16
+          }
+        },
+        "protection": {
+          "turns": 12,
+          "passed": 12,
+          "accepted_wrong": 0,
+          "mean_latency_ms": 1131.126,
+          "p50_latency_ms": 1031.099,
+          "p95_latency_ms": 1983.748,
+          "completed_model_calls": 12,
+          "calls_with_usage": 12,
+          "prompt_tokens": 79212,
+          "completion_tokens": 1169,
+          "cache_hit_tokens": 76032,
+          "cache_miss_tokens": 3180,
+          "statuses": {
+            "clarify": 8,
+            "not_computable": 2,
+            "unsupported": 2
+          }
+        }
+      },
+      "H": {
+        "all": {
+          "turns": 48,
+          "passed": 43,
+          "accepted_wrong": 0,
+          "mean_latency_ms": 1808.829,
+          "p50_latency_ms": 1412.14,
+          "p95_latency_ms": 4005.394,
+          "completed_model_calls": 64,
+          "calls_with_usage": 64,
+          "prompt_tokens": 100222,
+          "completion_tokens": 10783,
+          "cache_hit_tokens": 86133,
+          "cache_miss_tokens": 14089,
+          "statuses": {
+            "complete": 31,
+            "incomplete": 5,
+            "clarify": 8,
+            "not_computable": 2,
+            "unsupported": 2
+          }
+        },
+        "common": {
+          "turns": 20,
+          "passed": 19,
+          "accepted_wrong": 0,
+          "mean_latency_ms": 1408.846,
+          "p50_latency_ms": 1312.43,
+          "p95_latency_ms": 3265.982,
+          "completed_model_calls": 20,
+          "calls_with_usage": 20,
+          "prompt_tokens": 33248,
+          "completion_tokens": 4159,
+          "cache_hit_tokens": 29301,
+          "cache_miss_tokens": 3947,
+          "statuses": {
+            "complete": 19,
+            "incomplete": 1
+          }
+        },
+        "expanded": {
+          "turns": 16,
+          "passed": 12,
+          "accepted_wrong": 0,
+          "mean_latency_ms": 2731.779,
+          "p50_latency_ms": 2352.093,
+          "p95_latency_ms": 4338.99,
+          "completed_model_calls": 32,
+          "calls_with_usage": 32,
+          "prompt_tokens": 47306,
+          "completion_tokens": 4609,
+          "cache_hit_tokens": 39936,
+          "cache_miss_tokens": 7370,
+          "statuses": {
+            "incomplete": 4,
+            "complete": 12
+          }
+        },
+        "protection": {
+          "turns": 12,
+          "passed": 12,
+          "accepted_wrong": 0,
+          "mean_latency_ms": 1244.866,
+          "p50_latency_ms": 1225.909,
+          "p95_latency_ms": 1590.496,
+          "completed_model_calls": 12,
+          "calls_with_usage": 12,
+          "prompt_tokens": 19668,
+          "completion_tokens": 2015,
+          "cache_hit_tokens": 16896,
+          "cache_miss_tokens": 2772,
+          "statuses": {
+            "clarify": 8,
+            "not_computable": 2,
+            "unsupported": 2
+          }
+        }
+      },
+      "replacement_gate": {
+        "checks": {
+          "complete_unique_run": true,
+          "existing_queries_preserved": false,
+          "protection_passed": true,
+          "zero_accepted_wrong": true,
+          "expanded_at_least_7_of_8_stable": false,
+          "common_p95_within_25_percent": false,
+          "all_p95_within_5_seconds": true
+        },
+        "expanded_scenarios_both_correct": 6,
+        "met": false,
+        "meaning": "structured-subscope integration research only; no deployment or whole-Agent replacement"
+      }
+    },
+    "historical_version": "online v1 holdout; subsequent IO/audit v2 validated only on old 12-case regression (A 9/12, H 11/12)",
+    "limitations": [
+      "Small selected samples with correlated repetitions; no statistical significance claim.",
+      "Raw archive omitted; current reproducible code includes later hardening and cannot recreate historical provider outputs.",
+      "H lacks RAG, conversation/memory, multi-target and cross-season combinations.",
+      "Different old/offline and new/online sets cannot be treated as a causal before/after comparison.",
+      "Input-token reduction does not establish monetary savings."
+    ]
+  }
+}

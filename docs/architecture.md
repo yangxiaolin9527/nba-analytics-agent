@@ -25,6 +25,27 @@ are checked before compilation to parameterized tools. Domain calculations and
 read-only SQL operate on a versioned SQLite snapshot. SQL safety does not prove
 source-data completeness; results retain sample counts and quality limitations.
 
+## Isolated structured-query research
+
+The default product flow above is unchanged. A separate experiment tests whether
+tools can retain existing query behavior while constrained SQL extends analysis:
+
+```mermaid
+flowchart LR
+  Q[Experimental request] --> M[Model requirements / server grounding]
+  M --> D{Select one branch before execution}
+  D -->|summary / window / efg| B[Existing tools]
+  D -->|rank / game_count| C[Model SQL / finite contract / completeness checks / gateway]
+  B --> O[Result and explicit status]
+  C --> O
+```
+
+This entry is not registered in the product Agent. It has no output-based choice
+or failure fallback, and lacks RAG, multi-target/cross-season composition and
+conversation state. The online hybrid failed its replacement gates; the current
+model-planned Agent remains the default. See the [study](research/structured-query-selection.md)
+for contracts, independent Oracle, result strata, resource failures and limits.
+
 ## Knowledge questions
 
 PDF/HTML parsing preserves source pages/headings/anchors. Sentence splitting

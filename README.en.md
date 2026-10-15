@@ -209,6 +209,28 @@ Retrieval recall is not answer accuracy; these results do not establish that the
 model is better overall. The benefit of location fusion has not been isolated in an ablation.
 See [evaluation details](docs/evaluation.md).
 
+<details>
+<summary>Structured-query selection: tools, two-stage SQL and online dispatch</summary>
+
+The study first shared model requirement extraction and database grounding between tools and model-generated SQL, then tested capability dispatch inside real requests.
+On **24 new, author-selected structured cases, each repeated twice**:
+
+| Metric | Current model-planned Agent | Online hybrid experiment |
+| --- | ---: | ---: |
+| Existing queries | 20/20 | 19/20 |
+| Expanded analysis | 0/16 (explicitly unsupported) | 12/16 |
+| Protection cases | 12/12 | 12/12 |
+| Total passed | 32/48 | 43/48 |
+| Existing-query P95 | 1.641 s | 3.266 s |
+
+The hybrid added team rankings and threshold counts, but failed the predeclared existing-query, expansion-stability and latency gates, so the current Agent remains the default.
+This is isolated research, with no product integration or RAG, multi-target or conversation coverage; it is not production accuracy or a concurrency benchmark.
+Player-ranking SQL was correct alone, while input checks and execution exceeded their shared budget.
+The older offline 44/48 and new online 43/48 use different cases and are not a before/after comparison.
+See the [study and failure analysis](docs/research/structured-query-selection.md#english-overview) and [sanitized aggregates](reports/structured-query-selection/summary.json).
+
+</details>
+
 ### Offline tests
 
 ```bash

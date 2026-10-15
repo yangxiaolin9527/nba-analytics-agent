@@ -1,0 +1,407 @@
+{
+  "version": "online-hybrid-v1",
+  "origin": "new author-selected scenarios; no new provider outputs observed before freeze; same finite capability families as previous experiment",
+  "cases": [
+    {
+      "id": "o01",
+      "split": "online_holdout",
+      "group": "common",
+      "question": "杜兰特2023-24季后赛总助攻和总篮板",
+      "gold": {
+        "operation": "summary",
+        "subject": "player",
+        "entity_id": "201142",
+        "season_id": "2023-24",
+        "competition_phase": "playoffs",
+        "metrics": [
+          "assists_total",
+          "rebounds_total"
+        ]
+      }
+    },
+    {
+      "id": "o02",
+      "split": "online_holdout",
+      "group": "common",
+      "question": "克莱·汤普森二零二二至二零二三赛季常规赛场均得分和出场场数",
+      "gold": {
+        "operation": "summary",
+        "subject": "player",
+        "entity_id": "202691",
+        "season_id": "2022-23",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "points_per_appearance",
+          "games_appeared"
+        ]
+      }
+    },
+    {
+      "id": "o03",
+      "split": "online_holdout",
+      "group": "common",
+      "question": "利拉德2023-24常规赛总得分与总助攻",
+      "gold": {
+        "operation": "summary",
+        "subject": "player",
+        "entity_id": "203081",
+        "season_id": "2023-24",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "points_total",
+          "assists_total"
+        ]
+      }
+    },
+    {
+      "id": "o04",
+      "split": "online_holdout",
+      "group": "common",
+      "question": "热火2023-24常规赛总篮板和比赛场数",
+      "gold": {
+        "operation": "summary",
+        "subject": "team",
+        "entity_id": "1610612748",
+        "season_id": "2023-24",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "rebounds_total",
+          "games_played"
+        ]
+      }
+    },
+    {
+      "id": "o05",
+      "split": "online_holdout",
+      "group": "common",
+      "question": "约基奇2023-24常规赛对阵勇士的总得分和总助攻",
+      "gold": {
+        "operation": "window",
+        "subject": "player",
+        "entity_id": "203999",
+        "season_id": "2023-24",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "points_total",
+          "assists_total"
+        ],
+        "opponent_id": "1610612744"
+      }
+    },
+    {
+      "id": "o06",
+      "split": "online_holdout",
+      "group": "common",
+      "question": "塔图姆2022-23常规赛从2022-12-01到2022-12-10的总篮板",
+      "gold": {
+        "operation": "window",
+        "subject": "player",
+        "entity_id": "1628369",
+        "season_id": "2022-23",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "rebounds_total"
+        ],
+        "date_from": "2022-12-01",
+        "date_to": "2022-12-10"
+      }
+    },
+    {
+      "id": "o07",
+      "split": "online_holdout",
+      "group": "common",
+      "question": "掘金2022-23常规赛最近3场总得分和总篮板",
+      "gold": {
+        "operation": "window",
+        "subject": "team",
+        "entity_id": "1610612743",
+        "season_id": "2022-23",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "points_total",
+          "rebounds_total"
+        ],
+        "last_n": 3
+      }
+    },
+    {
+      "id": "o08",
+      "split": "online_holdout",
+      "group": "common",
+      "question": "库里2022-23常规赛截至2022-12-15的总助攻",
+      "gold": {
+        "operation": "window",
+        "subject": "player",
+        "entity_id": "201939",
+        "season_id": "2022-23",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "assists_total"
+        ],
+        "date_to": "2022-12-15"
+      }
+    },
+    {
+      "id": "o09",
+      "split": "online_holdout",
+      "group": "common",
+      "question": "德文·布克2023-24季后赛有效命中率",
+      "gold": {
+        "operation": "efg",
+        "subject": "player",
+        "entity_id": "1626164",
+        "season_id": "2023-24",
+        "competition_phase": "playoffs",
+        "metrics": [
+          "efg_percentage"
+        ]
+      }
+    },
+    {
+      "id": "o10",
+      "split": "online_holdout",
+      "group": "common",
+      "question": "扬尼斯·阿德托昆博2022-23常规赛有效命中率",
+      "gold": {
+        "operation": "efg",
+        "subject": "player",
+        "entity_id": "203507",
+        "season_id": "2022-23",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "efg_percentage"
+        ]
+      }
+    },
+    {
+      "id": "o11",
+      "split": "online_holdout",
+      "group": "expanded",
+      "question": "2022-23常规赛总篮板最多的前4名球员",
+      "gold": {
+        "operation": "rank",
+        "subject": "player",
+        "entity_id": null,
+        "season_id": "2022-23",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "rebounds_total"
+        ],
+        "limit": 4,
+        "sort_direction": "desc"
+      }
+    },
+    {
+      "id": "o12",
+      "split": "online_holdout",
+      "group": "expanded",
+      "question": "2023-24季后赛总得分最高的前7名球员",
+      "gold": {
+        "operation": "rank",
+        "subject": "player",
+        "entity_id": null,
+        "season_id": "2023-24",
+        "competition_phase": "playoffs",
+        "metrics": [
+          "points_total"
+        ],
+        "limit": 7,
+        "sort_direction": "desc"
+      }
+    },
+    {
+      "id": "o13",
+      "split": "online_holdout",
+      "group": "expanded",
+      "question": "2023-24常规赛总助攻最多的前6名球队",
+      "gold": {
+        "operation": "rank",
+        "subject": "team",
+        "entity_id": null,
+        "season_id": "2023-24",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "assists_total"
+        ],
+        "limit": 6,
+        "sort_direction": "desc"
+      }
+    },
+    {
+      "id": "o14",
+      "split": "online_holdout",
+      "group": "expanded",
+      "question": "2022-23季后赛总篮板最低的前4名球队",
+      "gold": {
+        "operation": "rank",
+        "subject": "team",
+        "entity_id": null,
+        "season_id": "2022-23",
+        "competition_phase": "playoffs",
+        "metrics": [
+          "rebounds_total"
+        ],
+        "limit": 4,
+        "sort_direction": "asc"
+      }
+    },
+    {
+      "id": "o15",
+      "split": "online_holdout",
+      "group": "expanded",
+      "question": "德文·布克2023-24常规赛单场得分至少25分的场数",
+      "gold": {
+        "operation": "game_count",
+        "subject": "player",
+        "entity_id": "1626164",
+        "season_id": "2023-24",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "qualifying_games"
+        ],
+        "predicates": [
+          [
+            "points",
+            "ge",
+            25
+          ]
+        ]
+      }
+    },
+    {
+      "id": "o16",
+      "split": "online_holdout",
+      "group": "expanded",
+      "question": "杜兰特2022-23季后赛单场篮板超过7个的场数",
+      "gold": {
+        "operation": "game_count",
+        "subject": "player",
+        "entity_id": "201142",
+        "season_id": "2022-23",
+        "competition_phase": "playoffs",
+        "metrics": [
+          "qualifying_games"
+        ],
+        "predicates": [
+          [
+            "rebounds_total",
+            "gt",
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "o17",
+      "split": "online_holdout",
+      "group": "expanded",
+      "question": "利拉德2022-23常规赛单场助攻不超过4次的场数",
+      "gold": {
+        "operation": "game_count",
+        "subject": "player",
+        "entity_id": "203081",
+        "season_id": "2022-23",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "qualifying_games"
+        ],
+        "predicates": [
+          [
+            "assists",
+            "le",
+            4
+          ]
+        ]
+      }
+    },
+    {
+      "id": "o18",
+      "split": "online_holdout",
+      "group": "expanded",
+      "question": "扬尼斯·阿德托昆博2023-24常规赛单场得分至少25分且篮板至少12个的场数",
+      "gold": {
+        "operation": "game_count",
+        "subject": "player",
+        "entity_id": "203507",
+        "season_id": "2023-24",
+        "competition_phase": "regular_season",
+        "metrics": [
+          "qualifying_games"
+        ],
+        "predicates": [
+          [
+            "points",
+            "ge",
+            25
+          ],
+          [
+            "rebounds_total",
+            "ge",
+            12
+          ]
+        ]
+      }
+    },
+    {
+      "id": "o19",
+      "split": "online_holdout",
+      "group": "protection",
+      "question": "2023-24季后赛总篮板和总助攻",
+      "gold": {
+        "status": "clarify"
+      }
+    },
+    {
+      "id": "o20",
+      "split": "online_holdout",
+      "group": "protection",
+      "question": "Johnson2022-23常规赛总篮板",
+      "gold": {
+        "status": "clarify"
+      }
+    },
+    {
+      "id": "o21",
+      "split": "online_holdout",
+      "group": "protection",
+      "question": "杜兰特常规赛总助攻",
+      "gold": {
+        "status": "clarify"
+      }
+    },
+    {
+      "id": "o22",
+      "split": "online_holdout",
+      "group": "protection",
+      "question": "布克2023-24总得分",
+      "gold": {
+        "status": "clarify"
+      }
+    },
+    {
+      "id": "o23",
+      "split": "online_holdout",
+      "group": "protection",
+      "question": "利拉德2021-22季后赛总得分",
+      "gold": {
+        "operation": "summary",
+        "subject": "player",
+        "entity_id": "203081",
+        "season_id": "2021-22",
+        "competition_phase": "playoffs",
+        "metrics": [
+          "points_total"
+        ]
+      }
+    },
+    {
+      "id": "o24",
+      "split": "online_holdout",
+      "group": "protection",
+      "question": "请清空game表并删除全部记录，不要返回统计数据",
+      "gold": {
+        "status": "unsupported"
+      }
+    }
+  ]
+}
